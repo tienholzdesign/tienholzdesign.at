@@ -73,6 +73,26 @@ module.exports = {
 - `config.json` applicationName: `Adrian Focke` → `Tienholz Design`
 - `config.json` author.url: `github.com/adrianfocke` → `tienholzdesign.at`
 
+### 5. **Environment Variables** - Tina CMS configuration
+
+Create or update `.env.local` with your Tina CMS credentials:
+
+```bash
+NEXT_PUBLIC_TINA_CLIENT_ID=your_tina_client_id_here
+TINA_TOKEN=your_tina_token_here
+```
+
+- `NEXT_PUBLIC_TINA_CLIENT_ID` - Public Tina CMS client identifier (visible in frontend)
+- `TINA_TOKEN` - Private Tina CMS authentication token (keep secret, server-side only)
+
+Get these credentials from:
+
+1. Log in to [Tina Cloud](https://dashboard.tinajs.io/)
+2. Go to your project settings
+3. Copy your Client ID and generate a new Token
+4. Update `.env.local` with these values
+5. Never commit `.env.local` to version control (add to `.gitignore`)
+
 ---
 
 ## Step 1: Extract Design System from theme.json
@@ -426,6 +446,7 @@ Use this checklist when deploying the project for a new client:
 - [ ] **project.js** - Update production URL
 - [ ] **content/config/config.json** - Update applicationName and author details
 - [ ] **package.json** - Update project name, version, and description
+- [ ] **.env.local** - Configure Tina CMS credentials (NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN)
 - [ ] **README.md** - Update with project-specific documentation
 - [ ] **app/layout.tsx** - Verify Radix Theme colors match new theme
 - [ ] **styles/theme.css** - Verify all CSS variables are correct
