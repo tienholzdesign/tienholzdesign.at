@@ -95,6 +95,47 @@ Get these credentials from:
 
 ---
 
+## Account Setup
+
+Before customizing the project, ensure all required accounts are created and configured:
+
+### 1. **Vercel Account**
+
+Required for production hosting and deployments.
+
+**Setup steps:**
+1. Create account at [vercel.com](https://vercel.com)
+2. Connect GitHub repository
+3. Set environment variables:
+   - `NEXT_PUBLIC_TINA_CLIENT_ID`
+   - `TINA_TOKEN`
+4. Deploy the project to Vercel
+
+### 2. **Tina Cloud Account**
+
+Required for headless CMS functionality.
+
+**Setup steps:**
+1. Create account at [Tina Cloud](https://dashboard.tinajs.io/)
+2. Create a new project for this client
+3. Generate Client ID and Token
+4. **Update Tina CMS Branch (for forked projects):**
+   - In `tina/config.ts`, ensure `branch` is set to your repository's default branch (e.g., `main` or `master`). If you've forked the project, this might need to be explicitly set to the forked branch.
+   - Example: `branch: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || "main"`
+   - Ensure this matches the default branch of your connected GitHub repository.
+5. Add credentials to `.env.local` (development) and Vercel (production)
+6. **Invite developer as collaborator:**
+   - Go to Project Settings → Collaborators
+   - Add developer email as a team member
+   - Set appropriate permissions (typically Editor or Admin)
+
+**Collaborator access allows the developer to:**
+- Edit content through the Tina CMS interface
+- Manage schema and configuration
+- Monitor project activity and logs
+
+---
+
 ## Step 1: Extract Design System from theme.json
 
 The WordPress theme's `theme.json` file contains all design specifications.
@@ -443,17 +484,29 @@ To adapt a different WordPress theme:
 
 Use this checklist when deploying the project for a new client:
 
+**Prerequisites:**
+- [ ] **Vercel account** - Created and repository connected
+- [ ] **Tina Cloud account** - Project created with Client ID and Token
+- [ ] **Developer invited** - Added as collaborator in Tina Cloud (Collaborators → Add team member)
+
+**Configuration:**
 - [ ] **project.js** - Update production URL
 - [ ] **content/config/config.json** - Update applicationName and author details
 - [ ] **package.json** - Update project name, version, and description
 - [ ] **.env.local** - Configure Tina CMS credentials (NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN)
+- [ ] **Vercel environment variables** - Add NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN
 - [ ] **README.md** - Update with project-specific documentation
+
+**Design & Styling:**
 - [ ] **app/layout.tsx** - Verify Radix Theme colors match new theme
 - [ ] **styles/theme.css** - Verify all CSS variables are correct
 - [ ] **app/fonts.ts** - Verify fonts are loading correctly
+
+**Validation:**
 - [ ] Run `pnpm lint` - Fix any linting errors
 - [ ] Run `pnpm build` - Verify production build succeeds
 - [ ] Test on dev server - Visual inspection of all pages and components
+- [ ] Deploy to Vercel - Verify production deployment works
 
 ---
 
