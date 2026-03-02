@@ -104,6 +104,7 @@ Before customizing the project, ensure all required accounts are created and con
 Required for production hosting and deployments.
 
 **Setup steps:**
+
 1. Create account at [vercel.com](https://vercel.com)
 2. Connect GitHub repository
 3. Set environment variables:
@@ -116,6 +117,7 @@ Required for production hosting and deployments.
 Required for headless CMS functionality.
 
 **Setup steps:**
+
 1. Create account at [Tina Cloud](https://dashboard.tinajs.io/)
 2. Create a new project for this client
 3. Generate Client ID and Token
@@ -130,6 +132,7 @@ Required for headless CMS functionality.
    - Set appropriate permissions (typically Editor or Admin)
 
 **Collaborator access allows the developer to:**
+
 - Edit content through the Tina CMS interface
 - Manage schema and configuration
 - Monitor project activity and logs
@@ -485,11 +488,13 @@ To adapt a different WordPress theme:
 Use this checklist when deploying the project for a new client:
 
 **Prerequisites:**
+
 - [ ] **Vercel account** - Created and repository connected
 - [ ] **Tina Cloud account** - Project created with Client ID and Token
 - [ ] **Developer invited** - Added as collaborator in Tina Cloud (Collaborators → Add team member)
 
 **Configuration:**
+
 - [ ] **project.js** - Update production URL
 - [ ] **content/config/config.json** - Update applicationName and author details
 - [ ] **package.json** - Update project name, version, and description
@@ -498,11 +503,13 @@ Use this checklist when deploying the project for a new client:
 - [ ] **README.md** - Update with project-specific documentation
 
 **Design & Styling:**
+
 - [ ] **app/layout.tsx** - Verify Radix Theme colors match new theme
 - [ ] **styles/theme.css** - Verify all CSS variables are correct
 - [ ] **app/fonts.ts** - Verify fonts are loading correctly
 
 **Validation:**
+
 - [ ] Run `pnpm lint` - Fix any linting errors
 - [ ] Run `pnpm build` - Verify production build succeeds
 - [ ] Test on dev server - Visual inspection of all pages and components
