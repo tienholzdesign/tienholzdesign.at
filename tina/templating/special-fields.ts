@@ -24,10 +24,6 @@ export const findIntlValue = (language: Language, key: string) => {
   return `${key}_${language}`;
 };
 
-export const findIntlValues = (language: Language, keys: string[]) => {
-  return keys.map((key) => `${key}_${language}`);
-};
-
 export const findBreakpointValue = (
   breakpoint: (typeof radixResponsiveSizes)[number],
   key: string

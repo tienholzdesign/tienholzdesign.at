@@ -1,7 +1,6 @@
 import { type Components } from "tinacms/dist/rich-text";
 import Button from "../components/Button/Button";
 import ButtonTemplate from "../components/Button/ButtonTemplate";
-import Form from "../components/Form/Form";
 import Grid from "../components/Grid/Grid";
 import GridTemplate from "../components/Grid/GridTemplate";
 import Heading from "../components/Heading/Heading";
@@ -31,9 +30,6 @@ export default {
   },
   Call_To_Action: (props: any) => {
     return <CallToAction {...props} />;
-  },
-  Form: (props: any) => {
-    return <Form {...props} />;
   },
   Grid: (props: any) => {
     return <Grid {...props} />;

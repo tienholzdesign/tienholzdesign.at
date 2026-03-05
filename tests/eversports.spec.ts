@@ -22,6 +22,5 @@ test("has title", async ({ page }) => {
     path: `screenshot-${new Date().toISOString()}.png`,
     fullPage: true,
   });
-
-  console.log("Page:", iframeContainer);
 });
+

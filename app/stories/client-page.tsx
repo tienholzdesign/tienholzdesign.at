@@ -31,8 +31,6 @@ export default function ClientPage(props: ClientPageProps) {
       new Date(a!.node?._sys.filename!).getTime(),
   );
 
-  console.log("Pages:", pages);
-
   return (
     <LanguageContext.Provider value={props.language || "en"}>
       <Navigation {...data.navigation} />

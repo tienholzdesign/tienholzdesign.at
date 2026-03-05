@@ -49,7 +49,6 @@ export default {
           ],
           ui: {
             itemProps: (item) => {
-              console.log("Grid item:", item);
               return {
                 label: `${item.blocks?.[0]?._template} ${
                   item.blocks?.length > 1
