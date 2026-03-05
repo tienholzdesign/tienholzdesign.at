@@ -5,9 +5,9 @@ import { FilenameField, SEOField } from "../templating/granular-fields";
 import { sanitizeFilenameForURL } from "../templating/validation";
 
 export default {
-  label: "Stories",
-  name: "story",
-  path: "content/stories",
+  label: "Projects",
+  name: "project",
+  path: "content/projects",
   format: "json",
   fields: [
     FilenameField,
@@ -27,7 +27,7 @@ export default {
   ],
   ui: {
     router: ({ document }) => {
-      return `/stories/${document._sys.filename}`;
+      return `/projects/${document._sys.filename}`;
     },
     filename: {
       readonly: true,

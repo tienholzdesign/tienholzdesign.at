@@ -240,9 +240,3 @@ export const DirectionField: Template["fields"][number] = {
   type: "string",
   options: ["row", "column", "row-reverse", "column-reverse"],
 };
-
-export const IsCardField: Template["fields"][number] = {
-  name: "isCard",
-  label: "Wrap Component in Card",
-  type: "boolean",
-};

@@ -73,6 +73,96 @@ module.exports = {
 - `config.json` applicationName: `Adrian Focke` → `Tienholz Design`
 - `config.json` author.url: `github.com/adrianfocke` → `tienholzdesign.at`
 
+### 5. **Favicon** - Browser tab icon
+
+Update the favicon files to match your brand identity:
+
+- **Location**: `public/favicon.ico` and `app/icon.png`
+- Replace `public/favicon.ico` with your favicon file (use an ICO converter if needed)
+- Replace or create `app/icon.png` with your logo/favicon as a PNG (recommended: 192x192px minimum)
+
+The favicon appears in:
+
+- Browser tabs and bookmarks
+- Browser history
+- Address bar
+
+**Example:**
+
+```bash
+# Replace existing favicon
+cp your-favicon.ico public/favicon.ico
+
+# Add PNG icon for modern browsers
+cp your-icon.png app/icon.png
+```
+
+**Note:** After replacing favicon files, clear browser cache (hard refresh: Cmd+Shift+R on Mac or Ctrl+Shift+R on Windows) to see changes.
+
+### 6. **Environment Variables** - Tina CMS configuration
+
+Create or update `.env.local` with your Tina CMS credentials:
+
+```bash
+NEXT_PUBLIC_TINA_CLIENT_ID=your_tina_client_id_here
+TINA_TOKEN=your_tina_token_here
+```
+
+- `NEXT_PUBLIC_TINA_CLIENT_ID` - Public Tina CMS client identifier (visible in frontend)
+- `TINA_TOKEN` - Private Tina CMS authentication token (keep secret, server-side only)
+
+Get these credentials from:
+
+1. Log in to [Tina Cloud](https://dashboard.tinajs.io/)
+2. Go to your project settings
+3. Copy your Client ID and generate a new Token
+4. Update `.env.local` with these values
+5. Never commit `.env.local` to version control (add to `.gitignore`)
+
+---
+
+## Account Setup
+
+Before customizing the project, ensure all required accounts are created and configured:
+
+### 1. **Vercel Account**
+
+Required for production hosting and deployments.
+
+**Setup steps:**
+
+1. Create account at [vercel.com](https://vercel.com)
+2. Connect GitHub repository
+3. Set environment variables:
+   - `NEXT_PUBLIC_TINA_CLIENT_ID`
+   - `TINA_TOKEN`
+4. Deploy the project to Vercel
+
+### 2. **Tina Cloud Account**
+
+Required for headless CMS functionality.
+
+**Setup steps:**
+
+1. Create account at [Tina Cloud](https://dashboard.tinajs.io/)
+2. Create a new project for this client
+3. Generate Client ID and Token
+4. **Update Tina CMS Branch (for forked projects):**
+   - In `tina/config.ts`, ensure `branch` is set to your repository's default branch (e.g., `main` or `master`). If you've forked the project, this might need to be explicitly set to the forked branch.
+   - Example: `branch: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || "main"`
+   - Ensure this matches the default branch of your connected GitHub repository.
+5. Add credentials to `.env.local` (development) and Vercel (production)
+6. **Invite developer as collaborator:**
+   - Go to Project Settings → Collaborators
+   - Add developer email as a team member
+   - Set appropriate permissions (typically Editor or Admin)
+
+**Collaborator access allows the developer to:**
+
+- Edit content through the Tina CMS interface
+- Manage schema and configuration
+- Monitor project activity and logs
+
 ---
 
 ## Step 1: Extract Design System from theme.json
@@ -423,16 +513,189 @@ To adapt a different WordPress theme:
 
 Use this checklist when deploying the project for a new client:
 
+**Prerequisites:**
+
+- [ ] **Vercel account** - Created and repository connected
+- [ ] **Tina Cloud account** - Project created with Client ID and Token
+- [ ] **Developer invited** - Added as collaborator in Tina Cloud (Collaborators → Add team member)
+
+**Configuration:**
+
 - [ ] **project.js** - Update production URL
 - [ ] **content/config/config.json** - Update applicationName and author details
 - [ ] **package.json** - Update project name, version, and description
+- [ ] **Favicon** - Replace `public/favicon.ico` and `app/icon.png` with your brand icons
+- [ ] **.env.local** - Configure Tina CMS credentials (NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN)
+- [ ] **Vercel environment variables** - Add NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN
 - [ ] **README.md** - Update with project-specific documentation
+
+**Design & Styling:**
+
 - [ ] **app/layout.tsx** - Verify Radix Theme colors match new theme
 - [ ] **styles/theme.css** - Verify all CSS variables are correct
 - [ ] **app/fonts.ts** - Verify fonts are loading correctly
+
+**Validation:**
+
 - [ ] Run `pnpm lint` - Fix any linting errors
 - [ ] Run `pnpm build` - Verify production build succeeds
 - [ ] Test on dev server - Visual inspection of all pages and components
+- [ ] Deploy to Vercel - Verify production deployment works
+
+---
+
+## Optional Modifications
+
+### Renaming the "Stories" Collection to "Projects"
+
+If you want to rename the default "Stories" collection to "Projects" (or any other name), follow these steps:
+
+#### 1. **Rename the Tina Collection File**
+
+Rename the collection definition:
+
+```bash
+mv tina/collections/story.ts tina/collections/project.ts
+```
+
+Update the file to change the collection name:
+
+```typescript
+// tina/collections/project.ts
+export default {
+  label: "Projects", // Was "Stories"
+  name: "project", // Was "story"
+  path: "content/projects", // Was "content/stories"
+  // ... rest of configuration
+  ui: {
+    router: ({ document }) => {
+      return `/projects/${document._sys.filename}`; // Was "/stories"
+    },
+    // ... rest of ui config
+  },
+};
+```
+
+#### 2. **Update Tina Configuration**
+
+Update `tina/config.ts`:
+
+```typescript
+import project from "./collections/project"; // Was "story"
+
+const collections = [config, page, navigation, project, footer]; // Update reference
+```
+
+#### 3. **Update GraphQL Queries**
+
+In `tina/queries/main.gql`, rename all query definitions:
+
+- `storyAndNavigation` → `projectAndNavigation`
+- `storyAndNavConnection` → `projectAndNavConnection`
+- `StoryParts` → `ProjectParts`
+- `StoryFilter` → `ProjectFilter`
+
+Example:
+
+```graphql
+query projectAndNavigation($relativePath: String!) {
+  project(relativePath: $relativePath) {
+    ...ProjectParts
+  }
+  navigation(relativePath: "navigation.json") {
+    ...NavigationParts
+  }
+  footer(relativePath: "footer.json") {
+    ...FooterParts
+  }
+}
+```
+
+#### 4. **Update Route Files**
+
+Rename the folder:
+
+```bash
+mv app/stories app/projects
+```
+
+Update all files in `app/projects/`:
+
+**app/projects/page.tsx:**
+
+- Change title from "Stories" to "Projects"
+- Update query from `client.queries.storyAndNavConnection()` to `client.queries.projectAndNavConnection()`
+
+**app/projects/[...filename]/page.tsx:**
+
+- Update all query calls: `story` → `project`, `storyConnection` → `projectConnection`, `storyAndNavigation` → `projectAndNavigation`
+- Update data references: `page.data.story` → `page.data.project`
+
+**app/projects/[...filename]/client-page.tsx:**
+
+- Update import: `StoryAndNavigationQuery` → `ProjectAndNavigationQuery`
+- Update data references: `data.story.blocks` → `data.project.blocks`
+
+**app/projects/client-page.tsx:**
+
+- Update import: `StoryAndNavConnectionQuery` → `ProjectAndNavConnectionQuery`
+- Update data references: `data.storyConnection` → `data.projectConnection`
+- Update URLs: `/stories/` → `/projects/`
+
+**app/projects/sitemap.ts:**
+
+- Update query: `storyConnection` → `projectConnection`
+- Update URL: `/stories/` → `/projects/`
+
+#### 5. **Rename Content Folder**
+
+Rename the content directory:
+
+```bash
+mv content/stories content/projects
+```
+
+#### 6. **Update Navigation Links**
+
+In `content/navigation/navigation.json`, update the link:
+
+```json
+{
+  "link": "/projects", // Was "/stories"
+  "content": {
+    "text_de": "Projekte",
+    "text_en": "Projects"
+  }
+}
+```
+
+#### 7. **Rebuild and Generate Types**
+
+Kill any existing dev server, then rebuild to regenerate TypeScript types:
+
+```bash
+pnpm run dev
+```
+
+This will:
+
+- Rebuild the Tina schema
+- Generate new type definitions for `ProjectAndNavigationQuery`, `ProjectAndNavConnectionQuery`, etc.
+- Start the development server
+
+#### 8. **Verification**
+
+After completing the steps:
+
+1. Visit `http://localhost:3000/projects` to view the projects list
+2. Click on an individual project (e.g., `/projects/coco`) to verify it loads correctly
+3. Check the Tina CMS admin panel at `/admin` to confirm the new "Projects" collection appears
+
+#### Notes
+
+- All JSON files in `content/projects/` will automatically use the new schema once types are regenerated
+- The Tina CMS dashboard will reflect the new collection name immediately
+- If you experience TypeScript errors after renaming, ensure the dev server has fully regenerated types (check for "GraphQL schema updated" messages)
 
 ---
 

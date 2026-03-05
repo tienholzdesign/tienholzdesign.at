@@ -14,6 +14,7 @@ export async function generateStaticParams() {
   return paths || [];
 }
 
+
 export async function generateMetadata({
   params,
 }: GenerateMetadataProps): Promise<Metadata> {
@@ -45,7 +46,7 @@ export async function generateMetadata({
       url: author?.url || "",
     })),
     keywords: page.data.project?.[seo]?.metaKeywords?.map((item, index) =>
-      index === 0 ? item : ` ${item}`,
+      index === 0 ? item : ` ${item}`
     ),
   };
 }

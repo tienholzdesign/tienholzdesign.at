@@ -21,7 +21,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
       <Container>
         <Flex direction={"row"} justify="between" align={"center"}>
           <Box>
-            <Text {...(props.logo as any)} />
+            <Text {...(props.logo as any)} underline={false} />
           </Box>
 
           <Box display={{ initial: "block", md: "none" }} mr={"4"}>
@@ -44,9 +44,11 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
                 side="bottom"
                 align="end"
               >
-                <Flex direction="column" gap="2">
+                <Flex direction="column" gap="4">
                   {props.links?.map((link, index) => {
-                    return <Text key={index} {...(link as any)} />;
+                    return (
+                      <Text key={index} {...(link as any)} underline={false} />
+                    );
                   })}
                 </Flex>
               </Popover.Content>
@@ -57,9 +59,10 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
             display={{ initial: "none", md: "flex" }}
             direction={"row"}
             align={"center"}
+            gap={"4"}
           >
             {props.links?.map((link, index) => {
-              return <Text key={index} {...(link as any)} />;
+              return <Text key={index} {...(link as any)} underline={false} />;
             })}
           </Flex>
         </Flex>

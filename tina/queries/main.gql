@@ -46,8 +46,8 @@ query pageAndNavigation($relativePath: String!) {
   }
 }
 
-query storyAndNavigation($relativePath: String!) {
-  story(relativePath: $relativePath) {
+query projectAndNavigation($relativePath: String!) {
+  project(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -60,7 +60,7 @@ query storyAndNavigation($relativePath: String!) {
       }
       id
     }
-    ...StoryParts
+    ...ProjectParts
   }
   navigation(relativePath: "navigation.json") {
     ... on Document {
@@ -94,15 +94,15 @@ query storyAndNavigation($relativePath: String!) {
   }
 }
 
-query storyAndNavConnection(
+query projectAndNavConnection(
   $before: String
   $after: String
   $first: Float
   $last: Float
   $sort: String
-  $filter: StoryFilter
+  $filter: ProjectFilter
 ) {
-  storyConnection(
+  projectConnection(
     before: $before
     after: $after
     first: $first
@@ -132,7 +132,7 @@ query storyAndNavConnection(
           }
           id
         }
-        ...StoryParts
+        ...ProjectParts
       }
     }
   }

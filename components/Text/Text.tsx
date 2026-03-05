@@ -14,6 +14,7 @@ export default function Component(props: PageBlocksText) {
   const text = findIntlValue(language, "text");
 
   const isExternalLink = props.link?.startsWith("http");
+  const showUnderline = (props as any).underline !== false;
 
   const content = (
     <Text
@@ -35,6 +36,7 @@ export default function Component(props: PageBlocksText) {
         fontWeight: 300,
         letterSpacing: "-0.01em",
         lineHeight: 1.6,
+        whiteSpace: "pre-line",
       }}
     >
       {props.content?.[text] || "Add your text here"}
@@ -46,7 +48,7 @@ export default function Component(props: PageBlocksText) {
       mx={props.settings?.marginX ?? "0"}
       my={props.settings?.marginY ?? "0"}
       mb={props.settings?.marginBottom ?? "5"}
-      px={props.settings?.paddingX ?? "4"}
+      px={props.settings?.paddingX ?? "0"}
       py={props.settings?.paddingY ?? "0"}
       style={{
         textAlign: props.settings?.align as any,
@@ -57,11 +59,15 @@ export default function Component(props: PageBlocksText) {
           href={props.link}
           target={isExternalLink ? "_blank" : undefined}
           rel={isExternalLink ? "noopener noreferrer" : undefined}
-          style={{
-            textDecoration: "underline",
-            textDecorationThickness: "0.02em",
-            textUnderlineOffset: "0.25em",
-          }}
+          style={
+            showUnderline
+              ? {
+                  textDecoration: "underline",
+                  textDecorationThickness: "0.02em",
+                  textUnderlineOffset: "0.25em",
+                }
+              : {}
+          }
         >
           {content} {isExternalLink && <ArrowTopRightIcon />}
         </Link>
