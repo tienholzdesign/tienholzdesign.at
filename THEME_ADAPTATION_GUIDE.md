@@ -73,7 +73,31 @@ module.exports = {
 - `config.json` applicationName: `Adrian Focke` → `Tienholz Design`
 - `config.json` author.url: `github.com/adrianfocke` → `tienholzdesign.at`
 
-### 5. **Environment Variables** - Tina CMS configuration
+### 5. **Favicon** - Browser tab icon
+
+Update the favicon files to match your brand identity:
+
+- **Location**: `public/favicon.ico` and `app/icon.png`
+- Replace `public/favicon.ico` with your favicon file (use an ICO converter if needed)
+- Replace or create `app/icon.png` with your logo/favicon as a PNG (recommended: 192x192px minimum)
+
+The favicon appears in:
+- Browser tabs and bookmarks
+- Browser history
+- Address bar
+
+**Example:**
+```bash
+# Replace existing favicon
+cp your-favicon.ico public/favicon.ico
+
+# Add PNG icon for modern browsers
+cp your-icon.png app/icon.png
+```
+
+**Note:** After replacing favicon files, clear browser cache (hard refresh: Cmd+Shift+R on Mac or Ctrl+Shift+R on Windows) to see changes.
+
+### 6. **Environment Variables** - Tina CMS configuration
 
 Create or update `.env.local` with your Tina CMS credentials:
 
@@ -498,6 +522,7 @@ Use this checklist when deploying the project for a new client:
 - [ ] **project.js** - Update production URL
 - [ ] **content/config/config.json** - Update applicationName and author details
 - [ ] **package.json** - Update project name, version, and description
+- [ ] **Favicon** - Replace `public/favicon.ico` and `app/icon.png` with your brand icons
 - [ ] **.env.local** - Configure Tina CMS credentials (NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN)
 - [ ] **Vercel environment variables** - Add NEXT_PUBLIC_TINA_CLIENT_ID and TINA_TOKEN
 - [ ] **README.md** - Update with project-specific documentation
