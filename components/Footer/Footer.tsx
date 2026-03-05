@@ -33,7 +33,7 @@ export default function Footer(props: FooterQuery["footer"]) {
     >
       <Container>
         <Flex justify={"between"} align={"center"}>
-          <Flex gap={"2"} direction={"row"} display={"flex"} align={"center"}>
+          <Flex gap={"4"} direction={"row"} display={"flex"} align={"center"}>
             {props.links?.map((link, index) => {
               return <Text key={index} {...(link as any)} />;
             })}

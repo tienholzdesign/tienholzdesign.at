@@ -1,8 +1,51 @@
 ---
-name: About
+name: Werkstatt
 seo_de:
   title: Über mich
 seo_en:
   title: About me
+blocks:
+  - content:
+      image: /uploads/samuel-cruz-o8C5SxNCGaw-unsplash.jpg
+    settings:
+      marginBottom: '6'
+    _template: Image
+  - content:
+      items:
+        - blocks:
+            - content:
+                text_de: |-
+                  In dieser Werkstatt wird Holz geehrt.
+
+                  Die Werkstatt liegt im Zentrum Wiens und hat eine ausgezeichnete Verkehrsanbindung. Mit der U1 Station Hauptbahnhof kommen Sie in weniger als 5 Gehminuten zu uns!
+              _template: Text
+        - blocks:
+            - content:
+                image: /uploads/callum-hill-NGGkGzslIaM-unsplash.jpg
+              _template: Image
+    settings:
+      hasContainer: true
+      gap_md: ''
+      marginBottom: '6'
+      paddingX: ''
+    _template: Grid
+  - content:
+      blocks:
+        - content:
+            image: /uploads/pickawood-t7nJyxD4ERo-unsplash.jpg
+          settings:
+            align: ''
+            blocksPosition: ''
+          _template: Image
+        - content:
+            image: /uploads/gabriel-alenius-cPDTVCsbxcg-unsplash.jpg
+          _template: Image
+        - content:
+            image: /uploads/samuel-cruz-o8C5SxNCGaw-unsplash.jpg
+          _template: Image
+    settings:
+      nextSlideTimeout: '8'
+      hasControls: true
+    _template: Slideshow
 ---
 

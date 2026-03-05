@@ -44,7 +44,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
                 side="bottom"
                 align="end"
               >
-                <Flex direction="column" gap="2">
+                <Flex direction="column" gap="4">
                   {props.links?.map((link, index) => {
                     return <Text key={index} {...(link as any)} />;
                   })}
@@ -57,6 +57,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
             display={{ initial: "none", md: "flex" }}
             direction={"row"}
             align={"center"}
+            gap={"4"}
           >
             {props.links?.map((link, index) => {
               return <Text key={index} {...(link as any)} />;
