@@ -6,7 +6,7 @@ test("has title", async ({ page }) => {
   await page.waitForLoadState("networkidle", { timeout: 10000 });
 
   const iframeContainer = page.locator(
-    'div[data-eversports-widget-id="a67d41ee-5f05-40b4-b30d-e27e6858151f"]'
+    'div[data-eversports-widget-id="a67d41ee-5f05-40b4-b30d-e27e6858151f"]',
   );
 
   // **ENHANCEMENT 1: Wait for the Iframe Container to be visible/stable**
@@ -23,4 +23,3 @@ test("has title", async ({ page }) => {
     fullPage: true,
   });
 });
-

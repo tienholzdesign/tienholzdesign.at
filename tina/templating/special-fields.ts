@@ -26,7 +26,7 @@ export const findIntlValue = (language: Language, key: string) => {
 
 export const findBreakpointValue = (
   breakpoint: (typeof radixResponsiveSizes)[number],
-  key: string
+  key: string,
 ) => {
   return `${key}_${breakpoint}`;
 };
