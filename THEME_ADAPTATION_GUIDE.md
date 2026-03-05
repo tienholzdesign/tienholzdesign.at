@@ -526,21 +526,23 @@ If you want to rename the default "Stories" collection to "Projects" (or any oth
 #### 1. **Rename the Tina Collection File**
 
 Rename the collection definition:
+
 ```bash
 mv tina/collections/story.ts tina/collections/project.ts
 ```
 
 Update the file to change the collection name:
+
 ```typescript
 // tina/collections/project.ts
 export default {
-  label: "Projects",  // Was "Stories"
-  name: "project",    // Was "story"
-  path: "content/projects",  // Was "content/stories"
+  label: "Projects", // Was "Stories"
+  name: "project", // Was "story"
+  path: "content/projects", // Was "content/stories"
   // ... rest of configuration
   ui: {
     router: ({ document }) => {
-      return `/projects/${document._sys.filename}`;  // Was "/stories"
+      return `/projects/${document._sys.filename}`; // Was "/stories"
     },
     // ... rest of ui config
   },
@@ -550,21 +552,24 @@ export default {
 #### 2. **Update Tina Configuration**
 
 Update `tina/config.ts`:
-```typescript
-import project from "./collections/project";  // Was "story"
 
-const collections = [config, page, navigation, project, footer];  // Update reference
+```typescript
+import project from "./collections/project"; // Was "story"
+
+const collections = [config, page, navigation, project, footer]; // Update reference
 ```
 
 #### 3. **Update GraphQL Queries**
 
 In `tina/queries/main.gql`, rename all query definitions:
+
 - `storyAndNavigation` → `projectAndNavigation`
 - `storyAndNavConnection` → `projectAndNavConnection`
 - `StoryParts` → `ProjectParts`
 - `StoryFilter` → `ProjectFilter`
 
 Example:
+
 ```graphql
 query projectAndNavigation($relativePath: String!) {
   project(relativePath: $relativePath) {
@@ -582,6 +587,7 @@ query projectAndNavigation($relativePath: String!) {
 #### 4. **Update Route Files**
 
 Rename the folder:
+
 ```bash
 mv app/stories app/projects
 ```
@@ -589,29 +595,35 @@ mv app/stories app/projects
 Update all files in `app/projects/`:
 
 **app/projects/page.tsx:**
+
 - Change title from "Stories" to "Projects"
 - Update query from `client.queries.storyAndNavConnection()` to `client.queries.projectAndNavConnection()`
 
 **app/projects/[...filename]/page.tsx:**
+
 - Update all query calls: `story` → `project`, `storyConnection` → `projectConnection`, `storyAndNavigation` → `projectAndNavigation`
 - Update data references: `page.data.story` → `page.data.project`
 
 **app/projects/[...filename]/client-page.tsx:**
+
 - Update import: `StoryAndNavigationQuery` → `ProjectAndNavigationQuery`
 - Update data references: `data.story.blocks` → `data.project.blocks`
 
 **app/projects/client-page.tsx:**
+
 - Update import: `StoryAndNavConnectionQuery` → `ProjectAndNavConnectionQuery`
 - Update data references: `data.storyConnection` → `data.projectConnection`
 - Update URLs: `/stories/` → `/projects/`
 
 **app/projects/sitemap.ts:**
+
 - Update query: `storyConnection` → `projectConnection`
 - Update URL: `/stories/` → `/projects/`
 
 #### 5. **Rename Content Folder**
 
 Rename the content directory:
+
 ```bash
 mv content/stories content/projects
 ```
@@ -619,9 +631,10 @@ mv content/stories content/projects
 #### 6. **Update Navigation Links**
 
 In `content/navigation/navigation.json`, update the link:
+
 ```json
 {
-  "link": "/projects",  // Was "/stories"
+  "link": "/projects", // Was "/stories"
   "content": {
     "text_de": "Projekte",
     "text_en": "Projects"
@@ -632,11 +645,13 @@ In `content/navigation/navigation.json`, update the link:
 #### 7. **Rebuild and Generate Types**
 
 Kill any existing dev server, then rebuild to regenerate TypeScript types:
+
 ```bash
 pnpm run dev
 ```
 
 This will:
+
 - Rebuild the Tina schema
 - Generate new type definitions for `ProjectAndNavigationQuery`, `ProjectAndNavConnectionQuery`, etc.
 - Start the development server
