@@ -1,7 +1,7 @@
 "use client";
 import { useTina } from "tinacms/dist/react";
 import "../../../styles/main.css";
-import type { StoryAndNavigationQuery } from "../../../tina/__generated__/types";
+import type { ProjectAndNavigationQuery } from "../../../tina/__generated__/types";
 import { LanguageContext } from "../../../utils/context/language";
 import Navigation from "../../../components/Navigation/Navigation";
 import type { Language } from "../../../tina/templating/special-fields";
@@ -13,7 +13,7 @@ type ClientPageProps = {
   variables: {
     relativePath: string;
   };
-  data: StoryAndNavigationQuery;
+  data: ProjectAndNavigationQuery;
   language: Language;
 };
 
@@ -29,7 +29,7 @@ export default function ClientPage(props: ClientPageProps) {
     <div data-testid="client-page">
       <LanguageContext.Provider value={props.language}>
         <Navigation {...data.navigation} />
-        {data.story.blocks?.map((block, i) => {
+        {data.project.blocks?.map((block, i) => {
           return renderBlocks(block, i);
         })}
         <Footer {...data.footer} />

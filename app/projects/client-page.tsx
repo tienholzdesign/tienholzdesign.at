@@ -2,7 +2,7 @@
 import { useTina } from "tinacms/dist/react";
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
-import type { StoryAndNavConnectionQuery } from "../../tina/__generated__/types";
+import type { ProjectAndNavConnectionQuery } from "../../tina/__generated__/types";
 import type { Language } from "../../tina/templating/special-fields";
 import { LanguageContext } from "../../utils/context/language";
 import { Box, Flex, Grid } from "@radix-ui/themes";
@@ -14,7 +14,7 @@ type ClientPageProps = {
   variables: {
     relativePath: string;
   };
-  data: StoryAndNavConnectionQuery;
+  data: ProjectAndNavConnectionQuery;
   language: Language;
 };
 
@@ -25,7 +25,7 @@ export default function ClientPage(props: ClientPageProps) {
     data: props.data,
   });
 
-  const pages = data.storyConnection.edges?.sort(
+  const pages = data.projectConnection.edges?.sort(
     (a, b) =>
       new Date(b!.node?._sys.filename!).getTime() -
       new Date(a!.node?._sys.filename!).getTime(),
@@ -55,7 +55,7 @@ export default function ClientPage(props: ClientPageProps) {
             {pages.map((item, i) => (
               <Box key={i}>
                 <Image
-                  link={"/stories/" + item?.node?._sys.filename}
+                  link={"/projects/" + item?.node?._sys.filename}
                   content={{
                     image: item?.node?.image,
                     blocks: [

@@ -6,8 +6,8 @@ import ClientPage from "./client-page";
 import { findIntlValue } from "../../../tina/templating/special-fields";
 
 export async function generateStaticParams() {
-  const pages = await client.queries.storyConnection();
-  const paths = pages.data?.storyConnection?.edges?.map((edge) => ({
+  const pages = await client.queries.projectConnection();
+  const paths = pages.data?.projectConnection?.edges?.map((edge) => ({
     filename: edge?.node?._sys.breadcrumbs,
   }));
 
@@ -26,16 +26,16 @@ export async function generateMetadata({
     relativePath: `config.json`,
   });
 
-  const page = await client.queries.story({
+  const page = await client.queries.project({
     relativePath: `${title}.json`,
   });
 
   const seo = findIntlValue(language as any, "seo");
 
   const pageTitle =
-    page.data.story?.[seo]?.title ?? title[0].toUpperCase() + title.slice(1);
+    page.data.project?.[seo]?.title ?? title[0].toUpperCase() + title.slice(1);
 
-  const description = page.data.story?.[seo]?.metaDescription;
+  const description = page.data.project?.[seo]?.metaDescription;
 
   return {
     title: `${pageTitle} | ${config.data.config?.applicationName}`,
@@ -45,7 +45,7 @@ export async function generateMetadata({
       name: author?.name || "",
       url: author?.url || "",
     })),
-    keywords: page.data.story?.[seo]?.metaKeywords?.map((item, index) =>
+    keywords: page.data.project?.[seo]?.metaKeywords?.map((item, index) =>
       index === 0 ? item : ` ${item}`
     ),
   };
@@ -58,7 +58,7 @@ export default async function Page(props: {
   const cookieStore = await cookies();
   const language = cookieStore.get("language")?.value ?? "en";
 
-  const data = await client.queries.storyAndNavigation({
+  const data = await client.queries.projectAndNavigation({
     relativePath: `${params.filename}.json`,
   });
 

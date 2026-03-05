@@ -10,7 +10,7 @@ import type { GenerateMetadataProps } from "../../tina/types";
 export async function generateMetadata({
   params,
 }: GenerateMetadataProps): Promise<Metadata> {
-  const title = "Stories";
+  const title = "Projects";
 
   const config = await client.queries.config({
     relativePath: `config.json`,
@@ -18,7 +18,7 @@ export async function generateMetadata({
 
   return {
     title: `${title} | ${config.data.config?.applicationName}`,
-    description: config.data.config?.applicationName || "Stories",
+    description: config.data.config?.applicationName || "Projects",
     applicationName: config.data.config?.applicationName,
     authors: config.data.config?.authors?.map((author) => ({
       name: author?.name || "",
@@ -31,7 +31,7 @@ export default async function Page() {
   const cookieStore = await cookies();
   const language = cookieStore.get("language")?.value ?? "en";
 
-  const data = await client.queries.storyAndNavConnection();
+  const data = await client.queries.projectAndNavConnection();
 
   return (
     <ClientPage
