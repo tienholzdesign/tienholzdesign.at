@@ -105,5 +105,9 @@ export default function Component(props: PageBlocksCall_To_Action) {
     </Box>
   );
 
-  return props.settings?.hasContainer ? <Container>{box}</Container> : box;
+  return props.settings?.hasContainer !== false ? (
+    <Container>{box}</Container>
+  ) : (
+    box
+  );
 }

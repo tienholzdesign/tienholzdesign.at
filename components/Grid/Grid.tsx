@@ -55,5 +55,9 @@ export default function Component(props: PageBlocksGrid) {
     </Box>
   );
 
-  return props.settings?.hasContainer ? <Container>{box}</Container> : box;
+  return props.settings?.hasContainer !== false ? (
+    <Container>{box}</Container>
+  ) : (
+    box
+  );
 }

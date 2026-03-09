@@ -1,4 +1,4 @@
-import { AspectRatio, Flex, Box } from "@radix-ui/themes";
+import { AspectRatio, Flex, Box, Container } from "@radix-ui/themes";
 import NextImage from "next/image";
 import { aspectRatioMap } from "../../tina/templating/granular-fields";
 import { tinaField } from "tinacms/dist/react";
@@ -54,7 +54,7 @@ export default function Component(props: PageBlocksImage) {
     </AspectRatio>
   );
 
-  return (
+  const box = (
     <Box
       mx={props.settings?.marginX ?? "0"}
       my={props.settings?.marginY ?? "0"}
@@ -64,5 +64,11 @@ export default function Component(props: PageBlocksImage) {
     >
       {props.link ? <Link href={props.link}>{content}</Link> : content}
     </Box>
+  );
+
+  return props.settings?.hasContainer !== false ? (
+    <Container>{box}</Container>
+  ) : (
+    box
   );
 }

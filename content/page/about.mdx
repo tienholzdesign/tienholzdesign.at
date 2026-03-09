@@ -6,52 +6,42 @@ seo_en:
   title: About me
 blocks:
   - content:
-      image: /uploads/studio.jpg
-    settings:
-      aspectRatio_initial: 2/1
-      aspectRatio_xs: 2/1
-      aspectRatio_sm: 2/1
-      aspectRatio_md: 3/1
-      aspectRatio_lg: 3/1
-      aspectRatio_xl: 3/1
-      marginBottom: '6'
-    _template: Image
-  - content:
       items:
         - blocks:
             - content:
-                text_de: |-
-                  In dieser Werkstatt wird Holz geehrt.
-
-                  Die Werkstatt liegt im Zentrum Wiens und hat eine ausgezeichnete Verkehrsanbindung. Mit der U1 Station Hauptbahnhof kommen Sie in weniger als 5 Gehminuten zu uns!
-                text_en: |-
-                  Wood is honored in this workshop.
-
-                  The workshop is located in the center of Vienna and has excellent transport connections. From the U1 station Hauptbahnhof, you can reach us in less than 5 minutes on foot!
+                text_de: Die Werkstatt
+                text_en: The workshop
+              settings:
+                marginBottom: "4"
+              _template: Heading
+            - content:
+                text_de: Die Werkstatt liegt im Zentrum Wiens und hat eine ausgezeichnete Verkehrsanbindung. Mit der U1 Station Hauptbahnhof kommen Sie in weniger als 5 Gehminuten zu uns!
+                text_en: "The workshop is located in the center of Vienna and has excellent transport connections. From the U1 station Hauptbahnhof, you can reach us in less than 5 minutes on foot!"
               _template: Text
         - blocks:
             - content:
-                image: /uploads/feinern.jpg
-              _template: Image
+                blocks:
+                  - settings:
+                      aspectRatio_md: 3/4
+                      aspectRatio_lg: 3/4
+                      aspectRatio_xl: 3/4
+                    _template: Image
+                  - settings:
+                      aspectRatio_md: 3/4
+                      aspectRatio_lg: 3/4
+                      aspectRatio_xl: 3/4
+                    _template: Image
+                  - settings:
+                      aspectRatio_md: 3/4
+                      aspectRatio_lg: 3/4
+                      aspectRatio_xl: 3/4
+                    _template: Image
+              settings:
+                hasControls: true
+              _template: Slideshow
     settings:
-      hasContainer: true
-      gap_md: ''
-      marginBottom: '6'
-      paddingX: ''
+      gap_md: ""
+      marginBottom: "6"
+      paddingX: ""
     _template: Grid
-  - content:
-      blocks:
-        - content:
-            image: /uploads/spateln.jpg
-          _template: Image
-        - content:
-            image: /uploads/messen.jpg
-          _template: Image
-        - content:
-            image: /uploads/feinern.jpg
-          _template: Image
-    settings:
-      hasControls: true
-    _template: Slideshow
 ---
-

@@ -9,6 +9,7 @@ import {
   LinkField,
   BlocksPositionField,
   ExtraMarginBottomField,
+  HasContainerField,
 } from "../../tina/templating/granular-fields";
 import HeadingTemplate from "../Heading/HeadingTemplate";
 import TextTemplate from "../Text/TextTemplate";
@@ -52,6 +53,7 @@ export default {
       type: "object",
       fields: [
         ...createResponsiveField(AspectRatioField),
+        HasContainerField,
         AlignField,
         MarginXField,
         MarginYField,
