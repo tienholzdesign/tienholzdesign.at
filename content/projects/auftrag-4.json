@@ -45,6 +45,11 @@
                       "_template": "Image"
                     },
                     {
+                      "settings": {
+                        "aspectRatio_md": "1/1",
+                        "aspectRatio_lg": "1/1",
+                        "aspectRatio_xl": "1/1"
+                      },
                       "_template": "Image"
                     },
                     {
