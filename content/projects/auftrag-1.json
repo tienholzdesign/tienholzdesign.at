@@ -43,6 +43,14 @@
                   "buttonText_en": "Contact",
                   "buttonLink": "mailto:office@tienholzdesign.at"
                 },
+                "settings": {
+                  "direction_initial": "column",
+                  "direction_xs": "column",
+                  "direction_sm": "column",
+                  "direction_md": "column",
+                  "direction_lg": "column",
+                  "direction_xl": "column"
+                },
                 "_template": "Call_To_Action"
               }
             ]
