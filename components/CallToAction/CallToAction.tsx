@@ -4,6 +4,7 @@ import type { PageBlocksCall_To_Action } from "../../tina/__generated__/types";
 import Heading from "../Heading/Heading";
 import Button from "../Button/Button";
 import Text from "../Text/Text";
+import Link from "next/link";
 
 export default function Component(props: PageBlocksCall_To_Action) {
   const content = (
@@ -71,20 +72,24 @@ export default function Component(props: PageBlocksCall_To_Action) {
         <Box width={{ initial: "100%", md: "25%" }}>
           <Flex direction="column" gap="2">
             {props.content?.buttonText_de || props.content?.buttonText_en ? (
-              <Button
-                content={{
-                  text_de: props.content?.buttonText_de,
-                  text_en: props.content?.buttonText_en,
-                }}
-              />
+              <Link href={props.content?.buttonLink || "/"}>
+                <Button
+                  content={{
+                    text_de: props.content?.buttonText_de,
+                    text_en: props.content?.buttonText_en,
+                  }}
+                />
+              </Link>
             ) : null}
             {props.content?.buttonText1_de || props.content?.buttonText1_en ? (
-              <Button
-                content={{
-                  text_de: props.content?.buttonText1_de,
-                  text_en: props.content?.buttonText1_en,
-                }}
-              />
+              <Link href={props.content?.buttonLink1 || "/"}>
+                <Button
+                  content={{
+                    text_de: props.content?.buttonText1_de,
+                    text_en: props.content?.buttonText1_en,
+                  }}
+                />
+              </Link>
             ) : null}
           </Flex>
         </Box>
@@ -105,5 +110,9 @@ export default function Component(props: PageBlocksCall_To_Action) {
     </Box>
   );
 
-  return props.settings?.hasContainer ? <Container>{box}</Container> : box;
+  return props.settings?.hasContainer !== false ? (
+    <Container>{box}</Container>
+  ) : (
+    box
+  );
 }

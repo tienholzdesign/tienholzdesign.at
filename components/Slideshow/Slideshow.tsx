@@ -51,7 +51,7 @@ export default function Component(props: PageBlocksSlideshow) {
         ))}
       </Flex>
 
-      {props.settings?.hasControls && (
+      {props.settings?.hasControls !== false && (
         <Box
           p={"2"}
           mt={"-8"}

@@ -5,9 +5,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import type { ProjectAndNavConnectionQuery } from "../../tina/__generated__/types";
 import type { Language } from "../../tina/templating/special-fields";
 import { LanguageContext } from "../../utils/context/language";
-import { Box, Flex, Grid } from "@radix-ui/themes";
-import Image from "../../components/Image/Image";
-import { type AspectRatio } from "../../tina/templating/granular-fields";
+import Grid from "../../components/Grid/Grid";
 
 type ClientPageProps = {
   query: string;
@@ -34,60 +32,109 @@ export default function ClientPage(props: ClientPageProps) {
   return (
     <LanguageContext.Provider value={props.language || "en"}>
       <Navigation {...data.navigation} />
-      <Flex
-        direction={"column"}
-        justify={"between"}
-        style={{ minHeight: "calc(100vh - 60px)" }}
-      >
-        {pages && (
-          <Grid
-            columns={{
-              initial: "1",
-              sm: "1",
-              xs: "1",
-              md: "3",
-              lg: "3",
-              xl: "3",
-            }}
-          >
-            {pages.map((item, i) => (
-              <Box key={i}>
-                <Image
-                  link={"/projects/" + item?.node?._sys.filename}
-                  content={{
-                    image: item?.node?.image,
-                    blocks: [
-                      {
-                        __typename: "PageBlocksImageContentBlocksText",
-                        content: {
-                          text_de: item?.node?.name,
-                          text_en: item?.node?.name,
+      {pages && (
+        <Grid
+          content={{
+            items: [
+              {
+                __typename: "PageBlocksGridContentItems" as const,
+                blocks: [
+                  {
+                    __typename:
+                      "PageBlocksGridContentItemsBlocksHeading" as const,
+                    content: {
+                      text_de: "Projekte",
+                      text_en: "Projects",
+                    },
+                  },
+                ],
+              },
+              ...pages.map((item) => ({
+                __typename: "PageBlocksGridContentItems" as const,
+                blocks: [
+                  {
+                    __typename:
+                      "PageBlocksGridContentItemsBlocksImage" as const,
+                    link: "/projects/" + item?.node?._sys.filename,
+                    content: {
+                      image: item?.node?.image,
+                      blocks: [
+                        {
+                          __typename:
+                            "PageBlocksGridContentItemsBlocksImageContentBlocksText" as const,
+                          content: {
+                            text_en: item?.node?.name || "",
+                            text_de: item?.node?.name || "",
+                          },
                         },
-                        settings: {
-                          align: "center",
-                          textColor: "white",
-                          font: "serif",
-                          textSize: "9",
-                        },
-                      },
-                    ],
-                  }}
-                  settings={{
-                    blocksPosition: "center",
-                    aspectRatio_initial: "1/1" as AspectRatio,
-                    aspectRatio_xs: "1/1" as AspectRatio,
-                    aspectRatio_sm: "1/1" as AspectRatio,
-                    aspectRatio_md: "1/1" as AspectRatio,
-                    aspectRatio_lg: "1/1" as AspectRatio,
-                    aspectRatio_xl: "1/1" as AspectRatio,
-                  }}
-                />
-              </Box>
-            ))}
-          </Grid>
-        )}
-        <Footer {...data.footer} />
-      </Flex>
+                      ],
+                    },
+                    settings: {
+                      aspectRatio_initial: "1/1",
+                      aspectRatio_xs: "1/1",
+                      aspectRatio_sm: "1/1",
+                      aspectRatio_md: "1/1",
+                      aspectRatio_lg: "1/1",
+                      aspectRatio_xl: "1/1",
+                    },
+                  },
+                ],
+              })),
+            ],
+          }}
+          settings={{
+            columns_initial: "1",
+            columns_xs: "1",
+            columns_sm: "1",
+            columns_md: "3",
+            columns_lg: "3",
+            columns_xl: "3",
+          }}
+        ></Grid>
+      )}
+      <Footer {...data.footer} />
     </LanguageContext.Provider>
   );
 }
+
+/*
+<Box>
+  <Heading content={{ text_de: "A" }} />
+</Box>;
+{
+  pages.map((item, i) => (
+    <Box key={i}>
+      <Image
+        link={"/projects/" + item?.node?._sys.filename}
+        content={{
+          image: item?.node?.image,
+          blocks: [
+            {
+              __typename: "PageBlocksImageContentBlocksText",
+              content: {
+                text_de: item?.node?.name,
+                text_en: item?.node?.name,
+              },
+              settings: {
+                align: "center",
+                textColor: "white",
+                font: "serif",
+                textSize: "9",
+              },
+            },
+          ],
+        }}
+        settings={{
+          blocksPosition: "center",
+          aspectRatio_initial: "1/1" as AspectRatio,
+          aspectRatio_xs: "1/1" as AspectRatio,
+          aspectRatio_sm: "1/1" as AspectRatio,
+          aspectRatio_md: "1/1" as AspectRatio,
+          aspectRatio_lg: "1/1" as AspectRatio,
+          aspectRatio_xl: "1/1" as AspectRatio,
+        }}
+      />
+    </Box>
+  ));
+}
+*/

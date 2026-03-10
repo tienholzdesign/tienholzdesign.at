@@ -20,19 +20,6 @@ function Component(props: PageBlocksButton) {
       size={(props.settings?.textSize as any) ?? "3"}
       style={{
         cursor: "pointer",
-        fontWeight: 300,
-        fontSize: "1.38rem",
-        letterSpacing: "-0.01em",
-        backgroundColor: variant?.includes("outline")
-          ? "transparent"
-          : "var(--color-primary)",
-        color: variant?.includes("outline")
-          ? "var(--color-primary)"
-          : "var(--color-background)",
-        border: variant?.includes("outline")
-          ? `2px solid var(--color-primary)`
-          : "none",
-        padding: "0.75rem 1.5rem",
       }}
     >
       {props.content?.[text] || "Add your text here"}

@@ -1,0 +1,64 @@
+{
+  "name": "Auftrag 4",
+  "blocks": [
+    {
+      "settings": {
+        "marginBottom": "6"
+      },
+      "_template": "Image"
+    },
+    {
+      "content": {
+        "items": [
+          {
+            "blocks": [
+              {
+                "content": {
+                  "text_de": "Auftrag 4",
+                  "text_en": "Project 4"
+                },
+                "settings": {
+                  "marginBottom": "6"
+                },
+                "_template": "Heading"
+              },
+              {
+                "content": {
+                  "text_de": "Unser Mantra „Grow Every Day” ist kein Motto, sondern eine Lebenseinstellung. Es ist eine stille Rebellion gegen die Kultur der Ablenkung, eine Erinnerung daran, dass Wachstum nicht laut sein muss, um kraftvoll zu sein. Jeden Tag zu wachsen bedeutet, sich daran zu erinnern, dass das Leben nicht an endlosen Leistungen gemessen wird, sondern daran, wie tief wir mit uns selbst und miteinander verbunden sind.",
+                  "text_en": "Our mantra, Grow Every Day, is not a motto but a mindset. It is a quiet rebellion against the culture of distraction, a reminder that growth does not need to be loud to be powerful. To grow every day is to remember that life is not measured in endless output, but in how deeply we connect to ourselves, to each other, and to the living world around us."
+                },
+                "_template": "Text"
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "content": {
+                  "blocks": [
+                    {
+                      "settings": {
+                        "aspectRatio_md": "1/1",
+                        "aspectRatio_lg": "1/1",
+                        "aspectRatio_xl": "1/1"
+                      },
+                      "_template": "Image"
+                    },
+                    {
+                      "_template": "Image"
+                    },
+                    {
+                      "_template": "Image"
+                    }
+                  ]
+                },
+                "_template": "Slideshow"
+              }
+            ]
+          }
+        ]
+      },
+      "_template": "Grid"
+    }
+  ]
+}

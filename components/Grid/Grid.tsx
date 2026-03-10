@@ -25,6 +25,14 @@ export default function Component(props: PageBlocksGrid) {
         lg: props.settings?.gap_lg || "1.5rem",
         xl: props.settings?.gap_xl || "1.5rem",
       }}
+      px={{
+        initial: props.settings?.paddingX || "4",
+        xs: props.settings?.paddingX || "4",
+        sm: props.settings?.paddingX || "4",
+        md: props.settings?.paddingX || "4",
+        lg: props.settings?.paddingX || "4",
+        xl: props.settings?.paddingX || "4",
+      }}
     >
       {props.content?.items?.map((item, i) => (
         <Box key={i}>
@@ -41,13 +49,15 @@ export default function Component(props: PageBlocksGrid) {
       mx={props.settings?.marginX ?? "0"}
       my={props.settings?.marginY ?? "0"}
       mb={props.settings?.marginBottom ?? "inherit"}
-      px={props.settings?.paddingX ?? "0"}
-      py={props.settings?.paddingY ?? "0"}
     >
       {edit && <EditHelper {...props} />}
       {content}
     </Box>
   );
 
-  return props.settings?.hasContainer ? <Container>{box}</Container> : box;
+  return props.settings?.hasContainer !== false ? (
+    <Container>{box}</Container>
+  ) : (
+    box
+  );
 }

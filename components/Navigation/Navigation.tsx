@@ -14,7 +14,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
     <Box
       style={{ borderBottom: "1px solid var(--gray-6)" }}
       mx={props.settings?.marginX ?? "0"}
-      my={props.settings?.marginY ?? "0"}
+      mb={"9"}
       px={props.settings?.paddingX ?? "0"}
       py={props.settings?.paddingY ?? "0"}
     >

@@ -1,0 +1,82 @@
+{
+  "name": "Auftrag 2",
+  "blocks": [
+    {
+      "content": {
+        "items": [
+          {
+            "blocks": [
+              {
+                "content": {
+                  "text_de": "Auftrag 2",
+                  "text_en": "Project 2"
+                },
+                "_template": "Heading"
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "_template": "Image"
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "content": {
+                  "blocks": [
+                    {
+                      "settings": {
+                        "aspectRatio_md": "1/1",
+                        "aspectRatio_lg": "1/1",
+                        "aspectRatio_xl": "1/1"
+                      },
+                      "_template": "Image"
+                    },
+                    {
+                      "_template": "Image"
+                    },
+                    {
+                      "_template": "Image"
+                    }
+                  ]
+                },
+                "_template": "Slideshow"
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "content": {
+                  "heading_de": "Neugierig?",
+                  "heading_en": "Nosy?",
+                  "text_de": "Arbeite jetzt mit uns zusammen und schwelge in vollstem Holz-Genuss. Garantiert!",
+                  "text_en": "Work with us now and revel in the full enjoyment of wood. Guaranteed!",
+                  "buttonText_de": "Kontaktieren",
+                  "buttonText_en": "Contact",
+                  "buttonLink": "mailto:office@tienholzdesign.at"
+                },
+                "_template": "Call_To_Action"
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "content": {
+                  "text_de": "Miri und Christian Cervantes gründeten Calienna nach fast zwei Jahrzehnten in der Kreativbranche in New York und London. Christian, ursprünglich aus Südkalifornien, baute als Designer und Creative Director bei der internationalen Agentur Mother Brands auf. Miri, aus Tirol, studierte Designmanagement in New York, arbeitete im Bereich Markenstrategie und absolvierte eine Ausbildung an der McQueen’s School of Flowers in London, wo sie sich intensiv mit Pflanzen und Floristik beschäftigte.",
+                  "text_en": "Miri and Christian Cervantes founded Calienna after nearly two decades in the creative industries of New York and London. Christian, originally from Southern California, built brands and teams as a designer and creative director at the internationally renowned agency Mother. Miri, from Tyrol in Austria, studied the business of design in New York, worked in strategy, and later trained at McQueen’s School of Flowers in London, where she immersed herself in plants and floristry.\n\n"
+                },
+                "_template": "Text"
+              }
+            ]
+          }
+        ]
+      },
+      "_template": "Grid"
+    }
+  ]
+}

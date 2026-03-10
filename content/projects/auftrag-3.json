@@ -1,0 +1,21 @@
+{
+  "name": "Auftrag 3",
+  "blocks": [
+    {
+      "content": {
+        "blocks": [
+          {
+            "_template": "Image"
+          },
+          {
+            "_template": "Image"
+          },
+          {
+            "_template": "Image"
+          }
+        ]
+      },
+      "_template": "Slideshow"
+    }
+  ]
+}
