@@ -6,6 +6,7 @@ import type { PageBlocksHeading } from "../../tina/__generated__/types";
 import { findIntlValue } from "../../tina/templating/special-fields";
 import { colorMap } from "../../tina/templating/granular-fields";
 import { radixSizeMinusOne } from "../../tina/templating/utils";
+import styles from "./Heading.module.css";
 
 export default function Component(props: PageBlocksHeading) {
   const language = useContext(LanguageContext);
@@ -14,7 +15,11 @@ export default function Component(props: PageBlocksHeading) {
   const content = (
     <Heading
       className={
-        (props.settings?.font as any) ? (props.settings?.font as any) : "serif"
+        ((props.settings?.font as any)
+          ? (props.settings?.font as any)
+          : "serif") +
+        " " +
+        styles.headingContent
       }
       data-tina-field={tinaField(props.content ?? props)}
       align={(props.settings?.align as any) ?? "left"}
@@ -28,9 +33,6 @@ export default function Component(props: PageBlocksHeading) {
       }
       style={{
         color: colorMap[props.settings?.textColor as any],
-        fontWeight: 300,
-        letterSpacing: "-0.02em",
-        lineHeight: 1.3,
       }}
     >
       {props.content?.[text] || "Add your heading here"}

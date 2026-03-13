@@ -1,0 +1,9 @@
+/* CallToAction component styles */
+
+.ctaBackground {
+  background: radial-gradient(
+    circle,
+    rgba(237, 236, 235, 1) 0%,
+    rgba(232, 73, 7, 1) 100%
+  );
+}

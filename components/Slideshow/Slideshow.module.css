@@ -17,7 +17,9 @@
 .ToggleGroupItem:focus {
   position: relative;
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--violet-7);
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px var(--violet-7);
   z-index: 1;
 }
 
@@ -28,4 +30,53 @@
 
 .ToggleGroupItem[data-state="on"]:hover {
   background-color: var(--violet-6) !important;
+}
+
+/* Slideshow component styles */
+.slideshowContainer {
+  position: relative;
+}
+
+.slideScroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  /* Hide scrollbar for webkit browsers */
+  scrollbar-width: none;
+}
+
+.slideScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.controlsContainer {
+  position: absolute;
+  left: 50%;
+  z-index: 100;
+  border-radius: 9999px;
+  background-color: var(--gray-a1);
+  transform: translateX(-50%);
+}
+
+.controlDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.controlDotActive {
+  background-color: var(--accent-1);
+}
+
+.controlDotInactive {
+  background-color: var(--gray-12);
 }

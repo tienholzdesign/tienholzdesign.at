@@ -5,15 +5,11 @@ import Heading from "../Heading/Heading";
 import Button from "../Button/Button";
 import Text from "../Text/Text";
 import Link from "next/link";
+import styles from "./CallToAction.module.css";
 
 export default function Component(props: PageBlocksCall_To_Action) {
   const content = (
-    <Card
-      style={{
-        background:
-          "radial-gradient(circle,rgba(237, 236, 235, 1) 0%, rgba(232, 73, 7, 1) 100%)",
-      }}
-    >
+    <Card className={styles.ctaBackground}>
       <Flex
         direction={{
           initial: props.settings?.direction_initial as any,

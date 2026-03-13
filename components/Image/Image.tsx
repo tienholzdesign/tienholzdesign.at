@@ -7,6 +7,7 @@ import useBreakpoint from "../../utils/hook/useBreakpoint";
 import { renderBlocks } from "../../tina/templating/utils";
 import Link from "next/link";
 import { findBreakpointValue } from "../../tina/templating/special-fields";
+import styles from "./Image.module.css";
 
 export default function Component(props: PageBlocksImage) {
   const breakpoint = useBreakpoint();
@@ -16,9 +17,7 @@ export default function Component(props: PageBlocksImage) {
     <AspectRatio
       data-tina-field={tinaField(props.content ?? props)}
       ratio={aspectRatioMap[props.settings?.[aspectRatio]] ?? 16 / 9}
-      style={{
-        overflow: "hidden",
-      }}
+      className={styles.aspectRatioContainer}
     >
       <NextImage
         src={
@@ -33,18 +32,11 @@ export default function Component(props: PageBlocksImage) {
         fill
         alt={"Image content"}
         role={"presentation"}
-        style={{
-          maxWidth: "100%",
-          objectFit: "cover",
-        }}
+        className={styles.imageContent}
       />
       <Flex
         direction={"column"}
-        position="absolute"
-        inset="0"
-        style={{
-          zIndex: 10,
-        }}
+        className={styles.overlayContainer}
         justify={(props.settings?.blocksPosition as any) || "start"}
       >
         {props.content?.blocks?.map((block, j) => {

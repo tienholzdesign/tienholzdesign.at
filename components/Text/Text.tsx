@@ -8,6 +8,7 @@ import Link from "next/link";
 import { colorMap } from "../../tina/templating/granular-fields";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { radixSizeMinusOne } from "../../tina/templating/utils";
+import styles from "./Text.module.css";
 
 export default function Component(props: PageBlocksText) {
   const language = useContext(LanguageContext);
@@ -17,7 +18,7 @@ export default function Component(props: PageBlocksText) {
 
   const content = (
     <Text
-      className={props.settings?.font as any}
+      className={`${props.settings?.font as any} ${styles.textContent}`}
       data-tina-field={tinaField(props.content ?? props)}
       size={
         props.settings?.textSize
@@ -32,10 +33,6 @@ export default function Component(props: PageBlocksText) {
       }
       style={{
         color: colorMap[props.settings?.textColor as any],
-        fontWeight: 300,
-        letterSpacing: "-0.01em",
-        lineHeight: 1.6,
-        whiteSpace: "pre-line",
       }}
     >
       {props.content?.[text] || "Add your text here"}
@@ -48,9 +45,12 @@ export default function Component(props: PageBlocksText) {
       mb={props.settings?.marginBottom ?? "5"}
       px={props.settings?.paddingX ?? "0"}
       py={props.settings?.paddingY ?? "0"}
-      style={{
-        textAlign: props.settings?.align as any,
-      }}
+      className={styles.textContainer}
+      style={
+        {
+          "--text-align": props.settings?.align as any,
+        } as React.CSSProperties
+      }
     >
       {props.link ? (
         <Link

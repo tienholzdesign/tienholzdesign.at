@@ -1,0 +1,5 @@
+/* Button component styles */
+
+.buttonContainer {
+  text-align: var(--text-align, left);
+}
