@@ -9,7 +9,10 @@
     "lint": "eslint . --fix && tsc",
     "test:e2e": "playwright test",
     "prepare": "husky",
-    "chores": "pnpm lint && playwright test"
+    "chores": "pnpm lint && playwright test",
+    "generate-theme-css": "node scripts/generate-theme-css.js",
+    "sync-config": "node scripts/sync-config.js",
+    "sync-all": "node scripts/generate-theme-css.js && node scripts/sync-config.js"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
