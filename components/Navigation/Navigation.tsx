@@ -12,6 +12,7 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import NextImage from "next/image";
 import Link from "next/link";
 import { themeConfig } from "../../config/theme-config";
+import { tinaField } from "tinacms/dist/react";
 
 export default function Navigation(props: NavigationQuery["navigation"]) {
   return (
@@ -30,10 +31,14 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
       >
         <Flex justify={"between"} className="test">
           {/* TODO add class to all hidden links */}
-          <Link href={"/"} className="no-line-height">
-            {props.logoImage ? (
+          <Link
+            href={"/"}
+            className="no-line-height"
+            data-tina-field={tinaField(props, "logo")}
+          >
+            {props.logo?.logoImage ? (
               <NextImage
-                src={props.logoImage}
+                src={props.logo.logoImage}
                 alt="Logo"
                 width={40}
                 height={40}
@@ -72,11 +77,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
           justify={"between"}
         >
           {props.links?.map((link, index) => {
-            return (
-              <Box className="test">
-                <Text key={index} {...(link as any)} />
-              </Box>
-            );
+            return <Text key={index} {...(link as any)} />;
           })}
         </Flex>
       </Grid>

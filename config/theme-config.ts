@@ -18,6 +18,7 @@ export const themeConfig = {
       initial: "1",
       md: "3",
     } as Responsive<string>,
+    radius: "full",
   },
 
   radixUI: {

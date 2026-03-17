@@ -20,11 +20,12 @@
       }
     ]
   },
+  "logoImage": "/uploads/portrait.jpg",
+  "settings": {},
   "logo": {
-    "settings": {},
+    "logoImage": "/uploads/portrait.jpg",
     "link": "/"
   },
-  "logoImage": "/uploads/portrait.jpg",
   "links": [
     {
       "settings": {},
@@ -46,6 +47,5 @@
       "link": "/contact",
       "text_de": "Kontakt"
     }
-  ],
-  "settings": {}
+  ]
 }

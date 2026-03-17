@@ -1,11 +1,5 @@
 "use client";
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Select,
-} from "@radix-ui/themes";
+import { Box, Container, Flex, Grid, Select } from "@radix-ui/themes";
 import { useContext } from "react";
 import { LanguageContext } from "../../utils/context/language";
 import { languages, type Language } from "../../tina/templating/special-fields";
@@ -51,11 +45,7 @@ export default function Footer(props: FooterQuery["footer"]) {
           gap={themeConfig.layout.defaultPadding}
         >
           {props.links?.map((link, index) => {
-            return (
-              <Box className="test">
-                <Text key={index} {...(link as any)} />
-              </Box>
-            );
+            return <Text key={index} {...(link as any)} />;
           })}
         </Flex>
 

@@ -20,12 +20,6 @@ export default {
       },
       fields: TextTemplate.fields,
     },
-    {
-      name: "settings",
-      label: "Settings",
-      type: "object",
-      fields: [PaddingXField, PaddingYField],
-    },
   ],
   ui: {
     allowedActions: {

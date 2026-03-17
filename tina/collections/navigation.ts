@@ -12,13 +12,16 @@ export default {
       name: "logo",
       label: "Logo",
       type: "object",
-      fields: TextTemplate.fields,
+      fields: [
+        {
+          name: "logoImage",
+          label: "Logo Image",
+          type: "image",
+        },
+        ...TextTemplate.fields.filter((field) => field.name !== "settings"),
+      ],
     },
-    {
-      name: "logoImage",
-      label: "Logo Image",
-      type: "image",
-    },
+
     {
       name: "links",
       label: "Links",
@@ -33,12 +36,6 @@ export default {
         },
       },
       fields: TextTemplate.fields,
-    },
-    {
-      name: "settings",
-      label: "Settings",
-      type: "object",
-      fields: [PaddingXField, PaddingYField],
     },
   ],
   ui: {
