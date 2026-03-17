@@ -4,28 +4,6 @@
 .light-theme,
 .radix-themes {
   --color-background: #f6f5f4;
-
-  /* Semantic color aliases based on gray scale */
-  --color-foreground: var(--gray-12);
-  --color-text: var(--gray-12);
-  --color-text-secondary: var(--gray-11);
-  --color-text-muted: var(--gray-10);
-
-  --color-border: var(--gray-7);
-  --color-border-light: var(--gray-6);
-  --color-border-lighter: var(--gray-5);
-
-  --color-surface: var(--gray-2);
-  --color-surface-hover: var(--gray-3);
-  --color-surface-active: var(--gray-4);
-
-  --color-interactive: var(--gray-8);
-  --color-interactive-hover: var(--gray-9);
-
-  /* Shadow and alpha variants */
-  --color-shadow: var(--gray-a7);
-  --color-shadow-hover: var(--gray-a8);
-  --color-overlay: var(--gray-a1);
 }
 
 /* Light accent css */

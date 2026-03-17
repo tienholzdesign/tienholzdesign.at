@@ -1,70 +1,38 @@
 import { Box, Container, Grid } from "@radix-ui/themes";
-import { useEditState } from "tinacms/dist/react";
+import { tinaField, useEditState } from "tinacms/dist/react";
 import type { PageBlocksGrid } from "../../tina/__generated__/types";
 import EditHelper from "../../tina/templating/EditHelper";
 import { renderBlocks } from "../../tina/templating/utils";
+import { themeConfig } from "../../config/theme-config";
 
 export default function Component(props: PageBlocksGrid) {
   const { edit } = useEditState();
 
-  const content = (
-    <Grid
-      columns={{
-        initial: props.settings?.columns_initial || "1",
-        xs: props.settings?.columns_xs || "1",
-        sm: props.settings?.columns_sm || "1",
-        md: props.settings?.columns_md || "2",
-        lg: props.settings?.columns_lg || "2",
-        xl: props.settings?.columns_xl || "2",
-      }}
-      gap={{
-        initial: props.settings?.gap_initial || "1.5rem",
-        xs: props.settings?.gap_xs || "1.5rem",
-        sm: props.settings?.gap_sm || "1.5rem",
-        md: props.settings?.gap_md || "1.5rem",
-        lg: props.settings?.gap_lg || "1.5rem",
-        xl: props.settings?.gap_xl || "1.5rem",
-      }}
-      px={{
-        initial: props.settings?.paddingX || "4",
-        xs: props.settings?.paddingX || "4",
-        sm: props.settings?.paddingX || "4",
-        md: props.settings?.paddingX || "4",
-        lg: props.settings?.paddingX || "4",
-        xl: props.settings?.paddingX || "4",
-      }}
-    >
-      {props.content?.items?.map((item, i) => (
-        <Box key={i}>
-          {item?.blocks?.map((block, j) => {
-            return renderBlocks(block, j);
-          })}
-        </Box>
-      ))}
-    </Grid>
-  );
-
-  const box = (
-    <Box
-      mt={props.settings?.marginTop ?? "inherit"}
-      mb={props.settings?.marginBottom ?? "inherit"}
-    >
-      {edit && <EditHelper {...props} />}
-      {content}
-    </Box>
-  );
-
-  return props.settings?.hasContainer !== false ? (
+  return (
     <Container
       px={{
-        initial: "4",
-        xs: "4",
-        sm: "4",
+        initial: themeConfig.layout.defaultPadding,
+        md: "0",
       }}
     >
-      {box}
+      {edit && <EditHelper {...props} />}
+      <Grid
+        columns={themeConfig.layout.defaultGridColumns}
+        gap={themeConfig.layout.defaultPadding}
+        className="test"
+      >
+        {props.items?.map((item, index) => (
+          <Box
+            key={index}
+            gridColumn={`span ${item?.settings?.gridColumnSpan}`}
+            data-tina-field={tinaField(item)}
+          >
+            {item?.blocks?.map((block, index) => {
+              return renderBlocks(block, index);
+            })}
+          </Box>
+        ))}
+      </Grid>
     </Container>
-  ) : (
-    box
   );
 }

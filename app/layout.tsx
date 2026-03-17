@@ -11,13 +11,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { accentColor, appearance, panelBackground } = themeConfig.radixUI;
+  const { accentColor, appearance, panelBackground, scaling } =
+    themeConfig.radixUI;
 
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body style={{ margin: 0 }}>
         <LanguageInitializer />
         <Theme
+          scaling={scaling}
           accentColor={accentColor}
           appearance={appearance}
           panelBackground={panelBackground}

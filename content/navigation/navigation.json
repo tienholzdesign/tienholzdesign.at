@@ -21,46 +21,30 @@
     ]
   },
   "logo": {
-    "link": "/",
-    "content": {
-      "text_de": "Tien Holz Design",
-      "text_en": "Tien Wood Design"
-    },
-    "settings": {}
+    "settings": {},
+    "link": "/"
   },
   "logoImage": "/uploads/portrait.jpg",
   "links": [
     {
+      "settings": {},
       "link": "/about",
-      "content": {
-        "text_de": "Werkstatt",
-        "text_en": "Workshop"
-      },
-      "settings": {}
+      "text_de": "Werkstatt"
     },
     {
+      "settings": {},
       "link": "/projects",
-      "content": {
-        "text_de": "Projekte",
-        "text_en": "Projects"
-      },
-      "settings": {}
+      "text_de": "Projekte"
     },
     {
+      "settings": {},
       "link": "/bilder",
-      "content": {
-        "text_de": "Bilder",
-        "text_en": "89z87t"
-      },
-      "settings": {}
+      "text_de": "Bilder"
     },
     {
+      "settings": {},
       "link": "/contact",
-      "content": {
-        "text_de": "Kontakt",
-        "text_en": "Contact"
-      },
-      "settings": {}
+      "text_de": "Kontakt"
     }
   ],
   "settings": {}

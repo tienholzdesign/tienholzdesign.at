@@ -183,7 +183,6 @@ export const LinkField: Template["fields"][number] = {
   name: "link",
   label: "Link (optional)",
   type: "string",
-  description: "Fill this field to wrap content with a link",
 };
 
 export const HasContainerField: Template["fields"][number] = {
@@ -232,4 +231,25 @@ export const DirectionField: Template["fields"][number] = {
   label: "Direction",
   type: "string",
   options: ["row", "column", "row-reverse", "column-reverse"],
+};
+
+export const GridColumnSpanField: Template["fields"][number] = {
+  name: "gridColumnSpan",
+  label: "Grid Column Span",
+  type: "string",
+  options: [...radixUnitsPositive],
+};
+
+export const MarginTopField: Template["fields"][number] = {
+  name: "mt",
+  label: "Top Margin Size",
+  type: "string",
+  options: [...radixUnits],
+};
+
+export const MarginBottomField: Template["fields"][number] = {
+  name: "mb",
+  label: "Bottom Margin Size",
+  type: "string",
+  options: [...radixUnits],
 };

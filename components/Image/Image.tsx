@@ -1,17 +1,20 @@
-import { AspectRatio, Flex, Box, Container } from "@radix-ui/themes";
+import { AspectRatio, Flex, Box } from "@radix-ui/themes";
 import NextImage from "next/image";
 import { aspectRatioMap } from "../../tina/templating/granular-fields";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksImage } from "../../tina/__generated__/types";
 import useBreakpoint from "../../utils/hook/useBreakpoint";
 import { renderBlocks } from "../../tina/templating/utils";
-import Link from "next/link";
 import { findBreakpointValue } from "../../tina/templating/special-fields";
 import styles from "./Image.module.css";
+import { LinkWrapper } from "../helpers";
+import { themeConfig } from "../../config/theme-config";
 
 export default function Component(props: PageBlocksImage) {
   const breakpoint = useBreakpoint();
   const aspectRatio = findBreakpointValue(breakpoint, "aspectRatio");
+
+  const isExternalLink = props.content?.link?.startsWith("http");
 
   const content = (
     <AspectRatio
@@ -37,7 +40,7 @@ export default function Component(props: PageBlocksImage) {
       <Flex
         direction={"column"}
         className={styles.overlayContainer}
-        justify={(props.settings?.blocksPosition as any) || "start"}
+        justify={"start"}
       >
         {props.content?.blocks?.map((block, j) => {
           return renderBlocks(block, j);
@@ -46,20 +49,12 @@ export default function Component(props: PageBlocksImage) {
     </AspectRatio>
   );
 
-  const box = (
+  return (
     <Box
-      mt={props.settings?.marginTop ?? "inherit"}
-      mb={props.settings?.marginBottom ?? "inherit"}
-      px={props.settings?.paddingX ?? "0"}
-      py={props.settings?.paddingY ?? "0"}
+      mt={props.settings?.mt ?? "0"}
+      mb={props.settings?.mb ?? themeConfig.layout.defaultPadding}
     >
-      {props.link ? <Link href={props.link}>{content}</Link> : content}
+      <LinkWrapper link={props.content?.link ?? ""} content={content} />
     </Box>
-  );
-
-  return props.settings?.hasContainer !== false ? (
-    <Container>{box}</Container>
-  ) : (
-    box
   );
 }

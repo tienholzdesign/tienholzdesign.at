@@ -1,43 +1,24 @@
 @import "@radix-ui/colors/sage.css";
 @import "./aliasing.css";
 
-:root {
-  /* Layout */
-  --layout-content-size: 620px;
-  --layout-wide-size: 1000px;
-
-  /* Typography */
-  --font-size-small: 1rem;
-  --font-size-medium: 1.125rem;
-  --font-size-large: 1.75rem;
-  --font-size-x-large: 3rem;
-
-  /* Spacing */
-  --spacing-unit: 1rem;
-
-  /* Box Shadows - Legacy */
-  --box-shadow: 0 0 0 1px var(--gray-a6);
-  --box-shadow-hover: 0 0 0 1px var(--gray-a8);
-  --box-shadow-focus: 0 0 0 2px var(--gray-a8);
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--gray-12);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* reset */
-input,
-textarea,
-button {
-  all: unset;
-  box-sizing: border-box;
-}
-
 a {
   color: var(--gray-12);
   text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid var(--gray-12);
+}
+
+.no-line-height {
+  line-height: 0;
+}
+.no-line-height:hover {
+  border-bottom: none;
+}
+
+.rt-Text,
+span,
+p {
+  font-weight: 300;
+  letter-spacing: -0.01em;
 }

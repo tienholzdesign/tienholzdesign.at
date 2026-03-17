@@ -1,18 +1,9 @@
 import type { Template } from "tinacms";
 import ImageTemplate from "../Image/ImageTemplate";
-import {
-  ColumnsField,
-  ExtraMarginBottomField,
-  ExtraMarginTopField,
-  GapField,
-  HasContainerField,
-  PaddingXField,
-  PaddingYField,
-} from "../../tina/templating/granular-fields";
+import { GridColumnSpanField } from "../../tina/templating/granular-fields";
 import HeadingTemplate from "../Heading/HeadingTemplate";
 import TextTemplate from "../Text/TextTemplate";
 import ButtonTemplate from "../Button/ButtonTemplate";
-import { createResponsiveField } from "../../tina/templating/special-fields";
 import SlideshowTemplate from "../Slideshow/SlideshowTemplate";
 import CallToActionTemplate from "../CallToAction/CallToActionTemplate";
 
@@ -21,58 +12,43 @@ export default {
   label: "Grid",
   fields: [
     {
-      name: "content",
-      label: "Content",
+      name: "items",
+      label: "Grid Items",
       type: "object",
+      list: true,
       fields: [
         {
-          name: "items",
-          label: "Grid Items",
+          name: "settings",
+          label: "Settings",
+          type: "object",
+          fields: [GridColumnSpanField],
+        },
+        {
+          name: "blocks",
+          label: "Content Blocks",
           type: "object",
           list: true,
-          fields: [
-            {
-              name: "blocks",
-              label: "Content Blocks",
-              type: "object",
-              list: true,
-              templates: [
-                ButtonTemplate,
-                HeadingTemplate,
-                ImageTemplate,
-                SlideshowTemplate,
-                TextTemplate,
-                CallToActionTemplate,
-              ],
-            },
+          templates: [
+            ButtonTemplate,
+            HeadingTemplate,
+            ImageTemplate,
+            SlideshowTemplate,
+            TextTemplate,
+            CallToActionTemplate,
           ],
-          ui: {
-            itemProps: (item) => {
-              return {
-                label: `${item.blocks?.[0]?._template} ${
-                  item.blocks?.length > 1
-                    ? `and ${item.blocks?.length - 1} more`
-                    : ""
-                }`,
-              };
-            },
-          },
         },
       ],
-    },
-    {
-      name: "settings",
-      label: "Settings",
-      type: "object",
-      fields: [
-        HasContainerField,
-        ...createResponsiveField(GapField),
-        ...createResponsiveField(ColumnsField),
-        ExtraMarginTopField,
-        ExtraMarginBottomField,
-        PaddingXField,
-        PaddingYField,
-      ],
+      ui: {
+        itemProps: (item) => {
+          return {
+            label: `${item.blocks?.[0]?._template} ${
+              item.blocks?.length > 1
+                ? `and ${item.blocks?.length - 1} more`
+                : ""
+            }`,
+          };
+        },
+      },
     },
   ],
 } as Template;

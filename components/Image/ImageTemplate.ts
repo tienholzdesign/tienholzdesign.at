@@ -1,14 +1,9 @@
 import type { Template } from "tinacms";
 import {
   AspectRatioField,
-  AlignField,
-  PaddingXField,
-  PaddingYField,
   LinkField,
-  BlocksPositionField,
-  ExtraMarginBottomField,
-  HasContainerField,
-  ExtraMarginTopField,
+  MarginTopField,
+  MarginBottomField,
 } from "../../tina/templating/granular-fields";
 import HeadingTemplate from "../Heading/HeadingTemplate";
 import TextTemplate from "../Text/TextTemplate";
@@ -19,12 +14,12 @@ export default {
   name: "Image",
   label: "Image",
   fields: [
-    LinkField,
     {
       name: "content",
-      label: "Content",
+      label: "Image",
       type: "object",
       fields: [
+        LinkField,
         {
           name: "image",
           label: "Image",
@@ -51,14 +46,9 @@ export default {
       label: "Settings",
       type: "object",
       fields: [
+        MarginTopField,
+        MarginBottomField,
         ...createResponsiveField(AspectRatioField),
-        HasContainerField,
-        AlignField,
-        ExtraMarginTopField,
-        ExtraMarginBottomField,
-        PaddingXField,
-        PaddingYField,
-        BlocksPositionField,
       ],
     },
   ],

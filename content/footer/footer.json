@@ -1,20 +1,16 @@
 {
   "links": [
     {
+      "settings": {},
       "link": "https://www.instagram.com/chen.ast/",
-      "content": {
-        "text_de": "Instagram",
-        "text_en": "Instagram"
-      },
-      "settings": {}
+      "text_de": "Instagram",
+      "text_en": "Instagram"
     },
     {
+      "settings": {},
       "link": "mailto:office@tienholzdesign.at",
-      "content": {
-        "text_de": "Email",
-        "text_en": "Email"
-      },
-      "settings": {}
+      "text_de": "Email",
+      "text_en": "Email"
     }
   ],
   "settings": {}

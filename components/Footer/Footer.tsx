@@ -1,10 +1,17 @@
 "use client";
-import { Box, Container, Flex, Select } from "@radix-ui/themes";
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  Select,
+} from "@radix-ui/themes";
 import { useContext } from "react";
 import { LanguageContext } from "../../utils/context/language";
 import { languages, type Language } from "../../tina/templating/special-fields";
 import type { FooterQuery } from "../../tina/__generated__/types";
 import Text from "../Text/Text";
+import { themeConfig } from "../../config/theme-config";
 
 const languageLabels: Record<Language, string> = {
   de: "Deutsch",
@@ -22,21 +29,37 @@ export default function Footer(props: FooterQuery["footer"]) {
   };
 
   return (
-    <Box
-      style={{
-        borderTop: "1px solid var(--color-border-light)",
+    <Container
+      px={{
+        initial: themeConfig.layout.defaultPadding,
+        md: "0",
       }}
-      mt={"9"}
-      px={props.settings?.paddingX ?? "0"}
-      py={props.settings?.paddingY ?? "0"}
+      style={{
+        borderTop: "1px solid var(--gray-6)",
+      }}
     >
-      <Container>
-        <Flex justify={"between"} align={"center"}>
-          <Flex gap={"4"} direction={"row"} display={"flex"} align={"center"}>
-            {props.links?.map((link, index) => {
-              return <Text key={index} {...(link as any)} />;
-            })}
-          </Flex>
+      <Grid
+        columns={themeConfig.layout.defaultGridColumns}
+        gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
+      >
+        <Flex
+          className="test"
+          gridColumn="span 2"
+          align={"center"}
+          display={{ initial: "none", md: "flex" }}
+          direction={"row"}
+          gap={themeConfig.layout.defaultPadding}
+        >
+          {props.links?.map((link, index) => {
+            return (
+              <Box className="test">
+                <Text key={index} {...(link as any)} />
+              </Box>
+            );
+          })}
+        </Flex>
+
+        <Flex className="test" justify={"end"}>
           <Select.Root value={language} onValueChange={handleLanguageChange}>
             <Select.Trigger
               aria-label="Select language"
@@ -53,7 +76,7 @@ export default function Footer(props: FooterQuery["footer"]) {
             </Select.Content>
           </Select.Root>
         </Flex>
-      </Container>
-    </Box>
+      </Grid>
+    </Container>
   );
 }

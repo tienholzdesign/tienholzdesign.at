@@ -12,6 +12,18 @@ const radixResponsiveSizes: Responsive<any>[] = [
   "xl",
 ];
 
+const responsiveLabels: Record<
+  Responsive<(typeof radixResponsiveSizes)[number]>,
+  string
+> = {
+  initial: "Phone vertical",
+  xs: "Phone horizontal",
+  sm: "Tablet vertical",
+  md: "Tablet horizontal",
+  lg: "Laptop",
+  xl: "Desktop",
+};
+
 export const createIntlField = (field: Template["fields"][number]) => {
   return languages.map((locale) => ({
     ...field,
@@ -31,10 +43,21 @@ export const findBreakpointValue = (
   return `${key}_${breakpoint}`;
 };
 
+export const findResponsiveValue = (settings: any, key: string) => {
+  return {
+    initial: settings?.[`${key}_initial`],
+    xs: settings?.[`${key}_xs`],
+    sm: settings?.[`${key}_sm`],
+    md: settings?.[`${key}_md`],
+    lg: settings?.[`${key}_lg`],
+    xl: settings?.[`${key}_xl`],
+  };
+};
+
 export const createResponsiveField = (field: Template["fields"][number]) => {
   return radixResponsiveSizes.map((size) => ({
     ...field,
     name: `${field.name}_${size}`,
-    label: `${field.label} (${size})`,
+    label: `${field.label} (${responsiveLabels[size]})`,
   }));
 };

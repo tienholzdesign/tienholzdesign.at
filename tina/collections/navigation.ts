@@ -28,10 +28,7 @@ export default {
         itemProps: (item, index) => {
           console.log("item", item?.content);
           return {
-            label:
-              item?.content?.text_de ??
-              item?.content?.text_en ??
-              "Link" + (index + 1),
+            label: item?.text_de ?? item?.text_en ?? "Link" + (index + 1),
           };
         },
       },
