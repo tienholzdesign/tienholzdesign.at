@@ -1,5 +1,6 @@
 {
   "name": "Auftrag 2",
+  "image": "/uploads/auftrag3-4.jpg",
   "blocks": [
     {
       "content": {
@@ -8,26 +9,11 @@
             "blocks": [
               {
                 "content": {
-                  "text_de": "Auftrag 2",
-                  "text_en": "Project 2"
-                },
-                "_template": "Heading"
-              }
-            ]
-          },
-          {
-            "blocks": [
-              {
-                "_template": "Image"
-              }
-            ]
-          },
-          {
-            "blocks": [
-              {
-                "content": {
                   "blocks": [
                     {
+                      "content": {
+                        "image": "/uploads/auftrag3-1.jpg"
+                      },
                       "settings": {
                         "aspectRatio_md": "1/1",
                         "aspectRatio_lg": "1/1",
@@ -36,30 +22,23 @@
                       "_template": "Image"
                     },
                     {
+                      "content": {
+                        "image": "/uploads/studio.jpg"
+                      },
+                      "settings": {
+                        "aspectRatio_md": "1/1"
+                      },
                       "_template": "Image"
                     },
                     {
+                      "settings": {
+                        "aspectRatio_md": "1/1"
+                      },
                       "_template": "Image"
                     }
                   ]
                 },
                 "_template": "Slideshow"
-              }
-            ]
-          },
-          {
-            "blocks": [
-              {
-                "content": {
-                  "heading_de": "Neugierig?",
-                  "heading_en": "Nosy?",
-                  "text_de": "Arbeite jetzt mit uns zusammen und schwelge in vollstem Holz-Genuss. Garantiert!",
-                  "text_en": "Work with us now and revel in the full enjoyment of wood. Guaranteed!",
-                  "buttonText_de": "Kontaktieren",
-                  "buttonText_en": "Contact",
-                  "buttonLink": "mailto:office@tienholzdesign.at"
-                },
-                "_template": "Call_To_Action"
               }
             ]
           },

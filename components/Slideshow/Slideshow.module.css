@@ -6,7 +6,7 @@
 .ToggleGroup {
   display: inline-flex;
   border-radius: 4px;
-  box-shadow: 0 2px 10px var(--black-a7);
+  box-shadow: 0 2px 10px var(--color-shadow);
 }
 
 .ToggleGroupItem {
@@ -78,5 +78,5 @@
 }
 
 .controlDotInactive {
-  background-color: var(--gray-12);
+  background-color: var(--color-interactive);
 }

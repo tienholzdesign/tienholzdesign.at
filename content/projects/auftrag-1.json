@@ -2,9 +2,7 @@
   "name": "Auftrag 1",
   "blocks": [
     {
-      "settings": {
-        "marginBottom": "6"
-      },
+      "settings": {},
       "_template": "Image"
     },
     {
@@ -17,9 +15,7 @@
                   "text_de": "Auftrag 1",
                   "text_en": "Project 1"
                 },
-                "settings": {
-                  "marginBottom": "6"
-                },
+                "settings": {},
                 "_template": "Heading"
               },
               {

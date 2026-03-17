@@ -13,13 +13,6 @@ const path = require("path");
 // Default theme values (synced from config/theme-config.ts)
 // Update these if you change the TypeScript config
 const themeConfig = {
-  colors: {
-    primary: "#000000",
-    secondary: "#767676",
-    foreground: "#000000",
-    background: "#f5f5f5",
-    tertiary: "#e6e6e6",
-  },
   layout: {
     contentSize: "620px",
     wideSize: "1000px",
@@ -40,17 +33,12 @@ const themeConfig = {
 const generateThemeCss = () => {
   const lines = [
     '@import "@radix-ui/colors/sage.css";',
+    '@import "./aliasing.css";',
     "",
     ":root {",
-    "  /* Color Palette - Generated from config/theme-config.ts */",
+    "  /* Layout */",
   ];
 
-  // Add color variables
-  Object.entries(themeConfig.colors).forEach(([key, value]) => {
-    lines.push(`  --color-${key}: ${value};`);
-  });
-
-  lines.push("", "  /* Layout */");
   Object.entries(themeConfig.layout).forEach(([key, value]) => {
     const kebabKey = key.replace(/([A-Z])/g, "-$1").toLowerCase();
     lines.push(`  --layout-${kebabKey}: ${value};`);
@@ -79,7 +67,7 @@ const generateThemeCss = () => {
   lines.push("");
   lines.push("body {");
   lines.push(`  background-color: var(--color-background);`);
-  lines.push(`  color: var(--color-foreground);`);
+  lines.push(`  color: var(--gray-12);`);
   lines.push("  -webkit-font-smoothing: antialiased;");
   lines.push("  -moz-osx-font-smoothing: grayscale;");
   lines.push("  text-rendering: optimizeLegibility;");
@@ -94,7 +82,7 @@ const generateThemeCss = () => {
   lines.push("}");
   lines.push("");
   lines.push("a {");
-  lines.push("  color: var(--color-primary);");
+  lines.push("  color: var(--gray-12);");
   lines.push("  text-decoration: none;");
   lines.push("}");
 

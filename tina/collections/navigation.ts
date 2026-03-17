@@ -15,10 +15,26 @@ export default {
       fields: TextTemplate.fields,
     },
     {
+      name: "logoImage",
+      label: "Logo Image",
+      type: "image",
+    },
+    {
       name: "links",
       label: "Links",
       type: "object",
       list: true,
+      ui: {
+        itemProps: (item, index) => {
+          console.log("item", item?.content);
+          return {
+            label:
+              item?.content?.text_de ??
+              item?.content?.text_en ??
+              "Link" + (index + 1),
+          };
+        },
+      },
       fields: TextTemplate.fields,
     },
     {

@@ -2,9 +2,7 @@
   "name": "Auftrag 4",
   "blocks": [
     {
-      "settings": {
-        "marginBottom": "6"
-      },
+      "settings": {},
       "_template": "Image"
     },
     {
@@ -17,9 +15,7 @@
                   "text_de": "Auftrag 4",
                   "text_en": "Project 4"
                 },
-                "settings": {
-                  "marginBottom": "6"
-                },
+                "settings": {},
                 "_template": "Heading"
               },
               {

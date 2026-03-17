@@ -15,15 +15,15 @@
 
 /* Color variations */
 .colorPrimary {
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .colorSecondary {
-  color: var(--color-secondary);
+  color: var(--color-text-secondary);
 }
 
 .colorTertiary {
-  color: var(--color-tertiary);
+  color: var(--color-text-muted);
 }
 
 .colorWhite {

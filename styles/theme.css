@@ -1,13 +1,7 @@
 @import "@radix-ui/colors/sage.css";
+@import "./aliasing.css";
 
 :root {
-  /* Color Palette - Generated from config/theme-config.ts */
-  --color-primary: #000000;
-  --color-secondary: #767676;
-  --color-foreground: #000000;
-  --color-background: #f5f5f5;
-  --color-tertiary: #e6e6e6;
-
   /* Layout */
   --layout-content-size: 620px;
   --layout-wide-size: 1000px;
@@ -29,7 +23,7 @@
 
 body {
   background-color: var(--color-background);
-  color: var(--color-foreground);
+  color: var(--gray-12);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -44,6 +38,6 @@ button {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--gray-12);
   text-decoration: none;
 }

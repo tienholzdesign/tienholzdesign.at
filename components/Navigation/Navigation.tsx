@@ -8,20 +8,34 @@ import {
 import type { NavigationQuery } from "../../tina/__generated__/types";
 import Text from "../Text/Text";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import NextImage from "next/image";
+import Link from "next/link";
 
 export default function Navigation(props: NavigationQuery["navigation"]) {
   return (
     <Box
-      style={{ borderBottom: "1px solid var(--gray-6)" }}
+      style={{ borderBottom: "1px solid var(--color-border-light)" }}
       mb={"9"}
       px={props.settings?.paddingX ?? "0"}
       py={props.settings?.paddingY ?? "0"}
     >
       <Container>
         <Flex direction={"row"} justify="between" align={"center"}>
-          <Box>
-            <Text {...(props.logo as any)} underline={false} />
-          </Box>
+          <Link href={"/"} style={{ textDecoration: "none" }}>
+            <Box>
+              {props.logoImage ? (
+                <NextImage
+                  src={props.logoImage}
+                  alt="Logo"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+              ) : (
+                <Text {...(props.logo as any)} underline={false} />
+              )}
+            </Box>
+          </Link>
 
           <Box display={{ initial: "block", md: "none" }} mr={"4"}>
             <Popover.Root>
@@ -58,10 +72,14 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
             display={{ initial: "none", md: "flex" }}
             direction={"row"}
             align={"center"}
-            gap={"4"}
+            gap={"8"}
           >
             {props.links?.map((link, index) => {
-              return <Text key={index} {...(link as any)} underline={false} />;
+              return (
+                <div style={{ textTransform: "uppercase" }}>
+                  <Text key={index} {...(link as any)} underline={false} />
+                </div>
+              );
             })}
           </Flex>
         </Flex>

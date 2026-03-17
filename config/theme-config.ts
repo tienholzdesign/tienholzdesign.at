@@ -33,22 +33,12 @@ export const themeConfig = {
   },
 
   // ==========================================
-  // Color Palette
-  // ==========================================
-  colors: {
-    primary: "#000000",
-    secondary: "#767676",
-    foreground: "#000000",
-    background: "#f5f5f5",
-    tertiary: "#e6e6e6",
-  },
-
-  // ==========================================
   // Layout Dimensions
   // ==========================================
   layout: {
     contentSize: "620px",
     wideSize: "1000px",
+    defaultPadding: 4,
   },
 
   // ==========================================
@@ -91,11 +81,6 @@ export const themeConfig = {
     panelBackground: "translucent" as const,
   },
 } as const;
-
-/**
- * Type-safe color key for use in components
- */
-export type ColorKey = keyof typeof themeConfig.colors;
 
 /**
  * Type-safe font size key

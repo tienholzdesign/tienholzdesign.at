@@ -13,6 +13,11 @@ export default {
       label: "Links",
       type: "object",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.content?.text || "Link" };
+        },
+      },
       fields: TextTemplate.fields,
     },
     {

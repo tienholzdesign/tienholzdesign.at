@@ -58,6 +58,7 @@ export default function Component(props: PageBlocksText) {
           href={props.link}
           target={isExternalLink ? "_blank" : undefined}
           rel={isExternalLink ? "noopener noreferrer" : undefined}
+          itemProp="name"
         >
           {content} {isExternalLink && <ArrowTopRightIcon />}
         </Link>
@@ -68,7 +69,15 @@ export default function Component(props: PageBlocksText) {
   );
 
   return props.settings?.hasContainer !== false ? (
-    <Container>{box}</Container>
+    <Container
+      px={{
+        initial: "4",
+        xs: "4",
+        sm: "4",
+      }}
+    >
+      {box}
+    </Container>
   ) : (
     box
   );

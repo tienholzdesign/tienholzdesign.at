@@ -5,7 +5,7 @@ import { FilenameField, SEOField } from "../templating/granular-fields";
 import { sanitizeFilenameForURL } from "../templating/validation";
 
 export default {
-  label: "Projects",
+  label: "Designs",
   name: "project",
   path: "content/projects",
   format: "json",
@@ -22,6 +22,11 @@ export default {
       label: "Blocks",
       type: "object",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?._template || "Block" };
+        },
+      },
       templates,
     },
   ],

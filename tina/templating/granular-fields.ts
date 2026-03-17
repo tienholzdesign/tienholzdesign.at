@@ -113,8 +113,8 @@ export const TextSizeField: Template["fields"][number] = {
 };
 
 export const colorMap: Record<(typeof colors)[number], string> = {
-  gray: "var(--gray-12)",
-  white: "var(--gray-1)",
+  gray: "var(--color-text)",
+  white: "var(--color-background)",
 };
 
 const colors = ["gray", "white"] as const;

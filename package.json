@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev --turbopack\"",
+    "dev": "pnpm sync-all && tinacms dev -c \"next dev --turbopack\"",
     "build": "tinacms build && next build",
     "start": "tinacms build && next start",
     "lint": "eslint . --fix && tsc",
