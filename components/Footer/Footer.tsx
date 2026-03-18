@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Flex, Grid, Select } from "@radix-ui/themes";
+import { Container, Flex, Grid, Select } from "@radix-ui/themes";
 import { useContext } from "react";
 import { LanguageContext } from "../../utils/context/language";
 import { languages, type Language } from "../../tina/templating/special-fields";

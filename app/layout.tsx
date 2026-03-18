@@ -15,7 +15,7 @@ export default function RootLayout({
     themeConfig.radixUI;
 
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.className} ${serif.className}`}>
       <body style={{ margin: 0 }}>
         <LanguageInitializer />
         <Theme

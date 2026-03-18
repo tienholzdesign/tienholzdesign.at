@@ -4,16 +4,8 @@ import {
   createResponsiveField,
 } from "../../tina/templating/special-fields";
 import {
-  AlignField,
   TextSizeField,
-  PaddingXField,
-  PaddingYField,
   LinkField,
-  RadiusField,
-  TextColorField,
-  ExtraMarginBottomField,
-  FontField,
-  ExtraMarginTopField,
   MarginTopField,
   MarginBottomField,
 } from "../../tina/templating/granular-fields";

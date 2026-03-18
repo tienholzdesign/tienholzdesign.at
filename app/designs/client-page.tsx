@@ -2,21 +2,21 @@
 import { useTina } from "tinacms/dist/react";
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
-import type { ProjectAndNavConnectionQuery } from "../../tina/__generated__/types";
+import type { DesignAndNavConnectionQuery } from "../../tina/__generated__/types";
 import type { Language } from "../../tina/templating/special-fields";
 import { LanguageContext } from "../../utils/context/language";
 import { Box, Container, Flex, Grid } from "@radix-ui/themes";
 import { themeConfig } from "../../config/theme-config";
-import Heading from "../../components/Heading/Heading";
-import Image from "../../components/Image/Image";
 import Text from "../../components/Text/Text";
+import Image from "../../components/Image/Image";
+import Heading from "../../components/Heading/Heading";
 
 type ClientPageProps = {
   query: string;
   variables: {
     relativePath: string;
   };
-  data: ProjectAndNavConnectionQuery;
+  data: DesignAndNavConnectionQuery;
   language: Language;
 };
 
@@ -27,7 +27,7 @@ export default function ClientPage(props: ClientPageProps) {
     data: props.data,
   });
 
-  const pages = data.projectConnection.edges?.sort(
+  const pages = data.designConnection.edges?.sort(
     (a, b) =>
       new Date(b!.node?._sys.filename!).getTime() -
       new Date(a!.node?._sys.filename!).getTime(),
@@ -50,7 +50,7 @@ export default function ClientPage(props: ClientPageProps) {
             gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
           >
             <Flex justify={"between"}>
-              <Heading text_de={"Projects"} text_en={"Projects"} />
+              <Heading text_de={"Designs"} text_en={"Designs"} />
             </Flex>
 
             <Flex
@@ -70,7 +70,7 @@ export default function ClientPage(props: ClientPageProps) {
                     <Box>
                       <Image
                         content={{
-                          // link: `/designs/${page!.node?._sys.filename}`,
+                          link: `/designs/${page!.node?._sys.filename}`,
                           image: page!.node?.image,
                         }}
                       />
@@ -91,45 +91,3 @@ export default function ClientPage(props: ClientPageProps) {
     </LanguageContext.Provider>
   );
 }
-
-/*
-<Box>
-  <Heading content={{ text_de: "A" }} />
-</Box>;
-{
-  pages.map((item, i) => (
-    <Box key={i}>
-      <Image
-        link={"/projects/" + item?.node?._sys.filename}
-        content={{
-          image: item?.node?.image,
-          blocks: [
-            {
-              __typename: "PageBlocksImageContentBlocksText",
-              content: {
-                text_de: item?.node?.name,
-                text_en: item?.node?.name,
-              },
-              settings: {
-                align: "center",
-                textColor: "white",
-                font: "serif",
-                textSize: "9",
-              },
-            },
-          ],
-        }}
-        settings={{
-          blocksPosition: "center",
-          aspectRatio_initial: "1/1" as AspectRatio,
-          aspectRatio_xs: "1/1" as AspectRatio,
-          aspectRatio_sm: "1/1" as AspectRatio,
-          aspectRatio_md: "1/1" as AspectRatio,
-          aspectRatio_lg: "1/1" as AspectRatio,
-          aspectRatio_xl: "1/1" as AspectRatio,
-        }}
-      />
-    </Box>
-  ));
-}
-*/

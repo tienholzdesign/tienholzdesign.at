@@ -7,7 +7,6 @@ import {
   findIntlValue,
   findResponsiveValue,
 } from "../../tina/templating/special-fields";
-import Link from "next/link";
 import { LinkWrapper } from "../helpers";
 import { themeConfig } from "../../config/theme-config";
 

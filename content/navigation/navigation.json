@@ -34,13 +34,13 @@
     },
     {
       "settings": {},
-      "link": "/projects",
-      "text_de": "Projekte"
+      "link": "/designs",
+      "text_de": "Designs"
     },
     {
       "settings": {},
-      "link": "/bilder",
-      "text_de": "Bilder"
+      "link": "/projects",
+      "text_de": "Projekte"
     },
     {
       "settings": {},

@@ -5,7 +5,6 @@ import { LanguageContext } from "../../utils/context/language";
 import { tinaField } from "tinacms/dist/react";
 import {
   findIntlValue,
-  findResponsiveValue,
 } from "../../tina/templating/special-fields";
 import { themeConfig } from "../../config/theme-config";
 

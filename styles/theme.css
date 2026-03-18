@@ -5,6 +5,11 @@ a {
   color: var(--gray-12);
   text-decoration: none;
 }
+
+a {
+  color: var(--gray-12);
+  text-decoration: none;
+}
 a:hover {
   border-bottom: 1px solid var(--gray-12);
 }

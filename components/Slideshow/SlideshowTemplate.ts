@@ -3,6 +3,8 @@ import ImageTemplate from "../Image/ImageTemplate";
 import {
   ExtraMarginBottomField,
   ExtraMarginTopField,
+  MarginBottomField,
+  MarginTopField,
   PaddingXField,
   PaddingYField,
 } from "../../tina/templating/granular-fields";
@@ -17,49 +19,34 @@ export default {
   label: "Slideshow",
   fields: [
     {
-      name: "content",
-      label: "Content",
-      type: "object",
-      fields: [
-        {
-          name: "blocks",
-          label: "Content Blocks",
-          type: "object",
-          list: true,
-          templates: [
-            ButtonTemplate,
-            HeadingTemplate,
-            ImageTemplate,
-            TextTemplate,
-          ],
-        },
-      ],
-    },
-    {
       name: "settings",
       label: "Settings",
       type: "object",
       fields: [
-        ...createResponsiveField({
-          name: "numberOfSlidesShown",
-          label: "Number of Slides Shown",
-          type: "number",
-          ui: {
-            validate: (value: number) => checkForPositveNumber(value),
-          },
-        }),
+        MarginTopField,
+        MarginBottomField,
+        // ...createResponsiveField({
+        //   name: "numberOfSlidesShown",
+        //   label: "Number of Slides Shown",
+        //   type: "number",
+        //   ui: {
+        //     validate: (value: number) => checkForPositveNumber(value),
+        //   },
+        // }),
         {
           name: "nextSlideTimeout",
           label: "Next Slide in seconds",
           type: "string",
           options: ["4", "5", "6", "7", "8", "9", "10"],
         },
-        { name: "hasControls", label: "Show Controls", type: "boolean" },
-        ExtraMarginTopField,
-        ExtraMarginBottomField,
-        PaddingXField,
-        PaddingYField,
       ],
+    },
+    {
+      name: "blocks",
+      label: "Content Blocks",
+      type: "object",
+      list: true,
+      templates: [ButtonTemplate, HeadingTemplate, ImageTemplate, TextTemplate],
     },
   ],
 } as Template;

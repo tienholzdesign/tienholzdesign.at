@@ -1,10 +1,8 @@
 import type { Template } from "tinacms";
 import {
   createIntlField,
-  createResponsiveField,
 } from "../../tina/templating/special-fields";
 import {
-  TextSizeField,
   LinkField,
   MarginTopField,
   MarginBottomField,

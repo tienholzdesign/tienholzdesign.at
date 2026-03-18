@@ -1,5 +1,4 @@
 import { type Collection } from "tinacms";
-import { PaddingXField, PaddingYField } from "../templating/granular-fields";
 import TextTemplate from "../../components/Text/TextTemplate";
 
 export default {

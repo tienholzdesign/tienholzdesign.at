@@ -1,0 +1,51 @@
+{
+  "name": "Auftrag 1",
+  "blocks": [
+    {
+      "settings": {},
+      "_template": "Image"
+    },
+    {
+      "content": {
+        "items": [
+          {
+            "blocks": [
+              {
+                "content": {
+                  "text_de": "Auftrag 1",
+                  "text_en": "Project 1"
+                },
+                "settings": {},
+                "_template": "Heading"
+              },
+              {
+                "content": {
+                  "text_de": "Wir gestalten und realisieren Innenräume, in denen die Natur die Hauptrolle spielt. Mit einer ausgewogenen Mischung aus technischem Know-how und kreativer Vision schaffen wir Umgebungen, die ästhetisch beeindrucken, nachhaltig wachsen und sich lebendig anfühlen.",
+                  "text_en": "We design and install interiors where nature plays a central role. With a balance of technical expertise and creative vision, we create environments that function beautifully, grow sustainably, and feel alive for the people who move through them."
+                },
+                "_template": "Text"
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "content": {
+                  "heading_de": "Neugierig?",
+                  "heading_en": "Nosy?",
+                  "text_de": "Arbeite jetzt mit uns zusammen und schwelge in vollstem Holz-Genuss. Garantiert!",
+                  "text_en": "Work with us now and revel in the full enjoyment of wood. Guaranteed!",
+                  "buttonText_de": "Kontaktieren",
+                  "buttonText_en": "Contact",
+                  "buttonLink": "mailto:office@tienholzdesign.at"
+                },
+                "_template": "Call_To_Action"
+              }
+            ]
+          }
+        ]
+      },
+      "_template": "Grid"
+    }
+  ]
+}
