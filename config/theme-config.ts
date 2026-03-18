@@ -1,5 +1,3 @@
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props/prop-def";
-
 export const themeConfig = {
   project: {
     domain: "tienholzdesign.at",
@@ -11,14 +9,21 @@ export const themeConfig = {
       },
     ],
   },
-
   layout: {
     defaultPadding: "4",
     defaultGridColumns: {
       initial: "1",
       md: "3",
-    } as Responsive<string>,
+    },
     radius: "full",
+    textSize: {
+      initial: "4",
+      md: "5",
+    },
+    headingSize: {
+      initial: "6",
+      md: "7",
+    },
   },
 
   radixUI: {

@@ -1,6 +1,10 @@
 import type { Template } from "tinacms";
 import ImageTemplate from "../Image/ImageTemplate";
-import { GridColumnSpanField } from "../../tina/templating/granular-fields";
+import {
+  GridColumnSpanField,
+  MarginBottomField,
+  MarginTopField,
+} from "../../tina/templating/granular-fields";
 import HeadingTemplate from "../Heading/HeadingTemplate";
 import TextTemplate from "../Text/TextTemplate";
 import ButtonTemplate from "../Button/ButtonTemplate";
@@ -11,6 +15,12 @@ export default {
   name: "Grid",
   label: "Grid",
   fields: [
+    {
+      name: "settings",
+      label: "Settings",
+      type: "object",
+      fields: [MarginTopField, MarginBottomField],
+    },
     {
       name: "items",
       label: "Grid Items",

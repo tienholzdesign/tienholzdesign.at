@@ -17,6 +17,7 @@ import { tinaField } from "tinacms/dist/react";
 export default function Navigation(props: NavigationQuery["navigation"]) {
   return (
     <Container
+      py="2"
       px={{
         initial: themeConfig.layout.defaultPadding,
         md: "0",
@@ -29,8 +30,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
         columns={themeConfig.layout.defaultGridColumns}
         gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
       >
-        <Flex justify={"between"} className="test">
-          {/* TODO add class to all hidden links */}
+        <Flex justify={"between"}>
           <Link
             href={"/"}
             className="no-line-height"
@@ -70,11 +70,12 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
         </Flex>
 
         <Flex
-          className="test"
           gridColumn="span 2"
           display={{ initial: "none", md: "flex" }}
           direction={"row"}
           justify={"between"}
+          align={"center"}
+          style={{ textTransform: "uppercase" }}
         >
           {props.links?.map((link, index) => {
             return <Text key={index} {...(link as any)} />;

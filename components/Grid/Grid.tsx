@@ -10,6 +10,8 @@ export default function Component(props: PageBlocksGrid) {
 
   return (
     <Container
+      mt={props.settings?.mt ?? "0"}
+      mb={props.settings?.mb ?? "0"}
       px={{
         initial: themeConfig.layout.defaultPadding,
         md: "0",
@@ -19,7 +21,6 @@ export default function Component(props: PageBlocksGrid) {
       <Grid
         columns={themeConfig.layout.defaultGridColumns}
         gap={themeConfig.layout.defaultPadding}
-        className="test"
       >
         {props.items?.map((item, index) => (
           <Box

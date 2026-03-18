@@ -16,7 +16,7 @@ export default function Component(props: PageBlocksHeading) {
   const content = (
     <Heading
       data-tina-field={tinaField(props)}
-      size={findResponsiveValue(props.settings, "textSize")}
+      size={themeConfig.layout.headingSize}
       style={{ whiteSpace: "pre-line" }}
     >
       {props[text] ? props[text] : "Add your text here"}

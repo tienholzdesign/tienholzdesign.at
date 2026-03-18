@@ -18,11 +18,7 @@ export default {
       name: "settings",
       label: "Settings",
       type: "object",
-      fields: [
-        MarginTopField,
-        MarginBottomField,
-        ...createResponsiveField(TextSizeField),
-      ],
+      fields: [MarginTopField, MarginBottomField],
     },
     LinkField,
     ...createIntlField({

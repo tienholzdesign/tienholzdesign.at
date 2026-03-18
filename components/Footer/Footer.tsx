@@ -24,6 +24,7 @@ export default function Footer(props: FooterQuery["footer"]) {
 
   return (
     <Container
+      py="2"
       px={{
         initial: themeConfig.layout.defaultPadding,
         md: "0",
@@ -37,7 +38,6 @@ export default function Footer(props: FooterQuery["footer"]) {
         gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
       >
         <Flex
-          className="test"
           gridColumn="span 2"
           align={"center"}
           display={{ initial: "none", md: "flex" }}
@@ -49,7 +49,7 @@ export default function Footer(props: FooterQuery["footer"]) {
           })}
         </Flex>
 
-        <Flex className="test" justify={"end"}>
+        <Flex justify={"end"}>
           <Select.Root value={language} onValueChange={handleLanguageChange}>
             <Select.Trigger
               aria-label="Select language"
