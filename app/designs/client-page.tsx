@@ -41,13 +41,13 @@ export default function ClientPage(props: ClientPageProps) {
           mt={"6"}
           mb={"6"}
           px={{
-            initial: themeConfig.layout.defaultPadding,
+            initial: themeConfig.layout.padding,
             md: "0",
           }}
         >
           <Grid
-            columns={themeConfig.layout.defaultGridColumns}
-            gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
+            columns={themeConfig.layout.gridColumns}
+            gap={{ initial: "0", md: themeConfig.layout.padding }}
           >
             <Flex justify={"between"}>
               <Heading text_de={"Designs"} text_en={"Designs"} />
@@ -62,7 +62,7 @@ export default function ClientPage(props: ClientPageProps) {
             >
               <Grid
                 columns={"2"}
-                gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
+                gap={{ initial: "0", md: themeConfig.layout.padding }}
                 width={"100%"}
               >
                 {pages.map((page) => {

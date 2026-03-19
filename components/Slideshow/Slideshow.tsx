@@ -24,7 +24,7 @@ export default function Component(props: PageBlocksSlideshow) {
   return (
     <Box
       mt={props.settings?.mt ?? "0"}
-      mb={props.settings?.mb ?? themeConfig.layout.defaultPadding}
+      mb={props.settings?.mb ?? themeConfig.layout.padding}
       className={styles.slideshowContainer}
     >
       <Flex

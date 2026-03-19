@@ -17,7 +17,7 @@ export default function Component(props: PageBlocksCall_To_Action) {
   return (
     <Box
       mt={props.settings?.mt ?? "0"}
-      mb={props.settings?.mb ?? themeConfig.layout.defaultPadding}
+      mb={props.settings?.mb ?? themeConfig.layout.padding}
     >
       {content}
     </Box>

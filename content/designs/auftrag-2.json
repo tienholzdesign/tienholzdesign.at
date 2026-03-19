@@ -64,6 +64,26 @@
                 }
               ],
               "_template": "Slideshow"
+            },
+            {
+              "blocks": [
+                {
+                  "text_de": "Neugierig?",
+                  "_template": "Heading"
+                },
+                {
+                  "text_de": "Machen Sie sich jetzt einen Termin aus und finden Sie Traumobjekte bei sich daheim",
+                  "_template": "Text"
+                },
+                {
+                  "settings": {
+                    "variant": "classic"
+                  },
+                  "text_de": "Jetzt kontaktieren (Email)",
+                  "_template": "Button"
+                }
+              ],
+              "_template": "Call_To_Action"
             }
           ]
         }

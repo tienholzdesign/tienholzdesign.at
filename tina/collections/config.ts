@@ -12,6 +12,11 @@ export default {
       type: "string",
     },
     {
+      name: "url",
+      label: "Project URL",
+      type: "string",
+    },
+    {
       name: "authors",
       label: "Project Authors",
       type: "object",

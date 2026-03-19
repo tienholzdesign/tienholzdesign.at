@@ -2,16 +2,10 @@ export const themeConfig = {
   project: {
     domain: "tienholzdesign.at",
     applicationName: "Tien Holz Design",
-    authors: [
-      {
-        name: "Tien Holz Design",
-        url: "tienholzdesign.at",
-      },
-    ],
   },
   layout: {
-    defaultPadding: "4",
-    defaultGridColumns: {
+    padding: "4",
+    gridColumns: {
       initial: "1",
       md: "3",
     },

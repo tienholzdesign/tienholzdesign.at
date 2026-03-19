@@ -13,14 +13,14 @@ export default function Component(props: PageBlocksGrid) {
       mt={props.settings?.mt ?? "0"}
       mb={props.settings?.mb ?? "0"}
       px={{
-        initial: themeConfig.layout.defaultPadding,
+        initial: themeConfig.layout.padding,
         md: "0",
       }}
     >
       {edit && <EditHelper {...props} />}
       <Grid
-        columns={themeConfig.layout.defaultGridColumns}
-        gap={themeConfig.layout.defaultPadding}
+        columns={themeConfig.layout.gridColumns}
+        gap={themeConfig.layout.padding}
       >
         {props.items?.map((item, index) => (
           <Box

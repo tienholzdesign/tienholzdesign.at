@@ -5,6 +5,7 @@ import {
 } from "../../tina/templating/granular-fields";
 import HeadingTemplate from "../Heading/HeadingTemplate";
 import TextTemplate from "../Text/TextTemplate";
+import ButtonTemplate from "../Button/ButtonTemplate";
 
 export default {
   name: "Call_To_Action",
@@ -21,7 +22,7 @@ export default {
       label: "Content Blocks",
       type: "object",
       list: true,
-      templates: [HeadingTemplate, TextTemplate],
+      templates: [HeadingTemplate, TextTemplate, ButtonTemplate],
     },
   ],
   // ui: {

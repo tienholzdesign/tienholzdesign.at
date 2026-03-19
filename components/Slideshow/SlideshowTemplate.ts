@@ -1,17 +1,11 @@
 import type { Template } from "tinacms";
 import ImageTemplate from "../Image/ImageTemplate";
 import {
-  ExtraMarginBottomField,
-  ExtraMarginTopField,
   MarginBottomField,
   MarginTopField,
-  PaddingXField,
-  PaddingYField,
 } from "../../tina/templating/granular-fields";
 import HeadingTemplate from "../Heading/HeadingTemplate";
 import TextTemplate from "../Text/TextTemplate";
-import { createResponsiveField } from "../../tina/templating/special-fields";
-import { checkForPositveNumber } from "../../tina/templating/validation";
 import ButtonTemplate from "../Button/ButtonTemplate";
 
 export default {

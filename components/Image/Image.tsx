@@ -52,7 +52,7 @@ export default function Component(props: PageBlocksImage) {
   return (
     <Box
       mt={props.settings?.mt ?? "0"}
-      mb={props.settings?.mb ?? themeConfig.layout.defaultPadding}
+      mb={props.settings?.mb ?? themeConfig.layout.padding}
     >
       <LinkWrapper link={props.content?.link ?? ""} content={content} />
     </Box>

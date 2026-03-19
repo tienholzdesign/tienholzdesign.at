@@ -26,7 +26,7 @@ export default function Footer(props: FooterQuery["footer"]) {
     <Container
       py="2"
       px={{
-        initial: themeConfig.layout.defaultPadding,
+        initial: themeConfig.layout.padding,
         md: "0",
       }}
       style={{
@@ -34,15 +34,15 @@ export default function Footer(props: FooterQuery["footer"]) {
       }}
     >
       <Grid
-        columns={themeConfig.layout.defaultGridColumns}
-        gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
+        columns={themeConfig.layout.gridColumns}
+        gap={{ initial: "0", md: themeConfig.layout.padding }}
       >
         <Flex
           gridColumn="span 2"
           align={"center"}
           display={{ initial: "none", md: "flex" }}
           direction={"row"}
-          gap={themeConfig.layout.defaultPadding}
+          gap={themeConfig.layout.padding}
         >
           {props.links?.map((link, index) => {
             return <Text key={index} {...(link as any)} />;

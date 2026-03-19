@@ -19,7 +19,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
     <Container
       py="2"
       px={{
-        initial: themeConfig.layout.defaultPadding,
+        initial: themeConfig.layout.padding,
         md: "0",
       }}
       style={{
@@ -27,8 +27,8 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
       }}
     >
       <Grid
-        columns={themeConfig.layout.defaultGridColumns}
-        gap={{ initial: "0", md: themeConfig.layout.defaultPadding }}
+        columns={themeConfig.layout.gridColumns}
+        gap={{ initial: "0", md: themeConfig.layout.padding }}
       >
         <Flex justify={"between"}>
           <Link
@@ -40,8 +40,8 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
               <NextImage
                 src={props.logo.logoImage}
                 alt="Logo"
-                width={40}
-                height={40}
+                width={props.logo.width ?? 40}
+                height={props.logo.height ?? 40}
                 style={{ margin: 0 }}
               />
             ) : (
@@ -56,10 +56,7 @@ export default function Navigation(props: NavigationQuery["navigation"]) {
                 </RadixButton>
               </Popover.Trigger>
               <Popover.Content side="bottom" align="end">
-                <Flex
-                  direction="column"
-                  gap={themeConfig.layout.defaultPadding}
-                >
+                <Flex direction="column" gap={themeConfig.layout.padding}>
                   {props.links?.map((link, index) => {
                     return <Text key={index} {...(link as any)} />;
                   })}

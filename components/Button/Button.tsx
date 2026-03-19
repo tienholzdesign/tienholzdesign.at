@@ -28,8 +28,8 @@ function Component(props: PageBlocksButton) {
 
   return (
     <Box
-      mt={props.settings?.mt ?? "0"}
-      mb={props.settings?.mb ?? themeConfig.layout.defaultPadding}
+      mt={props.settings?.mt ?? "2"}
+      mb={props.settings?.mb ?? themeConfig.layout.padding}
     >
       <LinkWrapper link={props.link ?? ""} content={content} />
     </Box>

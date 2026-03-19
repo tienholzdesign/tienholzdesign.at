@@ -1,5 +1,6 @@
 import { type Collection } from "tinacms";
 import TextTemplate from "../../components/Text/TextTemplate";
+import { checkForPositveNumber } from "../templating/validation";
 
 export default {
   label: "Navigation Menu",
@@ -16,6 +17,22 @@ export default {
           name: "logoImage",
           label: "Logo Image",
           type: "image",
+        },
+        {
+          name: "width",
+          label: "Width (px)",
+          type: "number",
+          ui: {
+            validate: (value: number) => checkForPositveNumber(value),
+          },
+        },
+        {
+          name: "height",
+          label: "Height (px)",
+          type: "number",
+          ui: {
+            validate: (value: number) => checkForPositveNumber(value),
+          },
         },
         ...TextTemplate.fields.filter((field) => field.name !== "settings"),
       ],
