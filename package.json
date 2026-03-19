@@ -22,7 +22,6 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/themes": "^3.2.1",
     "@types/react": "^19.2",
-    "install": "^0.13.0",
     "next": "latest",
     "nodemailer": "^6.10.1",
     "npm": "^10.9.3",
