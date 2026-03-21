@@ -1,11 +1,15 @@
-"use client";
-import { useTina } from "tinacms/dist/react";
-import Footer from "../../components/Footer/Footer";
-import Navigation from "../../components/Navigation/Navigation";
-import type { ProjectAndNavConnectionQuery } from "../../tina/__generated__/types";
-import type { Language } from "../../tina/templating/special-fields";
-import { LanguageContext } from "../../utils/context/language";
-import Grid from "../../components/Grid/Grid";
+'use client';
+import { useTina } from 'tinacms/dist/react';
+import Footer from '../../components/Footer/Footer';
+import Navigation from '../../components/Navigation/Navigation';
+import type { ProjectAndNavConnectionQuery } from '../../tina/__generated__/types';
+import type { Language } from '../../tina/templating/special-fields';
+import { LanguageContext } from '../../utils/context/language';
+import { Box, Container, Flex, Grid } from '@radix-ui/themes';
+import { themeConfig } from '../../config/theme-config';
+import Heading from '../../components/Heading/Heading';
+import Image from '../../components/Image/Image';
+import Text from '../../components/Text/Text';
 
 type ClientPageProps = {
   query: string;
@@ -30,67 +34,58 @@ export default function ClientPage(props: ClientPageProps) {
   );
 
   return (
-    <LanguageContext.Provider value={props.language || "en"}>
+    <LanguageContext.Provider value={props.language || 'en'}>
       <Navigation {...data.navigation} />
       {pages && (
-        <Grid
-          content={{
-            items: [
-              {
-                __typename: "PageBlocksGridContentItems" as const,
-                blocks: [
-                  {
-                    __typename:
-                      "PageBlocksGridContentItemsBlocksHeading" as const,
-                    content: {
-                      text_de: "Projekte",
-                      text_en: "Projects",
-                    },
-                  },
-                ],
-              },
-              ...pages.map((item) => ({
-                __typename: "PageBlocksGridContentItems" as const,
-                blocks: [
-                  {
-                    __typename:
-                      "PageBlocksGridContentItemsBlocksImage" as const,
-                    link: "/projects/" + item?.node?._sys.filename,
-                    content: {
-                      image: item?.node?.image,
-                      blocks: [
-                        {
-                          __typename:
-                            "PageBlocksGridContentItemsBlocksImageContentBlocksText" as const,
-                          content: {
-                            text_en: item?.node?.name || "",
-                            text_de: item?.node?.name || "",
-                          },
-                        },
-                      ],
-                    },
-                    settings: {
-                      aspectRatio_initial: "1/1",
-                      aspectRatio_xs: "1/1",
-                      aspectRatio_sm: "1/1",
-                      aspectRatio_md: "1/1",
-                      aspectRatio_lg: "1/1",
-                      aspectRatio_xl: "1/1",
-                    },
-                  },
-                ],
-              })),
-            ],
+        <Container
+          mt={'6'}
+          mb={'6'}
+          px={{
+            initial: themeConfig.layout.padding,
+            md: '0',
           }}
-          settings={{
-            columns_initial: "1",
-            columns_xs: "1",
-            columns_sm: "1",
-            columns_md: "3",
-            columns_lg: "3",
-            columns_xl: "3",
-          }}
-        ></Grid>
+        >
+          <Grid
+            columns={themeConfig.layout.gridColumns}
+            gap={{ initial: '0', md: themeConfig.layout.padding }}
+          >
+            <Flex justify={'between'}>
+              <Heading text_de={'Projects'} text_en={'Projects'} />
+            </Flex>
+
+            <Flex
+              gridColumn='span 2'
+              display={{ initial: 'none', md: 'flex' }}
+              direction={'row'}
+              justify={'between'}
+              align={'center'}
+            >
+              <Grid
+                columns={'2'}
+                gap={{ initial: '0', md: themeConfig.layout.padding }}
+                width={'100%'}
+              >
+                {pages.map((page, index) => {
+                  return (
+                    <Box key={index}>
+                      <Image
+                        content={{
+                          // link: `/designs/${page!.node?._sys.filename}`,
+                          image: page!.node?.image,
+                        }}
+                      />
+                      <Text
+                        key={page!.node?._sys.filename}
+                        text_de={page!.node?.name}
+                        text_en={page!.node?.name}
+                      />
+                    </Box>
+                  );
+                })}
+              </Grid>
+            </Flex>
+          </Grid>
+        </Container>
       )}
       <Footer {...data.footer} />
     </LanguageContext.Provider>

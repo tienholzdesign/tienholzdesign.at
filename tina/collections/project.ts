@@ -22,6 +22,11 @@ export default {
       label: "Blocks",
       type: "object",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?._template || "Block" };
+        },
+      },
       templates,
     },
   ],

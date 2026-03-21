@@ -20,50 +20,32 @@
       }
     ]
   },
+  "logoImage": "/uploads/portrait.jpg",
+  "settings": {},
   "logo": {
-    "link": "/",
-    "content": {
-      "text_de": "Tien Holz Design",
-      "text_en": "Tien Wood Design"
-    },
-    "settings": {
-      "marginBottom": "0"
-    }
+    "logoImage": "/uploads/portrait.jpg",
+    "link": "/"
   },
   "links": [
     {
+      "settings": {},
       "link": "/about",
-      "content": {
-        "text_de": "Werkstatt",
-        "text_en": "Workshop"
-      },
-      "settings": {
-        "marginBottom": "0"
-      }
+      "text_de": "Werkstatt"
     },
     {
+      "settings": {},
+      "link": "/designs",
+      "text_de": "Designs"
+    },
+    {
+      "settings": {},
       "link": "/projects",
-      "content": {
-        "text_de": "Projekte",
-        "text_en": "Projects"
-      },
-      "settings": {
-        "marginBottom": "0"
-      }
+      "text_de": "Projekte"
     },
     {
+      "settings": {},
       "link": "/contact",
-      "content": {
-        "text_de": "Kontakt",
-        "text_en": "Contact"
-      },
-      "settings": {
-        "marginBottom": "0"
-      }
+      "text_de": "Kontakt"
     }
-  ],
-  "settings": {
-    "paddingX": "4",
-    "paddingY": "4"
-  }
+  ]
 }

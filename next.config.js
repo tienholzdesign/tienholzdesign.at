@@ -1,9 +1,9 @@
 const path = require("path");
-const project = require("./project.js");
 
 /** @type {import('next').NextConfig} */
 
 module.exports = {
+  output: "standalone",
   turbopack: {
     root: path.join(__dirname),
   },
@@ -30,7 +30,8 @@ module.exports = {
       },
       {
         protocol: "https",
-        hostname: project.url,
+        // TODO add to documentation that this needs to be added for the tina admin to work properly
+        hostname: "tienholzdesign.at",
         port: "",
         search: "",
       },

@@ -57,81 +57,6 @@ export const AspectRatioField: Template["fields"][number] = {
   options: [...aspectRatios],
 };
 
-export const AlignField: Template["fields"][number] = {
-  name: "align",
-  label: "Align",
-  type: "string",
-  options: ["left", "center", "right"],
-};
-
-export const MarginXField: Template["fields"][number] = {
-  name: "marginX",
-  label: "Horizontal Margin Size",
-  type: "string",
-  options: [...radixUnits],
-};
-
-export const ExtraMarginBottomField: Template["fields"][number] = {
-  name: "marginBottom",
-  label: "Alternating Bottom Margin Size",
-  type: "string",
-  options: [...radixUnits],
-};
-
-export const MarginYField: Template["fields"][number] = {
-  name: "marginY",
-  label: "Vertical Margin Size",
-  type: "string",
-  options: [...radixUnits],
-};
-
-export const PaddingXField: Template["fields"][number] = {
-  name: "paddingX",
-  label: "Horizontal Padding Size",
-  type: "string",
-  options: [...radixUnits],
-};
-
-export const PaddingYField: Template["fields"][number] = {
-  name: "paddingY",
-  label: "Vertical Padding Size",
-  type: "string",
-  options: [...radixUnits],
-};
-
-export const ExtraPaddingWhenInGridField: Template["fields"][number] = {
-  name: "extraPaddingWhenInGrid",
-  label: "Extra Padding When In Grid",
-  type: "boolean",
-};
-
-export const GapField: Template["fields"][number] = {
-  name: "gap",
-  label: "Gap Size",
-  type: "string",
-  options: [...radixUnitsPositive],
-};
-
-export const TextSizeField: Template["fields"][number] = {
-  name: "textSize",
-  label: "Text Size",
-  type: "string",
-  options: [...radixUnitsPositive],
-};
-
-export const colorMap: Record<(typeof colors)[number], string> = {
-  gray: "var(--gray-12)",
-  white: "var(--gray-1)",
-};
-
-const colors = ["gray", "white"] as const;
-export const TextColorField: Template["fields"][number] = {
-  name: "textColor",
-  label: "Text Color",
-  type: "string",
-  options: [...colors],
-};
-
 export const SEOField: Template["fields"][number] = {
   name: "seo",
   label: "SEO",
@@ -165,6 +90,13 @@ export const SEOField: Template["fields"][number] = {
   ],
 };
 
+export const TextSizeField: Template["fields"][number] = {
+  name: "textSize",
+  label: "Text Size",
+  type: "string",
+  options: [...radixUnitsPositive],
+};
+
 export const FilenameField: Template["fields"][number] = {
   name: "name",
   label: "Name",
@@ -190,53 +122,25 @@ export const LinkField: Template["fields"][number] = {
   name: "link",
   label: "Link (optional)",
   type: "string",
-  description: "Fill this field to wrap content with a link",
 };
 
-export const HasContainerField: Template["fields"][number] = {
-  name: "hasContainer",
-  label: "Wrap Component in Container",
-  type: "boolean",
-};
-
-export const IDField: Template["fields"][number] = {
-  name: "id",
-  label: "ID",
-  type: "string",
-  description: "Add an ID to this component for linking or accessibility",
-};
-
-export const FontField: Template["fields"][number] = {
-  name: "font",
-  label: "Font",
-  type: "string",
-  options: ["serif", "sans"],
-};
-
-export const BlocksPositionField: Template["fields"][number] = {
-  name: "blocksPosition",
-  label: "Blocks Position",
-  type: "string",
-  options: ["start", "center"],
-};
-
-export const RadiusField: Template["fields"][number] = {
-  name: "radius",
-  label: "Radius",
-  type: "string",
-  options: ["full", "large", "medium", "small", "none"],
-};
-
-export const ColumnsField: Template["fields"][number] = {
-  name: "columns",
-  label: "Columns",
+export const GridColumnSpanField: Template["fields"][number] = {
+  name: "gridColumnSpan",
+  label: "Grid Column Span",
   type: "string",
   options: [...radixUnitsPositive],
 };
 
-export const DirectionField: Template["fields"][number] = {
-  name: "direction",
-  label: "Direction",
+export const MarginTopField: Template["fields"][number] = {
+  name: "mt",
+  label: "Top Margin Size",
   type: "string",
-  options: ["row", "column", "row-reverse", "column-reverse"],
+  options: [...radixUnits],
+};
+
+export const MarginBottomField: Template["fields"][number] = {
+  name: "mb",
+  label: "Bottom Margin Size",
+  type: "string",
+  options: [...radixUnits],
 };

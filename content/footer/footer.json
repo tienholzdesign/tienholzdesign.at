@@ -1,29 +1,17 @@
 {
   "links": [
     {
-      "content": {
-        "text_de": "Instagram",
-        "text_en": "Instagram"
-      },
-      "settings": {
-        "marginBottom": "0"
-      }
+      "settings": {},
+      "link": "https://www.instagram.com/chen.ast/",
+      "text_de": "Instagram",
+      "text_en": "Instagram"
     },
     {
-      "link": "office@tienholzdesign.at",
-      "content": {
-        "text_de": "Email",
-        "text_en": "Email"
-      },
-      "settings": {
-        "marginBottom": "0"
-      }
+      "settings": {},
+      "link": "mailto:office@tienholzdesign.at",
+      "text_de": "Email",
+      "text_en": "Email"
     }
   ],
-  "settings": {
-    "marginX": "",
-    "marginY": "",
-    "paddingX": "4",
-    "paddingY": "4"
-  }
+  "settings": {}
 }

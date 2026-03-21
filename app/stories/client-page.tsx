@@ -53,27 +53,18 @@ export default function ClientPage(props: ClientPageProps) {
             {pages.map((item, i) => (
               <Box key={i}>
                 <Image
-                  link={"/projects/" + item?.node?._sys.filename}
                   content={{
                     image: item?.node?.image,
                     blocks: [
                       {
                         __typename: "PageBlocksImageContentBlocksText",
-                        content: {
-                          text_de: item?.node?.name,
-                          text_en: item?.node?.name,
-                        },
-                        settings: {
-                          align: "center",
-                          textColor: "white",
-                          font: "serif",
-                          textSize: "9",
-                        },
+                        link: "/projects/" + item?.node?._sys.filename,
+                        text_de: item?.node?.name,
+                        text_en: item?.node?.name,
                       },
                     ],
                   }}
                   settings={{
-                    blocksPosition: "center",
                     aspectRatio_initial: "1/1" as AspectRatio,
                     aspectRatio_xs: "1/1" as AspectRatio,
                     aspectRatio_sm: "1/1" as AspectRatio,

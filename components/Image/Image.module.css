@@ -1,0 +1,16 @@
+/* Image component styles */
+
+.aspectRatioContainer {
+  overflow: hidden;
+}
+
+.imageContent {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.overlayContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}

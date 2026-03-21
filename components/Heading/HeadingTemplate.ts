@@ -1,18 +1,12 @@
 import type { Template } from "tinacms";
-import { createIntlField } from "../../tina/templating/special-fields";
 import {
-  AlignField,
+  createIntlField,
+  createResponsiveField,
+} from "../../tina/templating/special-fields";
+import {
   TextSizeField,
-  MarginXField,
-  MarginYField,
-  PaddingXField,
-  PaddingYField,
-  HasContainerField,
-  FontField,
-  TextColorField,
-  ExtraMarginBottomField,
-  ExtraPaddingWhenInGridField,
-  IDField,
+  MarginTopField,
+  MarginBottomField,
 } from "../../tina/templating/granular-fields";
 
 export default {
@@ -20,36 +14,20 @@ export default {
   label: "Heading",
   fields: [
     {
-      name: "content",
-      label: "Content",
-      type: "object",
-      fields: [
-        ...createIntlField({
-          name: "text",
-          label: "Text",
-          type: "string",
-          ui: { component: "textarea" },
-        }),
-      ],
-    },
-    {
       name: "settings",
       label: "Settings",
       type: "object",
       fields: [
-        IDField,
-        HasContainerField,
-        AlignField,
-        TextSizeField,
-        TextColorField,
-        FontField,
-        MarginXField,
-        MarginYField,
-        ExtraMarginBottomField,
-        PaddingXField,
-        PaddingYField,
-        ExtraPaddingWhenInGridField,
+        MarginTopField,
+        MarginBottomField,
+        ...createResponsiveField(TextSizeField),
       ],
     },
+    ...createIntlField({
+      name: "text",
+      label: "Text",
+      type: "string",
+      ui: { component: "textarea" },
+    }),
   ],
 } as Template;

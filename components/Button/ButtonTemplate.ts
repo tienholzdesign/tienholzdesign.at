@@ -1,62 +1,38 @@
 import type { Template } from "tinacms";
-import { createIntlField } from "../../tina/templating/special-fields";
 import {
-  AlignField,
-  TextSizeField,
-  MarginXField,
-  MarginYField,
-  PaddingXField,
-  PaddingYField,
+  createIntlField,
+} from "../../tina/templating/special-fields";
+import {
   LinkField,
-  RadiusField,
-  TextColorField,
-  ExtraMarginBottomField,
-  FontField,
+  MarginTopField,
+  MarginBottomField,
 } from "../../tina/templating/granular-fields";
 
 export default {
   name: "Button",
   label: "Button",
   fields: [
-    LinkField,
-    {
-      name: "content",
-      label: "Content",
-      type: "object",
-      fields: [
-        ...createIntlField({
-          name: "text",
-          label: "Text",
-          type: "string",
-          ui: { component: "textarea" },
-        }),
-      ],
-    },
     {
       name: "settings",
       label: "Settings",
       type: "object",
       fields: [
+        MarginTopField,
+        MarginBottomField,
         {
           name: "variant",
           label: "Variant",
           type: "string",
           options: ["classic", "solid", "soft", "surface", "outline", "ghost"],
         },
-        RadiusField,
-        {
-          ...TextSizeField,
-          options: ["1", "2", "3"],
-        },
-        TextColorField,
-        FontField,
-        AlignField,
-        MarginXField,
-        MarginYField,
-        ExtraMarginBottomField,
-        PaddingXField,
-        PaddingYField,
       ],
     },
+    LinkField,
+    ...createIntlField({
+      name: "text",
+      label: "Text",
+      type: "string",
+      ui: { component: "textarea" },
+    }),
   ],
 } as Template;

@@ -1,51 +1,60 @@
-
 .test {
-    border: 1px solid var(--warning-7);
+  position: relative;
+}
+
+.test::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid red;
+  pointer-events: none;
 }
 
 .test-responsive::before {
-    position: absolute;
-    z-index: 2;
-    filter: opacity(0.5);
-    content: "";
-    left: 0;
-    padding: 2px 4px;
-    background-color: var(--warning-9);
-
+  position: absolute;
+  z-index: 2;
+  filter: opacity(0.5);
+  content: "";
+  left: 0;
+  padding: 2px 4px;
+  background-color: var(--warning-9);
 }
 
 @media screen and (max-width: 300px) {
-    .test-responsive::before {
-        content: "Phones (portrait)";
-    }
+  .test-responsive::before {
+    content: "Phones (portrait)";
+  }
 }
 
 @media screen and (min-width: 301px) and (max-width: 520px) {
-    .test-responsive::before {
-        content: "Phones (landscape)";
-    }
+  .test-responsive::before {
+    content: "Phones (landscape)";
+  }
 }
 
 @media screen and (min-width: 521px) and (max-width: 768px) {
-    .test-responsive::before {
-        content: "Tablets (portrait)";
-    }
+  .test-responsive::before {
+    content: "Tablets (portrait)";
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .test-responsive::before {
-        content: "Tablets (landscape)";
-    }
+  .test-responsive::before {
+    content: "Tablets (landscape)";
+  }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
-    .test-responsive::before {
-        content: "Laptops";
-    }
+  .test-responsive::before {
+    content: "Laptops";
+  }
 }
 
 @media screen and (min-width: 1281px) {
-    .test-responsive::before {
-        content: "Desktops";
-    }
+  .test-responsive::before {
+    content: "Desktops";
+  }
 }

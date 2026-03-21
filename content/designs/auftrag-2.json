@@ -1,0 +1,94 @@
+{
+  "name": "Auftrag 2",
+  "image": "/uploads/auftrag3-4.jpg",
+  "blocks": [
+    {
+      "content": {
+        "image": "/uploads/auftrag3-4.jpg"
+      },
+      "settings": {
+        "aspectRatio_initial": "3/1",
+        "aspectRatio_xs": "3/1",
+        "aspectRatio_sm": "3/1",
+        "aspectRatio_md": "3/1",
+        "aspectRatio_lg": "3/1",
+        "aspectRatio_xl": "3/1"
+      },
+      "_template": "Image"
+    },
+    {
+      "settings": {
+        "mt": "6",
+        "mb": "6"
+      },
+      "items": [
+        {
+          "blocks": [
+            {
+              "text_de": "Auftrag 2",
+              "_template": "Heading"
+            },
+            {
+              "text_de": "Miri und Christian Cervantes gründeten Calienna nach fast zwei Jahrzehnten in der Kreativbranche in New York und London. Christian, ursprünglich aus Südkalifornien, baute als Designer und Creative Director bei der internationalen Agentur Mother Brands auf. Miri, aus Tirol, studierte Designmanagement in New York, arbeitete im Bereich Markenstrategie und absolvierte eine Ausbildung an der McQueen’s School of Flowers in London, wo sie sich intensiv mit Pflanzen und Floristik beschäftigte.",
+              "_template": "Text"
+            }
+          ]
+        },
+        {
+          "settings": {
+            "gridColumnSpan": "2"
+          },
+          "blocks": [
+            {
+              "settings": {
+                "nextSlideTimeout": "7"
+              },
+              "blocks": [
+                {
+                  "content": {
+                    "image": "/uploads/auftrag3-2.jpg"
+                  },
+                  "_template": "Image"
+                },
+                {
+                  "content": {
+                    "image": "/uploads/auftrag3-1.jpg"
+                  },
+                  "_template": "Image"
+                },
+                {
+                  "content": {
+                    "image": "/uploads/messen.jpg"
+                  },
+                  "_template": "Image"
+                }
+              ],
+              "_template": "Slideshow"
+            },
+            {
+              "blocks": [
+                {
+                  "text_de": "Neugierig?",
+                  "_template": "Heading"
+                },
+                {
+                  "text_de": "Machen Sie sich jetzt einen Termin aus und finden Sie Traumobjekte bei sich daheim",
+                  "_template": "Text"
+                },
+                {
+                  "settings": {
+                    "variant": "classic"
+                  },
+                  "text_de": "Jetzt kontaktieren (Email)",
+                  "_template": "Button"
+                }
+              ],
+              "_template": "Call_To_Action"
+            }
+          ]
+        }
+      ],
+      "_template": "Grid"
+    }
+  ]
+}

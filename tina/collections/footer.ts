@@ -1,14 +1,8 @@
 import type { Collection } from "tinacms";
-import {
-  MarginXField,
-  MarginYField,
-  PaddingXField,
-  PaddingYField,
-} from "../templating/granular-fields";
 import TextTemplate from "../../components/Text/TextTemplate";
 
 export default {
-  label: "Footer Menu",
+  label: "Bottom Menu",
   name: "footer",
   path: "content/footer",
   format: "json",
@@ -18,13 +12,12 @@ export default {
       label: "Links",
       type: "object",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.content?.text || "Link" };
+        },
+      },
       fields: TextTemplate.fields,
-    },
-    {
-      name: "settings",
-      label: "Settings",
-      type: "object",
-      fields: [MarginXField, MarginYField, PaddingXField, PaddingYField],
     },
   ],
   ui: {

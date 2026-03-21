@@ -5,6 +5,8 @@ import useSlideshow from "./hook";
 import { renderBlocks } from "../../tina/templating/utils";
 import useBreakpoint from "../../utils/hook/useBreakpoint";
 import { findBreakpointValue } from "../../tina/templating/special-fields";
+import styles from "./Slideshow.module.css";
+import { themeConfig } from "../../config/theme-config";
 
 export default function Component(props: PageBlocksSlideshow) {
   const breakpoint = useBreakpoint();
@@ -14,81 +16,55 @@ export default function Component(props: PageBlocksSlideshow) {
   );
 
   const { slideshow, scrollToSlide, activeSlide } = useSlideshow({
-    numberOfSlides: props.content?.blocks?.length,
+    numberOfSlides: props?.blocks?.length,
     numberOfSlidesShown: props.settings?.[numberOfSlidesShown] ?? 1,
     nextSlideTimeout: Number((props.settings as any)?.nextSlideTimeout) || null,
   });
 
   return (
     <Box
-      mx={props.settings?.marginX ?? "0"}
-      my={props.settings?.marginY ?? "0"}
-      mb={props.settings?.marginBottom ?? "inherit"}
-      px={props.settings?.paddingX ?? "0"}
-      py={props.settings?.paddingY ?? "0"}
-      position={"relative"}
+      mt={props.settings?.mt ?? "0"}
+      mb={props.settings?.mb ?? themeConfig.layout.padding}
+      className={styles.slideshowContainer}
     >
       <Flex
         overflowX="auto"
         overflowY="hidden"
         wrap="nowrap"
         ref={slideshow as Ref<HTMLDivElement>}
-        style={{
-          msOverflowStyle: "none",
-          scrollbarWidth: "none",
-          scrollSnapType: "x mandatory",
-        }}
+        className={styles.slideScroller}
       >
-        {props.content?.blocks?.map((slide, index) => (
+        {props.blocks?.map((slide, index) => (
           <Box
             key={index}
             flexShrink={"0"}
             width={"100%"}
-            style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+            className={styles.slide}
           >
             {renderBlocks(slide, index)}
           </Box>
         ))}
       </Flex>
 
-      {props.settings?.hasControls !== false && (
-        <Box
-          p={"2"}
-          mt={"-8"}
-          mb={"0"}
-          position={"absolute"}
-          left={"50%"}
-          style={{
-            zIndex: 100,
-            borderRadius: "9999px",
-            transform: "translateX(-50%)",
-            backgroundColor: "var(--gray-a1)",
-          }}
-        >
-          <Flex>
-            {props.content?.blocks?.map((block, index) => {
-              return (
-                <Box
-                  onClick={() => {
-                    scrollToSlide(index + 1);
-                  }}
-                  key={index}
-                  mx={"1"}
-                  style={{
-                    width: 16,
-                    height: 16,
-                    borderRadius: "9999px",
-                    backgroundColor:
-                      activeSlide === index + 1
-                        ? "var(--accent-1)"
-                        : "var(--gray-12)",
-                  }}
-                />
-              );
-            })}
-          </Flex>
-        </Box>
-      )}
+      <Box p={"2"} mt={"-9"} mb={"0"} className={styles.controlsContainer}>
+        <Flex>
+          {props.blocks?.map((block, index) => {
+            const isActive = activeSlide === index + 1;
+            return (
+              <Box
+                onClick={() => {
+                  scrollToSlide(index + 1);
+                }}
+                key={index}
+                mx={"1"}
+                className={`${styles.controlDot} ${
+                  isActive ? styles.controlDotActive : styles.controlDotInactive
+                }`}
+              />
+            );
+          })}
+        </Flex>
+      </Box>
     </Box>
   );
 }

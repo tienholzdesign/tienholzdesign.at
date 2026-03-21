@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import project from "../project";
+import { themeConfig } from "../config/theme-config";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/admin/",
     },
-    sitemap: `https://www.${project.url}/sitemap.xml`,
+    sitemap: `https://www.${themeConfig.project.domain}/sitemap.xml`,
   };
 }

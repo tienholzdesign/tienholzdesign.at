@@ -1,0 +1,6 @@
+/* EditHelper component styles */
+
+.editButton {
+  position: absolute;
+  z-index: 100;
+}

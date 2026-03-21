@@ -3,41 +3,35 @@ import type { PageBlocksButton } from "../../tina/__generated__/types";
 import { useContext } from "react";
 import { LanguageContext } from "../../utils/context/language";
 import { tinaField } from "tinacms/dist/react";
-import { findIntlValue } from "../../tina/templating/special-fields";
-import Link from "next/link";
+import {
+  findIntlValue,
+  findResponsiveValue,
+} from "../../tina/templating/special-fields";
+import { LinkWrapper } from "../helpers";
+import { themeConfig } from "../../config/theme-config";
 
 function Component(props: PageBlocksButton) {
   const language = useContext(LanguageContext);
   const text = findIntlValue(language, "text");
-  const variant = props.settings?.variant ?? "classic";
 
   const content = (
     <Button
-      className={props.settings?.font as any}
-      radius={(props.settings?.radius as any) ?? "0px"}
-      data-tina-field={tinaField(props.content ?? props)}
-      variant={variant as any}
-      size={(props.settings?.textSize as any) ?? "3"}
-      style={{
-        cursor: "pointer",
-      }}
+      data-tina-field={tinaField(props ?? props)}
+      variant={props.settings?.variant as any}
+      size={findResponsiveValue(props.settings, "textSize")}
+      style={{ cursor: "pointer" }}
+      radius={themeConfig.layout.radius}
     >
-      {props.content?.[text] || "Add your text here"}
+      {props?.[text] || "Add your text here"}
     </Button>
   );
 
   return (
     <Box
-      mx={props.settings?.marginX ?? "0"}
-      my={props.settings?.marginY ?? "0"}
-      mb={props.settings?.marginBottom ?? "inherit"}
-      px={props.settings?.paddingX ?? "0"}
-      py={props.settings?.paddingY ?? "0"}
-      style={{
-        textAlign: props.settings?.align as any,
-      }}
+      mt={props.settings?.mt ?? "2"}
+      mb={props.settings?.mb ?? themeConfig.layout.padding}
     >
-      {props.link ? <Link href={props.link}>{content}</Link> : content}
+      <LinkWrapper link={props.link ?? ""} content={content} />
     </Box>
   );
 }
