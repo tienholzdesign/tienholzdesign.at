@@ -52,38 +52,29 @@ export default function ClientPage(props: ClientPageProps) {
             <Flex justify={'between'}>
               <Heading text_de={'Designs'} text_en={'Designs'} />
             </Flex>
-
-            <Flex
-              gridColumn='span 2'
-              display={{ initial: 'none', md: 'flex' }}
-              direction={'row'}
-              justify={'between'}
-              align={'center'}
+            <Grid
+              columns={{ initial: '1', md: '2' }}
+              gap={themeConfig.layout.padding}
+              width={'100%'}
             >
-              <Grid
-                columns={'2'}
-                gap={{ initial: '0', md: themeConfig.layout.padding }}
-                width={'100%'}
-              >
-                {pages.map((page, index) => {
-                  return (
-                    <Box key={index}>
-                      <Image
-                        content={{
-                          link: `/designs/${page!.node?._sys.filename}`,
-                          image: page!.node?.image,
-                        }}
-                      />
-                      <Text
-                        key={page!.node?._sys.filename}
-                        text_de={page!.node?.name}
-                        text_en={page!.node?.name}
-                      />
-                    </Box>
-                  );
-                })}
-              </Grid>
-            </Flex>
+              {pages.map((page, index) => {
+                return (
+                  <Box key={index}>
+                    <Image
+                      content={{
+                        link: `/designs/${page!.node?._sys.filename}`,
+                        image: page!.node?.image,
+                      }}
+                    />
+                    <Text
+                      key={page!.node?._sys.filename}
+                      text_de={page!.node?.name}
+                      text_en={page!.node?.name}
+                    />
+                  </Box>
+                );
+              })}
+            </Grid>
           </Grid>
         </Container>
       )}
