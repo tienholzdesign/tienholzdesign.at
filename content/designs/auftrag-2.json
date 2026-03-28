@@ -3,18 +3,34 @@
   "image": "/uploads/auftrag3-4.jpg",
   "blocks": [
     {
-      "content": {
-        "image": "/uploads/auftrag3-4.jpg"
-      },
       "settings": {
-        "aspectRatio_initial": "3/1",
-        "aspectRatio_xs": "3/1",
-        "aspectRatio_sm": "3/1",
-        "aspectRatio_md": "3/1",
-        "aspectRatio_lg": "3/1",
-        "aspectRatio_xl": "3/1"
+        "mt": "6"
       },
-      "_template": "Image"
+      "items": [
+        {
+          "settings": {
+            "gridColumnSpan": "3"
+          },
+          "blocks": [
+            {
+              "content": {
+                "image": "/uploads/auftrag3-4.jpg"
+              },
+              "settings": {
+                "mb": "",
+                "aspectRatio_initial": "3/1",
+                "aspectRatio_xs": "3/1",
+                "aspectRatio_sm": "3/1",
+                "aspectRatio_md": "3/1",
+                "aspectRatio_lg": "3/1",
+                "aspectRatio_xl": "3/1"
+              },
+              "_template": "Image"
+            }
+          ]
+        }
+      ],
+      "_template": "Grid"
     },
     {
       "settings": {

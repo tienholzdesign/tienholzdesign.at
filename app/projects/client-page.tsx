@@ -55,6 +55,7 @@ export default function ClientPage(props: ClientPageProps) {
 
             <Grid
               columns={{ initial: '1', md: '2' }}
+              gridColumn={`span 2`}
               gap={themeConfig.layout.padding}
               width={'100%'}
             >

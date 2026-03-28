@@ -1,3 +1,73 @@
 {
-  "name": "Auftrag 4"
+  "name": "Kommode mit Schubladen",
+  "image": "/uploads/sebze/IMG-20240218-WA0002.jpg",
+  "blocks": [
+    {
+      "settings": {
+        "mt": "6"
+      },
+      "items": [
+        {
+          "settings": {
+            "gridColumnSpan": "1"
+          },
+          "blocks": [
+            {
+              "text_de": "Kommode in Esche weiß geölt. Simples Design bleibt zeitlos",
+              "_template": "Text"
+            }
+          ]
+        },
+        {
+          "settings": {
+            "gridColumnSpan": "2"
+          },
+          "blocks": [
+            {
+              "content": {
+                "image": "/uploads/sebze/IMG-20240216-WA0027.jpg"
+              },
+              "_template": "Image"
+            }
+          ]
+        }
+      ],
+      "_template": "Grid"
+    },
+    {
+      "items": [
+        {},
+        {
+          "settings": {
+            "gridColumnSpan": ""
+          },
+          "blocks": [
+            {
+              "content": {
+                "image": "/uploads/sebze/IMG_20240326_113600_847.jpg"
+              },
+              "settings": {
+                "aspectRatio_md": "4/3"
+              },
+              "_template": "Image"
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "content": {
+                "image": "/uploads/sebze/IMG-20240218-WA0001.jpg"
+              },
+              "settings": {
+                "aspectRatio_md": "4/3"
+              },
+              "_template": "Image"
+            }
+          ]
+        }
+      ],
+      "_template": "Grid"
+    }
+  ]
 }
