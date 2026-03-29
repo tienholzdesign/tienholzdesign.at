@@ -11,6 +11,7 @@ import ButtonTemplate from '../Button/ButtonTemplate';
 import SlideshowTemplate from '../Slideshow/SlideshowTemplate';
 import CallToActionTemplate from '../CallToAction/CallToActionTemplate';
 import config from '../../utils/config';
+import AccordionTemplate from '../Accordion/AccordionTemplate';
 
 const label = {
   grid: {
@@ -56,6 +57,7 @@ export default {
           type: 'object',
           list: true,
           templates: [
+            AccordionTemplate,
             ButtonTemplate,
             HeadingTemplate,
             ImageTemplate,

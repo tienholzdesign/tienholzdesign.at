@@ -1,20 +1,23 @@
-import { type Components } from "tinacms/dist/rich-text";
-import Button from "../components/Button/Button";
-import ButtonTemplate from "../components/Button/ButtonTemplate";
-import Grid from "../components/Grid/Grid";
-import GridTemplate from "../components/Grid/GridTemplate";
-import Heading from "../components/Heading/Heading";
-import HeadingTemplate from "../components/Heading/HeadingTemplate";
-import Image from "../components/Image/Image";
-import ImageTemplate from "../components/Image/ImageTemplate";
-import Slideshow from "../components/Slideshow/Slideshow";
-import SlideshowTemplate from "../components/Slideshow/SlideshowTemplate";
-import Text from "../components/Text/Text";
-import TextTemplate from "../components/Text/TextTemplate";
-import CallToActionTemplate from "../components/CallToAction/CallToActionTemplate";
-import CallToAction from "../components/CallToAction/CallToAction";
+import { type Components } from 'tinacms/dist/rich-text';
+import Button from '../components/Button/Button';
+import ButtonTemplate from '../components/Button/ButtonTemplate';
+import Grid from '../components/Grid/Grid';
+import GridTemplate from '../components/Grid/GridTemplate';
+import Heading from '../components/Heading/Heading';
+import HeadingTemplate from '../components/Heading/HeadingTemplate';
+import Image from '../components/Image/Image';
+import ImageTemplate from '../components/Image/ImageTemplate';
+import Slideshow from '../components/Slideshow/Slideshow';
+import SlideshowTemplate from '../components/Slideshow/SlideshowTemplate';
+import Text from '../components/Text/Text';
+import TextTemplate from '../components/Text/TextTemplate';
+import CallToActionTemplate from '../components/CallToAction/CallToActionTemplate';
+import CallToAction from '../components/CallToAction/CallToAction';
+import AccordionTemplate from '../components/Accordion/AccordionTemplate';
+import Accordion from '../components/Accordion/Accordion';
 
 export const templates = [
+  AccordionTemplate,
   ButtonTemplate,
   CallToActionTemplate,
   GridTemplate,
@@ -25,6 +28,9 @@ export const templates = [
 ];
 
 export default {
+  Accordion: (props: any) => {
+    return <Accordion {...props} />;
+  },
   Button: (props: any) => {
     return <Button {...props} />;
   },
