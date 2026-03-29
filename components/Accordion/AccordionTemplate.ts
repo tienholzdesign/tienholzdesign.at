@@ -22,7 +22,21 @@ export default {
       label: 'Content Blocks',
       type: 'object',
       list: true,
-      templates: [HeadingTemplate, TextTemplate, ButtonTemplate],
+      fields: [
+        {
+          name: 'title',
+          label: 'Title',
+          type: 'string',
+        },
+        {
+          name: 'blocks',
+          label: 'Content Blocks',
+          type: 'object',
+          list: true,
+          templates: [HeadingTemplate, TextTemplate, ButtonTemplate],
+          ui: { max: 1 },
+        },
+      ],
     },
   ],
   // ui: {

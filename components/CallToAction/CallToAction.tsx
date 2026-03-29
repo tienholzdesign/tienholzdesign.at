@@ -9,8 +9,9 @@ export default function Component(props: PageBlocksCall_To_Action) {
     <Card
       data-tina-field={tinaField(props)}
       style={{
-        background:
-          'radial-gradient(circle, var(--color-background) 0%,var(--orange-10) 100%',
+        background: props.settings?.isPlain
+          ? 'var(--gray-3)'
+          : 'radial-gradient(circle, var(--color-background) 0%,var(--accent-10) 100%',
       }}
     >
       {props?.blocks?.map((block, index) => {

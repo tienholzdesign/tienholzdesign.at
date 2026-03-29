@@ -17,7 +17,7 @@ function Component(props: PageBlocksButton) {
   const content = (
     <Button
       data-tina-field={tinaField(props ?? props)}
-      variant={props.settings?.variant as any}
+      variant={(props.settings?.variant as any) ?? 'classic'}
       size={findResponsiveValue(props.settings, 'textSize')}
       style={{ cursor: 'pointer' }}
       radius={config.layout.radius}

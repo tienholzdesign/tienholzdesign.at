@@ -1,6 +1,3 @@
-@import "@radix-ui/colors/sage.css";
-@import "./aliasing.css";
-
 a {
   color: var(--gray-12);
   text-decoration: none;

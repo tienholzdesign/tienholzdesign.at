@@ -45,7 +45,7 @@ export default function Navigation(props: NavigationQuery['navigation']) {
                 style={{ margin: 0 }}
               />
             ) : (
-              <Text {...(props.logo as any)} />
+              <Text {...(props.logo as any)} link='' />
             )}
           </Link>
           <Box display={{ initial: 'block', md: 'none' }}>

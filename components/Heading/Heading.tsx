@@ -12,7 +12,7 @@ export default function Component(props: PageBlocksHeading) {
 
   const content = (
     <Heading
-      // className="serif"
+      className='serif'
       data-tina-field={tinaField(props)}
       size={config.layout.headingSize}
       style={{ whiteSpace: 'pre-line' }}

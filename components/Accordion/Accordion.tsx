@@ -1,43 +1,33 @@
-import { Box } from '@radix-ui/themes';
-import type { PageBlocksCall_To_Action } from '../../tina/__generated__/types';
+import { Box, Flex } from '@radix-ui/themes';
+import type { PageBlocksAccordion } from '../../tina/__generated__/types';
 import config from '../../utils/config';
 import * as Accordion from '@radix-ui/react-accordion';
-import classNames from 'classnames';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
-import './Accordion.module.css';
-import * as React from 'react';
+import { renderBlocks } from '../../tina/templating/utils';
+import styles from './Accordion.module.css';
+import Text from '../Text/Text';
 
-export default function Component(props: PageBlocksCall_To_Action) {
+export default function Component(props: PageBlocksAccordion) {
   const content = (
-    <Accordion.Root
-      className='AccordionRoot'
-      type='single'
-      defaultValue='item-1'
-      collapsible
-    >
-      <Accordion.Item className='AccordionItem' value='item-1'>
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </Accordion.Item>
+    <Accordion.Root type='multiple' defaultValue={['item-1']}>
+      {props.blocks?.map((block, index) => (
+        <Accordion.Item value={`item-${index + 1}`} key={index}>
+          <Accordion.Trigger className={styles.trigger}>
+            <Flex justify={'between'} align={'center'}>
+              <Text text_de={block?.title} />
+              <ChevronDownIcon />
+            </Flex>
+          </Accordion.Trigger>
 
-      <Accordion.Item className='AccordionItem' value='item-2'>
-        <AccordionTrigger>Is it unstyled?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It's unstyled by default, giving you freedom over the look and
-          feel.
-        </AccordionContent>
-      </Accordion.Item>
-
-      <Accordion.Item className='AccordionItem' value='item-3'>
-        <AccordionTrigger>Can it be animated?</AccordionTrigger>
-        <Accordion.Content className='AccordionContent'>
-          <div className='AccordionContentText'>
-            Yes! You can animate the Accordion with CSS or JavaScript.
-          </div>
-        </Accordion.Content>
-      </Accordion.Item>
+          <Accordion.Content>
+            <Box py='3'>
+              {block?.blocks?.map((block, index) => {
+                return renderBlocks(block, index);
+              })}
+            </Box>
+          </Accordion.Content>
+        </Accordion.Item>
+      ))}
     </Accordion.Root>
   );
 
@@ -50,36 +40,3 @@ export default function Component(props: PageBlocksCall_To_Action) {
     </Box>
   );
 }
-
-const AccordionTrigger = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentPropsWithoutRef<typeof Accordion.Trigger> & {
-    children: React.ReactNode;
-  }
->(({ children, className, ...props }, forwardedRef) => (
-  <Accordion.Header className='AccordionHeader'>
-    <Accordion.Trigger
-      className={classNames('AccordionTrigger', className)}
-      {...props}
-      ref={forwardedRef}
-    >
-      {children}
-      <ChevronDownIcon className='AccordionChevron' aria-hidden />
-    </Accordion.Trigger>
-  </Accordion.Header>
-));
-
-const AccordionContent = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof Accordion.Content> & {
-    children: React.ReactNode;
-  }
->(({ children, className, ...props }, forwardedRef) => (
-  <Accordion.Content
-    className={classNames('AccordionContent', className)}
-    {...props}
-    ref={forwardedRef}
-  >
-    <div className='AccordionContentText'>{children}</div>
-  </Accordion.Content>
-));
