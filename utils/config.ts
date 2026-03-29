@@ -1,3 +1,5 @@
+import type { Language } from '../tina/templating/special-fields';
+
 export default {
   project: {
     applicationName: 'Tien Holz Design',
@@ -26,7 +28,9 @@ export default {
       md: '7',
     },
   },
-
+  tina: {
+    language: 'de' as Language,
+  },
   radixUI: {
     accentColor: 'gray' as const,
     appearance: 'light' as const,
