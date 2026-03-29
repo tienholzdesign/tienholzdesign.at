@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import client from '../../tina/__generated__/client';
 import type { Page } from '../../tina/__generated__/types';
