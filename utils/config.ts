@@ -16,7 +16,7 @@ export default {
     padding: '4',
     gridColumns: {
       initial: '1',
-      md: '3',
+      md: '2',
     },
     radius: 'full',
     textSize: {
