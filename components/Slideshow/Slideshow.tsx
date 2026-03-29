@@ -1,18 +1,18 @@
-import { Box, Flex } from "@radix-ui/themes";
-import type { PageBlocksSlideshow } from "../../tina/__generated__/types";
-import type { Ref } from "react";
-import useSlideshow from "./hook";
-import { renderBlocks } from "../../tina/templating/utils";
-import useBreakpoint from "../../utils/hook/useBreakpoint";
-import { findBreakpointValue } from "../../tina/templating/special-fields";
-import styles from "./Slideshow.module.css";
-import { themeConfig } from "../../config/theme-config";
+import { Box, Flex } from '@radix-ui/themes';
+import type { PageBlocksSlideshow } from '../../tina/__generated__/types';
+import type { Ref } from 'react';
+import useSlideshow from './hook';
+import { renderBlocks } from '../../tina/templating/utils';
+import useBreakpoint from '../../utils/hook/useBreakpoint';
+import { findBreakpointValue } from '../../tina/templating/special-fields';
+import styles from './Slideshow.module.css';
+import config from '../../utils/config';
 
 export default function Component(props: PageBlocksSlideshow) {
   const breakpoint = useBreakpoint();
   const numberOfSlidesShown = findBreakpointValue(
     breakpoint,
-    "numberOfSlidesShown",
+    'numberOfSlidesShown',
   );
 
   const { slideshow, scrollToSlide, activeSlide } = useSlideshow({
@@ -23,22 +23,22 @@ export default function Component(props: PageBlocksSlideshow) {
 
   return (
     <Box
-      mt={props.settings?.mt ?? "0"}
-      mb={props.settings?.mb ?? themeConfig.layout.padding}
+      mt={props.settings?.mt ?? '0'}
+      mb={props.settings?.mb ?? config.layout.padding}
       className={styles.slideshowContainer}
     >
       <Flex
-        overflowX="auto"
-        overflowY="hidden"
-        wrap="nowrap"
+        overflowX='auto'
+        overflowY='hidden'
+        wrap='nowrap'
         ref={slideshow as Ref<HTMLDivElement>}
         className={styles.slideScroller}
       >
         {props.blocks?.map((slide, index) => (
           <Box
             key={index}
-            flexShrink={"0"}
-            width={"100%"}
+            flexShrink={'0'}
+            width={'100%'}
             className={styles.slide}
           >
             {renderBlocks(slide, index)}
@@ -46,7 +46,7 @@ export default function Component(props: PageBlocksSlideshow) {
         ))}
       </Flex>
 
-      <Box p={"2"} mt={"-9"} mb={"0"} className={styles.controlsContainer}>
+      <Box p={'2'} mt={'-9'} mb={'0'} className={styles.controlsContainer}>
         <Flex>
           {props.blocks?.map((block, index) => {
             const isActive = activeSlide === index + 1;
@@ -56,7 +56,7 @@ export default function Component(props: PageBlocksSlideshow) {
                   scrollToSlide(index + 1);
                 }}
                 key={index}
-                mx={"1"}
+                mx={'1'}
                 className={`${styles.controlDot} ${
                   isActive ? styles.controlDotActive : styles.controlDotInactive
                 }`}

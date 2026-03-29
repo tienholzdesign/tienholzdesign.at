@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
 import client from '../tina/__generated__/client';
 import { findIntlValue } from '../tina/templating/special-fields';
+import config from './config';
 
 export async function generateCollectionMetadata(
   title: string,
 ): Promise<Metadata> {
-  const config = await client.queries.config({
-    relativePath: 'config.json',
-  });
-
   return {
-    title: `${title} | ${config.data.config?.applicationName}`,
-    description: config.data.config?.applicationName || title,
-    applicationName: config.data.config?.applicationName,
-    authors: config.data.config?.authors?.map((author) => ({
+    title: `${title} | ${config.project.applicationName}`,
+    description: config.project.applicationName || title,
+    applicationName: config.project.applicationName,
+    authors: config.project.authors?.map((author) => ({
       name: author?.name || '',
       url: author?.url || '',
     })),
@@ -25,10 +22,6 @@ export async function generateItemMetadata(
   language: string,
   collectionType: 'design' | 'project' | 'story',
 ): Promise<Metadata> {
-  const config = await client.queries.config({
-    relativePath: 'config.json',
-  });
-
   const pageData = await (client.queries[collectionType] as any)({
     relativePath: `${filename}.json`,
   });
@@ -43,10 +36,10 @@ export async function generateItemMetadata(
   const description = pageContent?.[seo]?.metaDescription;
 
   return {
-    title: `${pageTitle} | ${config.data.config?.applicationName}`,
+    title: `${pageTitle} | ${config.project.applicationName}`,
     description: description,
-    applicationName: config.data.config?.applicationName,
-    authors: config.data.config?.authors?.map((author) => ({
+    applicationName: config.project.applicationName,
+    authors: config.project.authors?.map((author) => ({
       name: author?.name || '',
       url: author?.url || '',
     })),

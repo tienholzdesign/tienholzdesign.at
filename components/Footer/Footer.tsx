@@ -1,18 +1,18 @@
-"use client";
-import { Container, Flex, Grid, Select } from "@radix-ui/themes";
-import { useContext } from "react";
-import { LanguageContext } from "../../utils/context/language";
-import { languages, type Language } from "../../tina/templating/special-fields";
-import type { FooterQuery } from "../../tina/__generated__/types";
-import Text from "../Text/Text";
-import { themeConfig } from "../../config/theme-config";
+'use client';
+import { Container, Flex, Grid, Select } from '@radix-ui/themes';
+import { useContext } from 'react';
+import { LanguageContext } from '../../utils/context/language';
+import { languages, type Language } from '../../tina/templating/special-fields';
+import type { FooterQuery } from '../../tina/__generated__/types';
+import Text from '../Text/Text';
+import config from '../../utils/config';
 
 const languageLabels: Record<Language, string> = {
-  de: "Deutsch",
-  en: "English",
+  de: 'Deutsch',
+  en: 'English',
 };
 
-export default function Footer(props: FooterQuery["footer"]) {
+export default function Footer(props: FooterQuery['footer']) {
   const language = useContext(LanguageContext);
 
   const handleLanguageChange = (newLanguage: string) => {
@@ -24,37 +24,37 @@ export default function Footer(props: FooterQuery["footer"]) {
 
   return (
     <Container
-      py="2"
+      py='2'
       px={{
-        initial: themeConfig.layout.padding,
-        md: "0",
+        initial: config.layout.padding,
+        md: '0',
       }}
       style={{
-        borderTop: "1px solid var(--gray-6)",
+        borderTop: '1px solid var(--gray-6)',
       }}
     >
       <Grid
-        columns={themeConfig.layout.gridColumns}
-        gap={{ initial: "0", md: themeConfig.layout.padding }}
+        columns={config.layout.gridColumns}
+        gap={{ initial: '0', md: config.layout.padding }}
       >
         <Flex
-          gridColumn="span 2"
-          align={"center"}
-          display={{ initial: "none", md: "flex" }}
-          direction={"row"}
-          gap={themeConfig.layout.padding}
+          gridColumn='span 2'
+          align={'center'}
+          display={{ initial: 'none', md: 'flex' }}
+          direction={'row'}
+          gap={config.layout.padding}
         >
           {props.links?.map((link, index) => {
             return <Text key={index} {...(link as any)} />;
           })}
         </Flex>
 
-        <Flex justify={"end"}>
+        <Flex justify={'end'}>
           <Select.Root value={language} onValueChange={handleLanguageChange}>
             <Select.Trigger
-              aria-label="Select language"
+              aria-label='Select language'
               style={{
-                borderRadius: "var(--radius-6)",
+                borderRadius: 'var(--radius-6)',
               }}
             />
             <Select.Content>

@@ -1,27 +1,24 @@
-import { Box, Container, Grid } from "@radix-ui/themes";
-import { tinaField, useEditState } from "tinacms/dist/react";
-import type { PageBlocksGrid } from "../../tina/__generated__/types";
-import EditHelper from "../../tina/templating/EditHelper";
-import { renderBlocks } from "../../tina/templating/utils";
-import { themeConfig } from "../../config/theme-config";
+import { Box, Container, Grid } from '@radix-ui/themes';
+import { tinaField, useEditState } from 'tinacms/dist/react';
+import type { PageBlocksGrid } from '../../tina/__generated__/types';
+import EditHelper from '../../tina/templating/EditHelper';
+import { renderBlocks } from '../../tina/templating/utils';
+import config from '../../utils/config';
 
 export default function Component(props: PageBlocksGrid) {
   const { edit } = useEditState();
 
   return (
     <Container
-      mt={props.settings?.mt ?? "0"}
-      mb={props.settings?.mb ?? "0"}
+      mt={props.settings?.mt ?? '0'}
+      mb={props.settings?.mb ?? '0'}
       px={{
-        initial: themeConfig.layout.padding,
-        md: "0",
+        initial: config.layout.padding,
+        md: '0',
       }}
     >
       {edit && <EditHelper {...props} />}
-      <Grid
-        columns={themeConfig.layout.gridColumns}
-        gap={themeConfig.layout.padding}
-      >
+      <Grid columns={config.layout.gridColumns} gap={config.layout.padding}>
         {props.items?.map((item, index) => (
           <Box
             key={index}

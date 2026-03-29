@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import client from '../tina/__generated__/client';
 import { sanitizeFilenameForURL } from '../tina/templating/validation';
-import { themeConfig } from '../config/theme-config';
+import config from './config';
 
 export async function generateCollectionSitemap(
   queryName: 'designConnection' | 'projectConnection' | 'storyConnection',
@@ -11,7 +11,7 @@ export async function generateCollectionSitemap(
   const pages = result.data[queryName].edges;
 
   return pages!.map((page: any) => ({
-    url: `https://www.${themeConfig.project.domain}/${basePath}/${sanitizeFilenameForURL(
+    url: `https://www.${config.project.url}/${basePath}/${sanitizeFilenameForURL(
       page!.node!.name,
     )}`,
     lastModified: new Date(),

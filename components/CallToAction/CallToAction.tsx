@@ -1,8 +1,8 @@
 import { Box, Card } from '@radix-ui/themes';
 import { tinaField } from 'tinacms/dist/react';
 import type { PageBlocksCall_To_Action } from '../../tina/__generated__/types';
-import { themeConfig } from '../../config/theme-config';
 import { renderBlocks } from '../../tina/templating/utils';
+import config from '../../utils/config';
 
 export default function Component(props: PageBlocksCall_To_Action) {
   const content = (
@@ -22,7 +22,7 @@ export default function Component(props: PageBlocksCall_To_Action) {
   return (
     <Box
       mt={props.settings?.mt ?? '0'}
-      mb={props.settings?.mb ?? themeConfig.layout.padding}
+      mb={props.settings?.mb ?? config.layout.padding}
     >
       {content}
     </Box>

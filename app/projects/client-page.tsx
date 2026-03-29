@@ -6,7 +6,7 @@ import type { ProjectAndNavConnectionQuery } from '../../tina/__generated__/type
 import type { Language } from '../../tina/templating/special-fields';
 import { LanguageContext } from '../../utils/context/language';
 import { Box, Container, Flex, Grid } from '@radix-ui/themes';
-import { themeConfig } from '../../config/theme-config';
+import config from '../../utils/config';
 import Heading from '../../components/Heading/Heading';
 import Image from '../../components/Image/Image';
 import Text from '../../components/Text/Text';
@@ -41,13 +41,13 @@ export default function ClientPage(props: ClientPageProps) {
           mt={'6'}
           mb={'6'}
           px={{
-            initial: themeConfig.layout.padding,
+            initial: config.layout.padding,
             md: '0',
           }}
         >
           <Grid
-            columns={themeConfig.layout.gridColumns}
-            gap={{ initial: '0', md: themeConfig.layout.padding }}
+            columns={config.layout.gridColumns}
+            gap={{ initial: '0', md: config.layout.padding }}
           >
             <Flex justify={'between'}>
               <Heading text_de={'Projects'} text_en={'Projects'} />
@@ -56,7 +56,7 @@ export default function ClientPage(props: ClientPageProps) {
             <Grid
               columns={{ initial: '1', md: '2' }}
               gridColumn={`span 2`}
-              gap={themeConfig.layout.padding}
+              gap={config.layout.padding}
               width={'100%'}
             >
               {pages.map((page, index) => {

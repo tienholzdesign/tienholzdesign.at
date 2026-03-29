@@ -1,37 +1,37 @@
-import { Box, Button } from "@radix-ui/themes";
-import type { PageBlocksButton } from "../../tina/__generated__/types";
-import { useContext } from "react";
-import { LanguageContext } from "../../utils/context/language";
-import { tinaField } from "tinacms/dist/react";
+import { Box, Button } from '@radix-ui/themes';
+import type { PageBlocksButton } from '../../tina/__generated__/types';
+import { useContext } from 'react';
+import { LanguageContext } from '../../utils/context/language';
+import { tinaField } from 'tinacms/dist/react';
 import {
   findIntlValue,
   findResponsiveValue,
-} from "../../tina/templating/special-fields";
-import { LinkWrapper } from "../helpers";
-import { themeConfig } from "../../config/theme-config";
+} from '../../tina/templating/special-fields';
+import { LinkWrapper } from '../helpers';
+import config from '../../utils/config';
 
 function Component(props: PageBlocksButton) {
   const language = useContext(LanguageContext);
-  const text = findIntlValue(language, "text");
+  const text = findIntlValue(language, 'text');
 
   const content = (
     <Button
       data-tina-field={tinaField(props ?? props)}
       variant={props.settings?.variant as any}
-      size={findResponsiveValue(props.settings, "textSize")}
-      style={{ cursor: "pointer" }}
-      radius={themeConfig.layout.radius}
+      size={findResponsiveValue(props.settings, 'textSize')}
+      style={{ cursor: 'pointer' }}
+      radius={config.layout.radius}
     >
-      {props?.[text] || "Add your text here"}
+      {props?.[text] || 'Add your text here'}
     </Button>
   );
 
   return (
     <Box
-      mt={props.settings?.mt ?? "2"}
-      mb={props.settings?.mb ?? themeConfig.layout.padding}
+      mt={props.settings?.mt ?? '2'}
+      mb={props.settings?.mb ?? config.layout.padding}
     >
-      <LinkWrapper link={props.link ?? ""} content={content} />
+      <LinkWrapper link={props.link ?? ''} content={content} />
     </Box>
   );
 }
