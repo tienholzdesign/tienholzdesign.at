@@ -20,10 +20,11 @@ export async function generateCollectionMetadata(
 export async function generateItemMetadata(
   filename: string,
   language: string,
-  collectionType: 'design' | 'project' | 'story',
+  collectionType: 'design' | 'project' | 'story' | 'page',
 ): Promise<Metadata> {
+  const fileExtension = collectionType === 'page' ? '.mdx' : '.json';
   const pageData = await (client.queries[collectionType] as any)({
-    relativePath: `${filename}.json`,
+    relativePath: `${filename}${fileExtension}`,
   });
 
   const seo = findIntlValue(language as any, 'seo');
