@@ -10,7 +10,7 @@ export default function Component(props: PageBlocksCall_To_Action) {
       data-tina-field={tinaField(props)}
       style={{
         background:
-          'radial-gradient(circle, var(--color-background) 0%,var(--violet-10) 100%',
+          'radial-gradient(circle, var(--color-background) 0%,var(--orange-10) 100%',
       }}
     >
       {props?.blocks?.map((block, index) => {
