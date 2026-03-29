@@ -1,8 +1,8 @@
-import { cookies } from "next/headers";
-import client from "../../../tina/__generated__/client";
-import type { GenerateMetadataProps } from "../../../tina/types";
-import ClientPage from "./client-page";
-import { generateItemMetadata } from "../../../utils/generateCollectionMetadata";
+import { cookies } from 'next/headers';
+import client from '../../../tina/__generated__/client';
+import type { GenerateMetadataProps } from '../../../tina/types';
+import ClientPage from './client-page';
+import { generateItemMetadata } from '../../../utils/generateCollectionMetadata';
 
 export async function generateStaticParams() {
   const pages = await client.queries.designConnection();
@@ -13,12 +13,10 @@ export async function generateStaticParams() {
   return paths || [];
 }
 
-export async function generateMetadata({
-  params,
-}: GenerateMetadataProps) {
-  const language = (await cookies()).get("language")?.value ?? "en";
+export async function generateMetadata({ params }: GenerateMetadataProps) {
+  const language = (await cookies()).get('language')?.value ?? 'en';
   const title = (await params).filename[0];
-  return generateItemMetadata(title, language, "design");
+  return generateItemMetadata(title, language, 'design');
 }
 
 export default async function Page(props: {
@@ -26,7 +24,7 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   const cookieStore = await cookies();
-  const language = cookieStore.get("language")?.value ?? "en";
+  const language = cookieStore.get('language')?.value ?? 'en';
 
   const data = await client.queries.designAndNavigation({
     relativePath: `${params.filename}.json`,

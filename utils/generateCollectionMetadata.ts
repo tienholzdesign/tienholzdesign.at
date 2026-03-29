@@ -14,8 +14,8 @@ export async function generateCollectionMetadata(
     description: config.data.config?.applicationName || title,
     applicationName: config.data.config?.applicationName,
     authors: config.data.config?.authors?.map((author) => ({
-      name: author?.name || "",
-      url: author?.url || "",
+      name: author?.name || '',
+      url: author?.url || '',
     })),
   };
 }
@@ -38,8 +38,7 @@ export async function generateItemMetadata(
   const pageContent = pageData.data[collectionKey];
 
   const pageTitle =
-    pageContent?.[seo]?.title ??
-    filename[0].toUpperCase() + filename.slice(1);
+    pageContent?.[seo]?.title ?? filename[0].toUpperCase() + filename.slice(1);
 
   const description = pageContent?.[seo]?.metaDescription;
 
@@ -48,11 +47,11 @@ export async function generateItemMetadata(
     description: description,
     applicationName: config.data.config?.applicationName,
     authors: config.data.config?.authors?.map((author) => ({
-      name: author?.name || "",
-      url: author?.url || "",
+      name: author?.name || '',
+      url: author?.url || '',
     })),
-    keywords: pageContent?.[seo]?.metaKeywords?.map((item: string, index: number) =>
-      index === 0 ? item : ` ${item}`,
+    keywords: pageContent?.[seo]?.metaKeywords?.map(
+      (item: string, index: number) => (index === 0 ? item : ` ${item}`),
     ),
   };
 }
