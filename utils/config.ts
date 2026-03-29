@@ -2,13 +2,13 @@ import type { Language } from '../tina/templating/special-fields';
 
 export default {
   project: {
-    applicationName: 'Tien Holz Design',
+    applicationName: 'Adrian Focke',
     /** The base URL for the project without the protocol */
-    url: 'tienholzdesign.at',
+    url: 'adrianfocke.at',
     authors: [
       {
-        name: 'Tien Holz Design',
-        url: 'tienholzdesign.at',
+        name: 'Adrian Focke',
+        url: 'adrianfocke.at',
       },
     ],
   },
