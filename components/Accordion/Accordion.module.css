@@ -1,0 +1,16 @@
+.trigger {
+  width: 100%;
+  background: unset;
+  border: unset;
+  font-size: unset;
+  border-bottom: 1px solid var(--gray-6);
+  padding: var(--space-3) 0;
+}
+
+.trigger[data-state='open'] {
+  cursor: n-resize;
+}
+
+.trigger[data-state='closed'] {
+  cursor: s-resize;
+}

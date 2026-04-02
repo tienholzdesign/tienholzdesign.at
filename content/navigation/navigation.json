@@ -23,29 +23,23 @@
   "logoImage": "/uploads/portrait.jpg",
   "settings": {},
   "logo": {
-    "logoImage": "/uploads/portrait.jpg",
-    "link": "/"
+    "logoImage": "",
+    "link": "/",
+    "text_de": "Adrian Focke",
+    "text_en": "Adrian Focke"
   },
   "links": [
     {
       "settings": {},
       "link": "/about",
-      "text_de": "Werkstatt"
+      "text_de": "Über mich",
+      "text_en": "About me"
     },
     {
       "settings": {},
-      "link": "/designs",
-      "text_de": "Designs"
-    },
-    {
-      "settings": {},
-      "link": "/projects",
-      "text_de": "Projekte"
-    },
-    {
-      "settings": {},
-      "link": "/contact",
-      "text_de": "Kontakt"
+      "link": "/stories",
+      "text_de": "Stories",
+      "text_en": "Stories"
     }
   ]
 }

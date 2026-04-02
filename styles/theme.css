@@ -1,6 +1,3 @@
-@import "@radix-ui/colors/sage.css";
-@import "./aliasing.css";
-
 a {
   color: var(--gray-12);
   text-decoration: none;
@@ -32,6 +29,52 @@ p {
 .serif {
   font-family: var(--font-serif);
   font-weight: 400 !important;
+}
+
+/* Instrument Serif Heading: Custom sizing */
+.serif[class*='rt-r-size-1'] {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.serif[class*='rt-r-size-2'] {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.serif[class*='rt-r-size-3'] {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.serif[class*='rt-r-size-4'] {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.serif[class*='rt-r-size-5'] {
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.serif[class*='rt-r-size-6'] {
+  font-size: 35px;
+  line-height: 40px;
+}
+
+.serif[class*='rt-r-size-7'] {
+  font-size: 44px;
+  line-height: 52px;
+}
+
+.serif[class*='rt-r-size-8'] {
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.serif[class*='rt-r-size-9'] {
+  font-size: 64px;
+  line-height: 64px;
 }
 
 .sans {

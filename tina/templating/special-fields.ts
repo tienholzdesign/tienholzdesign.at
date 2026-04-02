@@ -1,30 +1,30 @@
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props/prop-def";
-import type { Template } from "tinacms";
+import type { Responsive } from '@radix-ui/themes/dist/cjs/props/prop-def';
+import type { Template } from 'tinacms';
 
-export const languages = ["de", "en"] as const;
+export const languages = ['de', 'en'] as const;
 export type Language = (typeof languages)[number];
 const radixResponsiveSizes: Responsive<any>[] = [
-  "initial",
-  "xs",
-  "sm",
-  "md",
-  "lg",
-  "xl",
+  'initial',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
 ];
 
 const responsiveLabels: Record<
   Responsive<(typeof radixResponsiveSizes)[number]>,
   string
 > = {
-  initial: "Phone vertical",
-  xs: "Phone horizontal",
-  sm: "Tablet vertical",
-  md: "Tablet horizontal",
-  lg: "Laptop",
-  xl: "Desktop",
+  initial: 'Phone vertical',
+  xs: 'Phone horizontal',
+  sm: 'Tablet vertical',
+  md: 'Tablet horizontal',
+  lg: 'Laptop',
+  xl: 'Desktop',
 };
 
-export const createIntlField = (field: Template["fields"][number]) => {
+export const createIntlField = (field: Template['fields'][number]) => {
   return languages.map((locale) => ({
     ...field,
     name: `${field.name}_${locale}`,
@@ -44,6 +44,7 @@ export const findBreakpointValue = (
 };
 
 export const findResponsiveValue = (settings: any, key: string) => {
+  if (!settings) return undefined;
   return {
     initial: settings?.[`${key}_initial`],
     xs: settings?.[`${key}_xs`],
@@ -54,7 +55,7 @@ export const findResponsiveValue = (settings: any, key: string) => {
   };
 };
 
-export const createResponsiveField = (field: Template["fields"][number]) => {
+export const createResponsiveField = (field: Template['fields'][number]) => {
   return radixResponsiveSizes.map((size) => ({
     ...field,
     name: `${field.name}_${size}`,

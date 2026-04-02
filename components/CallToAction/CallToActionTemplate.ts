@@ -1,26 +1,34 @@
-import type { Template } from "tinacms";
+import type { Template } from 'tinacms';
 import {
   MarginTopField,
   MarginBottomField,
-} from "../../tina/templating/granular-fields";
-import HeadingTemplate from "../Heading/HeadingTemplate";
-import TextTemplate from "../Text/TextTemplate";
-import ButtonTemplate from "../Button/ButtonTemplate";
+} from '../../tina/templating/granular-fields';
+import HeadingTemplate from '../Heading/HeadingTemplate';
+import TextTemplate from '../Text/TextTemplate';
+import ButtonTemplate from '../Button/ButtonTemplate';
 
 export default {
-  name: "Call_To_Action",
-  label: "Call To Action",
+  name: 'Call_To_Action',
+  label: 'Call To Action',
   fields: [
     {
-      name: "settings",
-      label: "Settings",
-      type: "object",
-      fields: [MarginTopField, MarginBottomField],
+      name: 'settings',
+      label: 'Settings',
+      type: 'object',
+      fields: [
+        MarginTopField,
+        MarginBottomField,
+        {
+          name: 'isPlain',
+          label: 'Plain Style',
+          type: 'boolean',
+        },
+      ],
     },
     {
-      name: "blocks",
-      label: "Content Blocks",
-      type: "object",
+      name: 'blocks',
+      label: 'Content Blocks',
+      type: 'object',
       list: true,
       templates: [HeadingTemplate, TextTemplate, ButtonTemplate],
     },

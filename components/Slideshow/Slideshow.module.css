@@ -23,12 +23,12 @@
   z-index: 1;
 }
 
-.ToggleGroupItem[data-state="on"] {
+.ToggleGroupItem[data-state='on'] {
   background-color: var(--violet-5) !important;
   color: var(--violet-11);
 }
 
-.ToggleGroupItem[data-state="on"]:hover {
+.ToggleGroupItem[data-state='on']:hover {
   background-color: var(--violet-6) !important;
 }
 
