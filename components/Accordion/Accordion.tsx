@@ -6,7 +6,6 @@ import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { renderBlocks } from '../../tina/templating/utils';
 import styles from './Accordion.module.css';
 import Text from '../Text/Text';
-import { tinaField } from 'tinacms/dist/react';
 
 export default function Component(props: PageBlocksAccordion) {
   const content = (
