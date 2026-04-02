@@ -14,9 +14,11 @@ export default function Component(props: PageBlocksCall_To_Action) {
           : 'radial-gradient(circle, var(--color-background) 0%,var(--accent-10) 100%',
       }}
     >
-      {props?.blocks?.map((block, index) => {
-        return renderBlocks(block, index);
-      })}
+      <Box pt={config.layout.padding}>
+        {props?.blocks?.map((block, index) => {
+          return renderBlocks(block, index);
+        })}
+      </Box>
     </Card>
   );
 

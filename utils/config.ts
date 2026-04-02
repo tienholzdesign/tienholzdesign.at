@@ -26,6 +26,8 @@ export default {
     headingSize: {
       initial: '7',
       md: '8',
+      lg: '7',
+      xl: '7',
     },
   },
   tina: {

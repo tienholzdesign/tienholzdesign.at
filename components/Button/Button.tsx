@@ -28,7 +28,7 @@ function Component(props: PageBlocksButton) {
 
   return (
     <Box
-      mt={props.settings?.mt ?? '2'}
+      mt={props.settings?.mt ?? '4'}
       mb={props.settings?.mb ?? config.layout.padding}
     >
       <LinkWrapper link={props.link ?? ''} content={content} />

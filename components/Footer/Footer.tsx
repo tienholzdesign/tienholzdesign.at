@@ -24,6 +24,7 @@ export default function Footer(props: FooterQuery['footer']) {
 
   return (
     <Container
+      mt={config.layout.padding}
       py='2'
       px={{
         initial: config.layout.padding,

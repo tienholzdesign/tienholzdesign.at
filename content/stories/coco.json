@@ -1,0 +1,18 @@
+{
+  "name": "Coco",
+  "blocks": [
+    {
+      "items": [
+        {
+          "blocks": [
+            {
+              "text_de": "Meine Lebensaufgabe ist es, Menschen zu erheben. Ich gestalte Yoga-Einheiten, die auf allen Ebenen wirken—samt Bhakti,  Soundhealings und einer lebendigen Community.",
+              "_template": "Heading"
+            }
+          ]
+        }
+      ],
+      "_template": "Grid"
+    }
+  ]
+}

@@ -3,7 +3,10 @@ import type { PageBlocksHeading } from '../../tina/__generated__/types';
 import { useContext } from 'react';
 import { LanguageContext } from '../../utils/context/language';
 import { tinaField } from 'tinacms/dist/react';
-import { findIntlValue } from '../../tina/templating/special-fields';
+import {
+  findIntlValue,
+  findResponsiveValue,
+} from '../../tina/templating/special-fields';
 import config from '../../utils/config';
 
 export default function Component(props: PageBlocksHeading) {
@@ -14,7 +17,10 @@ export default function Component(props: PageBlocksHeading) {
     <Heading
       className='serif'
       data-tina-field={tinaField(props)}
-      size={config.layout.headingSize}
+      size={
+        findResponsiveValue(props.settings, 'textSize') ??
+        config.layout.headingSize
+      }
       style={{ whiteSpace: 'pre-line' }}
     >
       {props[text] ? props[text] : 'Add your text here'}

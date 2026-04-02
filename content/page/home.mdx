@@ -24,32 +24,76 @@ seo_en:
     - wien
 blocks:
   - settings:
-      mt: '4'
+      mt: '6'
     items:
       - settings:
-          gridColumnSpan: '2'
+          gridColumnSpan: ''
         blocks:
-          - content:
-              image: /uploads/portrait-3000.png
-              blurImage: /uploads/portrait-1200.png
-            settings:
-              aspectRatio_md: 3/1
-              aspectRatio_lg: 3/1
-              aspectRatio_xl: 3/1
+          - settings:
+              isPlain: false
+            blocks:
+              - text_de: Mutiges Design für mutige Menschen.
+                _template: Heading
+              - text_de: |-
+                  Hi, mein Name ist Adrian. Ich bin Developer und Digital Consultant in Wien. Durch meine Arbeit kann ich Menschen digital erheben und das erfüllt mich.
+
+                  Außerdem mache ich noch einige andere Dinge: ich bin Masseur, Yogalehrer und halte unterschiedliche Formate zum Thema Männlichkeit und Feminismus.
+                _template: Text
+              - link: /about
+                text_de: Mehr über mich
+                _template: Button
+            _template: Call_To_Action
+      - blocks:
+          - settings:
+              aspectRatio_sm: ''
+              aspectRatio_md: 1/1
+              aspectRatio_lg: 1/1
+              aspectRatio_xl: 1/1
             _template: Image
       - settings:
           gridColumnSpan: '2'
         blocks:
-          - text_de: |-
-              Hi, mein Name ist Adrian.
-              Ich bin Developer und Digital Consultant in Wien. Durch meine Arbeit kann ich Menschen digital erheben und das erfüllt mich.
-              Außerdem mache ich noch einige andere Dinge: ich bin Masseur, Yogalehrer und halte unterschiedliche Formate zum Thema Männlichkeit und Feminismus.
-            _template: Text
-      - blocks:
-          - _template: Image
-      - blocks:
           - blocks:
-              - _template: Image
+              - content:
+                  image: /uploads/sebze/20250807_170434.jpg
+                  blocks:
+                    - _template: Heading
+                    - _template: Text
+                    - _template: Button
+                settings:
+                  aspectRatio_initial: ''
+                  aspectRatio_xs: ''
+                  aspectRatio_sm: ''
+                  aspectRatio_md: ''
+                  aspectRatio_lg: ''
+                  aspectRatio_xl: ''
+                _template: Image
+              - content:
+                  blocks:
+                    - _template: Heading
+                    - _template: Text
+                    - _template: Button
+                settings:
+                  aspectRatio_initial: ''
+                  aspectRatio_xs: ''
+                  aspectRatio_sm: ''
+                  aspectRatio_md: ''
+                  aspectRatio_lg: ''
+                  aspectRatio_xl: 1/1
+                _template: Image
+              - content:
+                  blocks:
+                    - _template: Heading
+                    - _template: Text
+                    - _template: Button
+                settings:
+                  aspectRatio_initial: ''
+                  aspectRatio_xs: ''
+                  aspectRatio_sm: ''
+                  aspectRatio_md: ''
+                  aspectRatio_lg: ''
+                  aspectRatio_xl: 1/1
+                _template: Image
             _template: Slideshow
       - settings:
           gridColumnSpan: '2'
@@ -107,7 +151,9 @@ blocks:
       - settings:
           gridColumnSpan: '2'
         blocks:
-          - text_de: Noch Fragen?
+          - settings:
+              textSize_lg: '8'
+            text_de: Noch Fragen?
             _template: Heading
       - settings:
           gridColumnSpan: '2'
@@ -117,14 +163,14 @@ blocks:
                 blocks:
                   - text_de: 'Wordpress ist ein praktisches System, hat aber ein paar Schwachstellen: Viele Plugins funktionieren zwar, für eine umfassende Funktionalität muss man aber extra zahlen. Außerdem weisen die meisten Plugins einen fragwürdigen Datenschutz vor. Wordpress ist über die Jahre hinweg so sehr gewachsen, dass die Oberfläche schwer zu bedienen geworden ist. Bei mir bekommst du ein skalierbars Block-System, in dem ich dir Funktionalität spezifisch dazubaue und so einen Standard garantieren kann – wiederverwendbar, modular und einfach in der Handhabung.'
                     _template: Text
-              - title: Inwiefern bin ich dadurch abhängig?
+              - title: Kann ich eigenständig Änderungen vornehmen?
                 blocks:
-                  - text_de: 'Ich arbeite effizient und verwende nur Open Source Software. All meine Tools sind frei verfügbar und so können andere Developer:innen jederzeit einspringen, erweitern oder übernehmen. Wenn du also zukünftig mit anderen Menschen zusammenarbeitest, bist du unabhängig von mir. Außerdem habe ich eine weitgehende Dokumentation in meiner Codebase etabliert, um es anderen Menschen noch einfacher zu machen.'
+                  - text_de: 'Ja, du kannst du. Dein Content ist jederzeit von dir anpassbar und Änderungen werden sofort übernommen. Ich arbeite effizient und verwende nur Open Source Software. All meine Tools sind frei verfügbar und so können andere Developer:innen jederzeit einspringen, erweitern oder übernehmen. Wenn du also zukünftig mit anderen Menschen zusammenarbeitest, bist du unabhängig von mir. Außerdem habe ich eine weitgehende Dokumentation in meiner Codebase etabliert, um es anderen Menschen noch einfacher zu machen.'
                     _template: Text
               - title: Wie funktioniert das mit der KI?
                 blocks:
                   - text_de: |
-                      Ich programmiere selbst mithilfe von KI. Meine Arbeit besteht daraus, ein vollumfängliches Produkt entstehen zu lassen, welches Weitblick hat und dem Zeitgeist entspricht. Manches kann die KI nicht, beispielsweise Netzwerken oder eine holitische Begleitung anbieten. Ich baue dir was, das wirklich zu dir und deiner Idee passt. Ferner biete ich dir präzisen technischen Support an und vermittle nachhaltiges Hosting. Du bekommst das Beste aus beiden Welten, zu einem passenden Preis.
+                      Ich programmiere selbst teils mithilfe von KI. Meine Arbeit besteht daraus, ein vollumfängliches Produkt entstehen zu lassen, welches Weitblick hat und dem Zeitgeist entspricht. Manches kann die KI nicht, beispielsweise netzwerken oder eine holitische Begleitung anbieten. Ich baue dir was, das wirklich zu dir und deiner Idee passt. Ferner biete ich dir präzisen technischen Support an und vermittle nachhaltiges Hosting. Du bekommst das Beste aus beiden Welten, zu einem passenden Preis.
                     _template: Text
             _template: Accordion
     _template: Grid
