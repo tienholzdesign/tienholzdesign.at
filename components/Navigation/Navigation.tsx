@@ -75,7 +75,13 @@ export default function Navigation(props: NavigationQuery['navigation']) {
           style={{ textTransform: 'uppercase' }}
         >
           {props.links?.map((link, index) => {
-            return <Text key={index} {...(link as any)} />;
+            return (
+              <Text
+                key={index}
+                {...(link as any)}
+                extraProps={{ tinaFieldDisabled: true }}
+              />
+            );
           })}
         </Flex>
       </Grid>

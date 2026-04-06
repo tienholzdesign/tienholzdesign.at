@@ -13,6 +13,8 @@ export default {
     ],
   },
   layout: {
+    boxShadow: 'var(--shadow-4)',
+    borderRadius: 'var(--radius-4)',
     padding: '4',
     gridColumns: {
       initial: '1',

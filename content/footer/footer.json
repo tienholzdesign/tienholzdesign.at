@@ -1,17 +1,22 @@
 {
+  "settings": {},
   "links": [
     {
       "settings": {},
-      "link": "https://www.instagram.com/chen.ast/",
-      "text_de": "Instagram",
+      "link": "https://signal.me/#eu/ot0DWc_cCOQjXvEt3tihbUpFp2nR0qk6I9QO8gzJCns2tIPXOftM-4x07RvqX9cp",
+      "text_de": "Signal",
       "text_en": "Instagram"
     },
     {
       "settings": {},
-      "link": "mailto:office@tienholzdesign.at",
-      "text_de": "Email",
+      "link": "https://wa.me/qr/ZR7WP6PAXKLHK1",
+      "text_de": "Whatsapp",
       "text_en": "Email"
+    },
+    {
+      "link": "mailto:afocke@pm.me",
+      "text_de": "Mail",
+      "text_en": "Mail"
     }
-  ],
-  "settings": {}
+  ]
 }

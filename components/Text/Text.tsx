@@ -6,14 +6,21 @@ import { tinaField } from 'tinacms/dist/react';
 import { findIntlValue } from '../../tina/templating/special-fields';
 import { LinkWrapper } from '../helpers';
 import config from '../../utils/config';
+import type { ExtraProps } from '../types';
 
-export default function Component(props: PageBlocksText) {
+export default function Component(
+  props: PageBlocksText & { extraProps?: ExtraProps },
+) {
   const language = useContext(LanguageContext);
   const text = findIntlValue(language, 'text');
 
+  console.log('Rendering Text component with props:', props.extraProps);
+
   const content = (
     <Text
-      data-tina-field={tinaField(props)}
+      data-tina-field={
+        props.extraProps?.tinaFieldDisabled ? undefined : tinaField(props)
+      }
       size={config.layout.textSize}
       style={{ whiteSpace: 'pre-line' }}
     >

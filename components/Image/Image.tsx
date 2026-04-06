@@ -1,4 +1,4 @@
-import { AspectRatio, Flex, Box } from '@radix-ui/themes';
+import { AspectRatio, Flex, Box, Card } from '@radix-ui/themes';
 import NextImage from 'next/image';
 import { aspectRatioMap } from '../../tina/templating/granular-fields';
 import { tinaField } from 'tinacms/dist/react';
@@ -9,8 +9,11 @@ import { findBreakpointValue } from '../../tina/templating/special-fields';
 import styles from './Image.module.css';
 import { LinkWrapper } from '../helpers';
 import config from '../../utils/config';
+import type { ExtraProps } from '../types';
 
-export default function Component(props: PageBlocksImage) {
+export default function Component(
+  props: PageBlocksImage & { extraProps?: ExtraProps },
+) {
   const breakpoint = useBreakpoint();
   const aspectRatio = findBreakpointValue(breakpoint, 'aspectRatio');
 
@@ -18,9 +21,18 @@ export default function Component(props: PageBlocksImage) {
 
   const content = (
     <AspectRatio
-      data-tina-field={tinaField(props.content ?? props)}
+      data-tina-field={
+        props.extraProps?.tinaFieldDisabled
+          ? undefined
+          : tinaField(props.content ?? props)
+      }
       ratio={aspectRatioMap[props.settings?.[aspectRatio]] ?? 16 / 9}
       className={styles.aspectRatioContainer}
+      style={{
+        borderRadius: config.layout.borderRadius,
+        boxShadow: config.layout.boxShadow,
+        ...props.extraProps?.styles,
+      }}
     >
       <NextImage
         src={
@@ -39,12 +51,22 @@ export default function Component(props: PageBlocksImage) {
       />
       <Flex
         direction={'column'}
-        className={styles.overlayContainer}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 10,
+        }}
         justify={'start'}
       >
-        {props.content?.blocks?.map((block, j) => {
-          return renderBlocks(block, j);
-        })}
+        {props.content?.blocks && (
+          <Box m={config.layout.padding} width={'35%'}>
+            <Card>
+              {props.content?.blocks?.map((block, j) => {
+                return renderBlocks(block, j);
+              })}
+            </Card>
+          </Box>
+        )}
       </Flex>
     </AspectRatio>
   );

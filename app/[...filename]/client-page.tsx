@@ -1,12 +1,12 @@
-"use client";
-import { useTina } from "tinacms/dist/react";
-import "../../styles/main.css";
-import type { PageAndNavigationQuery } from "../../tina/__generated__/types";
-import { LanguageContext } from "../../utils/context/language";
-import type { Language } from "../../tina/templating/special-fields";
-import { renderBlocks } from "../../tina/templating/utils";
-import Navigation from "../../components/Navigation/Navigation";
-import Footer from "../../components/Footer/Footer";
+'use client';
+import { useTina } from 'tinacms/dist/react';
+import '../../styles/main.css';
+import type { PageAndNavigationQuery } from '../../tina/__generated__/types';
+import { LanguageContext } from '../../utils/context/language';
+import type { Language } from '../../tina/templating/special-fields';
+import { renderBlocks } from '../../tina/templating/utils';
+import Navigation from '../../components/Navigation/Navigation';
+import Footer from '../../components/Footer/Footer';
 
 type ClientPageProps = {
   query: string;
@@ -25,7 +25,7 @@ export default function ClientPage(props: ClientPageProps) {
   });
 
   return (
-    <div data-testid="client-page">
+    <div data-testid='client-page'>
       <LanguageContext.Provider value={props.language}>
         <Navigation {...data.navigation} />
         {data.page.blocks?.map((block, i) => {
