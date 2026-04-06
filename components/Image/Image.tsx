@@ -1,4 +1,4 @@
-import { AspectRatio, Flex, Box, Card } from '@radix-ui/themes';
+import { AspectRatio, Flex, Box } from '@radix-ui/themes';
 import NextImage from 'next/image';
 import { aspectRatioMap } from '../../tina/templating/granular-fields';
 import { tinaField } from 'tinacms/dist/react';

@@ -4,7 +4,6 @@ import {
   Popover,
   Button as RadixButton,
   Container,
-  Grid,
 } from '@radix-ui/themes';
 import type { NavigationQuery } from '../../tina/__generated__/types';
 import Text from '../Text/Text';
@@ -13,7 +12,6 @@ import NextImage from 'next/image';
 import Link from 'next/link';
 import config from '../../utils/config';
 import { tinaField } from 'tinacms/dist/react';
-import Image from '../Image/Image';
 
 export default function Navigation(props: NavigationQuery['navigation']) {
   return (
