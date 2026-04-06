@@ -25,12 +25,7 @@ export default function Footer(props: FooterQuery['footer']) {
   };
 
   return (
-    <Container
-      style={{
-        borderRadius: config.layout.borderRadius,
-        boxShadow: config.layout.boxShadow,
-      }}
-    >
+    <Container pb={config.layout.padding}>
       <Image
         content={{ image: '' }}
         settings={{
@@ -60,7 +55,7 @@ export default function Footer(props: FooterQuery['footer']) {
           borderTopRightRadius: '0',
         }}
         justify={'between'}
-        px={config.layout.padding}
+        p={config.layout.padding}
       >
         <Flex align={'center'} direction={'row'} gap={config.layout.padding}>
           {props.links?.map((link, index) => {

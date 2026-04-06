@@ -60,11 +60,9 @@ export default function Component(
       >
         {props.content?.blocks && (
           <Box m={config.layout.padding} width={'35%'}>
-            <Card>
-              {props.content?.blocks?.map((block, j) => {
-                return renderBlocks(block, j);
-              })}
-            </Card>
+            {props.content?.blocks?.map((block, j) => {
+              return renderBlocks(block, j);
+            })}
           </Box>
         )}
       </Flex>

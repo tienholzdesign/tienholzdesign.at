@@ -13,22 +13,22 @@ import NextImage from 'next/image';
 import Link from 'next/link';
 import config from '../../utils/config';
 import { tinaField } from 'tinacms/dist/react';
+import Image from '../Image/Image';
 
 export default function Navigation(props: NavigationQuery['navigation']) {
   return (
-    <Container
-      py='2'
-      px={{
-        initial: config.layout.padding,
-        md: '0',
-      }}
-      style={{
-        borderBottom: '1px solid var(--gray-6)',
-      }}
-    >
-      <Grid
-        columns={config.layout.gridColumns}
-        gap={{ initial: '0', md: config.layout.padding }}
+    <Container>
+      <Flex
+        mt={config.layout.padding}
+        style={{
+          border: '1px solid var(--gray-6)',
+          borderRadius: config.layout.borderRadius,
+          borderBottomWidth: '10px',
+          borderImage: 'src("../public/uploads/placeholders/gradient.jpg")',
+          boxShadow: config.layout.boxShadow,
+        }}
+        justify={'between'}
+        p={config.layout.padding}
       >
         <Flex justify={'between'}>
           <Link
@@ -67,7 +67,7 @@ export default function Navigation(props: NavigationQuery['navigation']) {
         </Flex>
 
         <Flex
-          gridColumn='span 2'
+          gap={config.layout.padding}
           display={{ initial: 'none', md: 'flex' }}
           direction={'row'}
           justify={'between'}
@@ -84,7 +84,7 @@ export default function Navigation(props: NavigationQuery['navigation']) {
             );
           })}
         </Flex>
-      </Grid>
+      </Flex>
     </Container>
   );
 }
